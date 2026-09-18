@@ -1,1 +1,42 @@
-[{"date":"2026-09-18","event":"Tailnet 达 7 台：NAS 经 Docker 进网，全部设备 key expiry 关闭","executor":"muse bot"},{"date":"2026-09-18","event":"Cursor Cloud Agents API v1 打通（muse bot 直连），派工拓扑定为唯一入口","executor":"muse bot"},{"date":"2026-09-18","event":"agy 1.2.5 登录用户 Google AI Pro（数据分享关闭），headless 可用","executor":"muse bot"},{"date":"2026-09-18","event":"grok-box SSH 直驱打通，offload-agent 待首次端到端验证","executor":"muse bot"},{"date":"2026-09-18","event":"GitHub 接入：Secure Vault 收 PAT → 建公开库 Chener/arsenal → 可视化页面上线","executor":"muse bot"}]
+[
+ {
+  "date": "2026-09-18",
+  "event": "Tailnet 达 7 台：NAS 经 Docker 进网，全部设备 key expiry 关闭",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "Cursor Cloud Agents API v1 打通（muse bot 直连），派工拓扑定为唯一入口",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "agy 1.2.5 登录用户 Google AI Pro（数据分享关闭），headless 可用",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "grok-box SSH 直驱打通，offload-agent 待首次端到端验证",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "GitHub 接入：Secure Vault 收 PAT → 建公开库 Chener/arsenal → 可视化页面上线",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "grok-box offload-agent 修复 PATH 缺失并端到端验通，算力与浏览器资源正式纳入调度池",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "Grok Bot 连接方案确定：一句话 inbox/outbox 协议作备用，Mac mini 到货后走 App 全自动环路（规划）",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "Gmail 注册第 2 次尝试：chenerodyssey01 信息填完，进入 Google 二维码设备验证，待用户手机扫码",
+  "executor": "muse bot"
+ }
+]
