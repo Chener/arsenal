@@ -1,1 +1,34 @@
-[{"name":"ChatGPT Pro","note":"Codex 走 Mac CLI 经 ChatGPT 账号 OAuth 登录；CodexBar 快照确认为 Pro 档位（2026-09-18）","quota":"待核验","status":"已验证"},{"name":"Claude Max 20x","note":"Claude Code 默认走 Mac CLI","quota":"待核验","status":"待核验"},{"name":"Cursor Ultra","note":"Cloud Agents API v1 list 验证通过（2026-09-18）；grok-box 经 Cursor CLI headless 驱动烧此额度","quota":"待核验","status":"已验证"},{"name":"Google AI Pro","note":"agy 1.2.5 已登录此账号，数据分享已关闭（2026-09-17）","quota":"待核验","status":"已验证"},{"name":"Muse 免费版","note":"本调度中枢运行环境","quota":"待核验","status":"待核验"}]
+[
+ {
+  "name": "ChatGPT Pro",
+  "note": "Codex 走 Mac CLI 经 ChatGPT 账号 OAuth 登录；CodexBar 快照确认为 Pro 档位（2026-09-18）",
+  "quota": "待核验",
+  "status": "已验证"
+ },
+ {
+  "name": "Claude Max 20x",
+  "note": "Claude Code 默认走 Mac CLI",
+  "quota": "待核验",
+  "status": "待核验"
+ },
+ {
+  "name": "Cursor Ultra",
+  "note": "Cloud Agents API v1 list 验证通过（2026-09-18）；grok-box 经 Cursor CLI headless 驱动烧此额度",
+  "quota": "待核验",
+  "status": "已验证"
+ },
+ {
+  "name": "Google AI Pro",
+  "note": "agy 1.2.5 已登录此账号，数据分享已关闭（2026-09-17）",
+  "quota": "待核验",
+  "status": "已验证",
+  "quota_note": "含 Google Developer Program premium：每月 $10 Google Cloud credit（2026-01 起官方确认），可用于 Vertex AI Gemini API 等 GCP 后付费服务；另有 Antigravity 扩展额度",
+  "verified": true
+ },
+ {
+  "name": "Muse 免费版",
+  "note": "本调度中枢运行环境",
+  "quota": "待核验",
+  "status": "待核验"
+ }
+]
