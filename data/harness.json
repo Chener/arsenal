@@ -1,1 +1,27 @@
-[{"desc":"分解→派发→验收→记账，直连各执行器","name":"muse bot","role":"唯一调度入口"},{"desc":"Mac 上的 crew 调度器","name":"herdr + firstmate","role":"Mac 本地调度"},{"desc":"~/bin/offload-agent，Cursor CLI headless，烧 Cursor Ultra 额度","name":"offload-agent","role":"grok-box 派工驱动"},{"desc":"cursor / github / gmail 等，可复用可自建","name":"skills","role":"能力插件"},{"desc":"Tailscale 等内置连接，OAuth / API key 标准授权优先","name":"connectors","role":"账号连接"}]
+[
+ {
+  "desc": "唯一 owner 与用户唯一入口：分解→派发→验收→记账，直连各执行器；一次性任务直派",
+  "name": "muse bot",
+  "role": "唯一调度入口"
+ },
+ {
+  "desc": "照常按自身机制运行，但\"做什么\"由 muse bot 按用户意图安排；负责长程迭代、需多工人协同的活",
+  "name": "FirstMate",
+  "role": "Mac 固定模块（有记忆）"
+ },
+ {
+  "desc": "~/bin/offload-agent，Cursor CLI headless，烧 Cursor Ultra 额度",
+  "name": "offload-agent",
+  "role": "grok-box 派工驱动"
+ },
+ {
+  "desc": "cursor / github / gmail 等，可复用可自建",
+  "name": "skills",
+  "role": "能力插件"
+ },
+ {
+  "desc": "Tailscale 等内置连接，OAuth / API key 标准授权优先",
+  "name": "connectors",
+  "role": "账号连接"
+ }
+]
