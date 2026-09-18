@@ -43,5 +43,10 @@
   "date": "2026-09-18",
   "event": "NAS 接入优化：管理界面经 Tailnet 云端直达验证成功（Mac 不在家也能连）；账号在 Mac 端无记录，待用户经绿联 App 短信找回",
   "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "NAS 升级为可执行节点：本地账号 ChenerX2 经手机 App 找回密码并开启 SSH，muse bot 公钥安装完成；ssh ugreen-nas 经 Tailnet 免密直连验证通过（不经过 Mac）",
+  "executor": "muse bot"
  }
 ]
