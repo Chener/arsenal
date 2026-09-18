@@ -17,9 +17,9 @@
    "desc": "grok-box 上的 Cursor CLI headless 驱动（~/bin/offload-agent），走 Cursor Ultra 额度，非 Grok Bot 模型本体。2026-09-18 修复非交互 SSH 下 PATH 缺失问题后，端到端验证通过，已正式纳入调度池；浏览器资源经 Chrome 调试端口调用。"
   },
   {
-   "name": "腾讯云操作最优路线",
-   "status": "配置中",
-   "desc": "用户确认主域名为 chenerpath.com（DNS 在本腾讯云账号 DNSPod 内；chenerlab.com 不在此账号）。浏览器任务执行中：(1) DNSPod chenerpath.com 加 CNAME muse->Chener.github.io；(2) CAM 新建子用户 muse-bot（大多数常用权限）+ API 密钥，密钥入库后走 API 为最优路线。"
+   "name": "腾讯云 CLI/API 路线",
+   "status": "已验证",
+   "desc": "CAM 子用户 muse-bot（仅编程访问），挂 DNSPod/CVM/轻量应用服务器/域名注册 4 条全读写策略；API 密钥存 Mac ~/.tccli/default.credential（tccli 3.x JSON 格式，0600 权限），muse bot 经 SSH 在 Mac 上跑 tccli，密钥不出 Mac。2026-09-19 经 dnspod DescribeDomainList/DescribeRecordList 真实验证有效；浏览器持久登录为兜底。"
   }
  ],
  "protocol": {
