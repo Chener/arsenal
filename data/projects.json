@@ -24,14 +24,14 @@
   "name": "CodexBar",
   "desc": "Codex / Claude Code 用量统计菜单栏工具",
   "repo": "Chener/CodexBar",
-  "drive": "上游开源项目 fork，跟随上游同步更新",
+  "drive": "上游开源项目 fork（steipete），跟随上游同步更新",
   "status": "已验证"
  },
  {
   "name": "firstmate",
   "desc": "Talk to one agent. Ship with a crew.（Mac crew 调度相关）",
   "repo": "Chener/firstmate",
-  "drive": "上游开源项目 fork，跟随上游同步更新",
+  "drive": "上游开源项目 fork（kunchenguid），跟随上游同步更新",
   "status": "已验证"
  },
  {
@@ -40,5 +40,12 @@
   "repo": "Chener/pxml-akit-site",
   "drive": "ChenerX2 本人维护更新",
   "status": "已验证"
+ },
+ {
+  "name": "私有项目 ×42",
+  "desc": "活跃自研 14 / 灾备镜像 14 / 其余 14（2026-09-18 全量盘点）",
+  "repo": "私有明细不上公开页",
+  "drive": "muse bot 统一盘点，按活跃度纳入调度",
+  "status": "已盘点"
  }
 ]
