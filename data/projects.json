@@ -10,8 +10,8 @@
   "name": "bookmark-demo-lab",
   "desc": "X 书签每日技术 demo（Cloudflare Pages 预览）",
   "repo": "Chener/bookmark-demo-lab",
-  "drive": "Grok Bot 经 Cursor Cloud Agent 驱动 → 待 muse bot 接管（在途 1 个 ACTIVE agent，落地后交接）",
-  "status": "接管中"
+  "drive": "muse bot 已接管：PR #26 于 2026-09-18 合入 main；原 Grok Bot→CCA 驱动路径交接完成，无运行中 agent",
+  "status": "已接管"
  },
  {
   "name": "poem-world",
