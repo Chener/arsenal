@@ -47,5 +47,12 @@
   "repo": "私有明细不上公开页",
   "drive": "muse bot 统一盘点，按活跃度纳入调度",
   "status": "已盘点"
+ },
+ {
+  "name": "muse-invite",
+  "desc": "Muse 邀请码聚合站（muse.chenerlab.com）",
+  "repo": "Chener/muse-invite",
+  "drive": "muse bot 直派：V1 纯静态已上线（GitHub Pages；CNAME muse→Chener.github.io，腾讯云 DNSPod 解析）；V2 访客投票+码主自助更新走 Cloudflare Worker（用户付费版额度）",
+  "status": "V1已上线/V2建设中"
  }
 ]
