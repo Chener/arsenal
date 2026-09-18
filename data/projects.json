@@ -1,1 +1,44 @@
-[{"desc":"X 书签每日技术 demo（Cloudflare Pages 预览）","drive":"当前 Grok Bot 经 Cursor Cloud Agent 驱动 → 待 muse bot 接管","name":"bookmark-demo-lab","repo":"Chener/bookmark-demo-lab","status":"接管中"},{"desc":"三首公版诗的可行走世界","drive":"待补充","name":"poem-world","repo":"Chener/poem-world","status":"信息待补充"},{"desc":"本军火库页面","drive":"muse bot 直连 GitHub API（建库/push/Pages），调度历史定时同步","name":"arsenal","repo":"Chener/arsenal","status":"建设中"}]
+[
+ {
+  "name": "arsenal",
+  "desc": "军火库可视化页面（本页）",
+  "repo": "Chener/arsenal",
+  "drive": "muse bot 直连 GitHub API（建库/push/Pages），调度历史每日自动同步",
+  "status": "已验证"
+ },
+ {
+  "name": "bookmark-demo-lab",
+  "desc": "X 书签每日技术 demo（Cloudflare Pages 预览）",
+  "repo": "Chener/bookmark-demo-lab",
+  "drive": "Grok Bot 经 Cursor Cloud Agent 驱动 → 待 muse bot 接管（在途 1 个 ACTIVE agent，落地后交接）",
+  "status": "接管中"
+ },
+ {
+  "name": "poem-world",
+  "desc": "三首公版诗的可行走世界（GitHub Pages 发布）",
+  "repo": "Chener/poem-world",
+  "drive": "ChenerX2 本人主导，PR 工作流（#26-#29，2026-09-17 活跃）；执行器待确认",
+  "status": "待核验"
+ },
+ {
+  "name": "CodexBar",
+  "desc": "Codex / Claude Code 用量统计菜单栏工具",
+  "repo": "Chener/CodexBar",
+  "drive": "上游开源项目 fork，跟随上游同步更新",
+  "status": "已验证"
+ },
+ {
+  "name": "firstmate",
+  "desc": "Talk to one agent. Ship with a crew.（Mac crew 调度相关）",
+  "repo": "Chener/firstmate",
+  "drive": "上游开源项目 fork，跟随上游同步更新",
+  "status": "已验证"
+ },
+ {
+  "name": "pxml-akit-site",
+  "desc": "个人静态站点（series-100 / ATS 页面）",
+  "repo": "Chener/pxml-akit-site",
+  "drive": "ChenerX2 本人维护更新",
+  "status": "已验证"
+ }
+]
