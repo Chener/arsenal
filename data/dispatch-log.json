@@ -38,5 +38,10 @@
   "date": "2026-09-18",
   "event": "Gmail 注册第 2 次尝试：chenerodyssey01 信息填完，进入 Google 二维码设备验证，待用户手机扫码",
   "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "NAS 接入优化：管理界面经 Tailnet 云端直达验证成功（Mac 不在家也能连）；账号在 Mac 端无记录，待用户经绿联 App 短信找回",
+  "executor": "muse bot"
  }
 ]
