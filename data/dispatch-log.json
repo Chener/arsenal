@@ -48,5 +48,25 @@
   "date": "2026-09-18",
   "event": "NAS 升级为可执行节点：本地账号 ChenerX2 经手机 App 找回密码并开启 SSH，muse bot 公钥安装完成；ssh ugreen-nas 经 Tailnet 免密直连验证通过（不经过 Mac）",
   "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "Tailscale 组网完成：tailnet 达 8 台，全部 key expiry 关闭；tailscale-mesh-s1 关闭，Mac mini 09-23 到货再加入",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "FirstMate 派工移交 muse bot：muse bot 为唯一派工/记账入口；FirstMate 照常运作，“做什么”由 muse bot 安排",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "军火库页面重做：交互式调度看板上线（一眼看状态、点击看细节）",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "Qoder CLI 接入中：Qwen3.8-Flash 9/18–9/30 免费窗口，待用户登录授权后由 muse bot 直派国内任务",
+  "executor": "muse bot"
  }
 ]
