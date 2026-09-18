@@ -15,6 +15,11 @@
    "name": "offload-agent 直驱算力",
    "status": "已验证",
    "desc": "grok-box 上的 Cursor CLI headless 驱动（~/bin/offload-agent），走 Cursor Ultra 额度，非 Grok Bot 模型本体。2026-09-18 修复非交互 SSH 下 PATH 缺失问题后，端到端验证通过，已正式纳入调度池；浏览器资源经 Chrome 调试端口调用。"
+  },
+  {
+   "name": "腾讯云操作最优路线",
+   "status": "待验证",
+   "desc": "用户要求：以后操作腾讯云走最优路线并记录在案。候选：(1) tccli + API 密钥——可脚本化、免登录，最快，待用户在控制台建一次密钥（建议仅 DNSPod 权限）；(2) 浏览器持久会话——偶发可视化操作可用，session 过期需重登，为兜底。当前评估 tccli 最优待验证。另：tencent-nj-01 的 SSH 配置缺失、凭证用户未提供过，VPS 直连另行处理。"
   }
  ],
  "protocol": {
