@@ -68,5 +68,50 @@
   "date": "2026-09-18",
   "event": "Qoder CLI 接入中：Qwen3.8-Flash 9/18–9/30 免费窗口，待用户登录授权后由 muse bot 直派国内任务",
   "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "Gmail 注册转用户手动：两次尝试均卡在 Google 二维码设备验证（大陆手机发不出短信、YouTube 绕法失效），chenerodyssey01~05 改由用户手动创建",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "调度策略更新：执行器二分法写入 dispatch-policy.md，Tailnet 原生执行器可访问网内资源，厂商云执行器默认只访问 GitHub/公网",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "Antigravity 多账号调度决策：主力宿主定为 09-23 到货的 Mac mini（单机多实例轮换），GCE 每号一台方案否决；云电脑不装 agy",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "X 书签 Demo 归 muse bot 接管：PR #26 用户手动合并，hub v2 上线中，当前无运行中的 agent；#1 #2 stale PR 待决策",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "Monid 评估结论：实为按调用付费的聚合层（非永久免费），决定不接入；云电脑上已卸载",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "firstmate 本地 HEAD 经验吸收完成：家规/五条硬规则/验收纪律/Chrome profile 规则等并入 muse bot 默认行为",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "决策规则更新：折腾无解且用户手动效率明显更高时果断转手动，不硬扛自动化",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "Muse 订阅升级支付：Stripe Link 显示不支持中国，大陆账户可行升级路径待确认",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-18",
+  "event": "调度巡检 cron 落地：grokbox-ssh-watch（每 3h）与 mac-back-online-survey（每小时）上线，状态变化才打扰用户",
+  "executor": "muse bot"
  }
 ]
