@@ -1,65 +1,72 @@
 {
-  "cloud": [
-    {
-      "fits": "仓库级开发、重构、修 bug、PR 工作流、长时间无人值守",
-      "name": "Cursor Cloud Agent",
-      "tier": "T2",
-      "via": "muse bot 直连 Cloud Agents API v1"
-    },
-    {
-      "fits": "国内任务优先：轻量编码、改 bug；Qwen3.8-Flash 免费窗口 9/18–9/30",
-      "name": "Qoder CLI（qoderclicn）",
-      "note": "可用（2026-09-18 用户授权登录验证通过，smoke test 通过；Qwen3.8-Flash 免费 9/18-9/30）",
-      "tier": "T2",
-      "via": "Mac Air 本地 CLI，走阿里云国内网络；muse bot 直接派活，不经 FirstMate"
-    }
-  ],
-  "platforms": [
-    "GitHub Pages",
-    "Cloudflare Pages+Workers"
-  ],
-  "tailnet": [
-    {
-      "fits": "只做调度：分解、派发、验收、记账；不装执行型工具",
-      "name": "muse 云电脑（本调度中枢）",
-      "tier": "T0",
-      "via": "内置 Tailscale 连接器入网"
-    },
-    {
-      "fits": "本地文件、国内网络、快速小任务",
-      "name": "MacBook Air（m5air）",
-      "tier": "T0",
-      "via": "SSH 直连"
-    },
-    {
-      "fits": "常驻 7x24 工作空间",
-      "name": "Mac mini",
-      "note": "2026-09-23 到货；规划：Grokbot Mac App 全自动环路宿主",
-      "tier": "T0"
-    },
-    {
-      "fits": "家庭存储 + 轻量执行节点；经 Tailnet 直达，不依赖 Mac、不依赖在家",
-      "name": "绿联 NAS（ugreen-nas）",
-      "note": "2026-09-18 升级为可执行节点",
-      "tier": "T0",
-      "via": "SSH 免密直连已验证"
-    },
-    {
-      "fits": "海外 VPS",
-      "name": "Vultr 硅谷",
-      "tier": "T1"
-    },
-    {
-      "fits": "国内 VPS",
-      "name": "腾讯云南京",
-      "tier": "T1"
-    },
-    {
-      "fits": "Grok Bot 云电脑：offload-agent 驱动（Cursor CLI headless，烧 Cursor Ultra 额度）",
-      "name": "grok-box",
-      "note": "offload-agent 已验通；浏览器经 Chrome 调试端口调用",
-      "tier": "T2",
-      "via": "SSH 直连"
-    }
-  ]
+ "cloud": [
+  {
+   "fits": "仓库级开发、重构、修 bug、PR 工作流、长时间无人值守",
+   "name": "Cursor Cloud Agent",
+   "tier": "T2",
+   "via": "muse bot 直连 Cloud Agents API v1"
+  },
+  {
+   "fits": "国内任务优先：轻量编码、改 bug；Qwen3.8-Flash 免费窗口 9/18–9/30",
+   "name": "Qoder CLI（qoderclicn）",
+   "note": "可用（2026-09-18 用户授权登录验证通过，smoke test 通过；Qwen3.8-Flash 免费 9/18-9/30）",
+   "tier": "T2",
+   "via": "Mac Air 本地 CLI，走阿里云国内网络；muse bot 直接派活，不经 FirstMate"
+  },
+  {
+   "name": "kimi-code CLI",
+   "tier": "T2",
+   "fits": "Mac 本地诊断/分析任务；模型 K2.8 Preview (defaultEffort=max，即 k2.8 max)",
+   "via": "muse bot 直派：~/.kimi-code/bin/kimi（注意非交互 SSH 需加该路径到 PATH；~/.local/bin/kimiim-cli 是另一个同名工具）",
+   "note": "2026-09-19 验证：OAuth 有效，smoke test 通过"
+  }
+ ],
+ "platforms": [
+  "GitHub Pages",
+  "Cloudflare Pages+Workers"
+ ],
+ "tailnet": [
+  {
+   "fits": "只做调度：分解、派发、验收、记账；不装执行型工具",
+   "name": "muse 云电脑（本调度中枢）",
+   "tier": "T0",
+   "via": "内置 Tailscale 连接器入网"
+  },
+  {
+   "fits": "本地文件、国内网络、快速小任务",
+   "name": "MacBook Air（m5air）",
+   "tier": "T0",
+   "via": "SSH 直连"
+  },
+  {
+   "fits": "常驻 7x24 工作空间",
+   "name": "Mac mini",
+   "note": "2026-09-23 到货；规划：Grokbot Mac App 全自动环路宿主",
+   "tier": "T0"
+  },
+  {
+   "fits": "家庭存储 + 轻量执行节点；经 Tailnet 直达，不依赖 Mac、不依赖在家",
+   "name": "绿联 NAS（ugreen-nas）",
+   "note": "2026-09-18 升级为可执行节点",
+   "tier": "T0",
+   "via": "SSH 免密直连已验证"
+  },
+  {
+   "fits": "海外 VPS",
+   "name": "Vultr 硅谷",
+   "tier": "T1"
+  },
+  {
+   "fits": "国内 VPS",
+   "name": "腾讯云南京",
+   "tier": "T1"
+  },
+  {
+   "fits": "Grok Bot 云电脑：offload-agent 驱动（Cursor CLI headless，烧 Cursor Ultra 额度）",
+   "name": "grok-box",
+   "note": "offload-agent 已验通；浏览器经 Chrome 调试端口调用",
+   "tier": "T2",
+   "via": "SSH 直连"
+  }
+ ]
 }
