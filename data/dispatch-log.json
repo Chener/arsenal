@@ -118,5 +118,10 @@
     "date": "2026-09-18",
     "event": "Memory ownership final model confirmed (2026-09-18)：用户确认最终记忆归属架构——muse bot 为唯一 owner 驱动所有模块（含军火库 Harness 运行时 T0/T1/T2 及其他 Cloud）；Mac 上 FirstMate 作为自带记忆的模块接固定项目，X 书签 demo 等项目固定由 muse bot 直接调用无记忆独立 AI（Qoder CLI、Cursor Cloud Agent）执行；所有记忆在 muse bot 汇总",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "title": "Qoder CLI verified as direct worker",
+    "detail": "用户完成阿里云账号授权登录；qoderclicn --list-models 确认 Qwen3.8-Flash / Qwen3.8-Max 可见；Qwen3.8-Flash 无副作用 smoke test 通过。Qoder CLI 正式成为 muse bot 直派 worker（T2，经 Mac Air），军火库 runtimes 状态更新为可用。"
   }
 ]
