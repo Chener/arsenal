@@ -18,8 +18,8 @@
   },
   {
    "name": "腾讯云操作最优路线",
-   "status": "待验证",
-   "desc": "用户要求：以后操作腾讯云走最优路线并记录在案。候选：(1) tccli + API 密钥——可脚本化、免登录，最快，待用户在控制台建一次密钥（建议仅 DNSPod 权限）；(2) 浏览器持久会话——偶发可视化操作可用，session 过期需重登，为兜底。当前评估 tccli 最优待验证。另：tencent-nj-01 的 SSH 配置缺失、凭证用户未提供过，VPS 直连另行处理。"
+   "status": "配置中",
+   "desc": "用户确认主域名为 chenerpath.com（DNS 在本腾讯云账号 DNSPod 内；chenerlab.com 不在此账号）。浏览器任务执行中：(1) DNSPod chenerpath.com 加 CNAME muse->Chener.github.io；(2) CAM 新建子用户 muse-bot（大多数常用权限）+ API 密钥，密钥入库后走 API 为最优路线。"
   }
  ],
  "protocol": {
