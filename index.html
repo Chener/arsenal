@@ -128,6 +128,13 @@ footer{max-width:1080px;margin:0 auto;padding:28px 24px 48px;text-align:center;c
   <div class="grid" id="harness-grid"></div>
 </section>
 
+<section id="plan">
+  <h2>Grok Bot 连接方案</h2>
+  <p class="sub">三条路径：备用一句话协议 → Mac mini 全自动环路（规划）→ 算力直驱已验证</p>
+  <div class="grid" id="plan-grid"></div>
+  <p class="sub mono" id="plan-proto"></p>
+</section>
+
 <section id="runtimes">
   <h2>运行时二分</h2>
   <p class="sub">按"在哪里跑、能碰到什么"划分；路由策略随踩坑持续迭代</p>
@@ -154,6 +161,7 @@ footer{max-width:1080px;margin:0 auto;padding:28px 24px 48px;text-align:center;c
     <li><b>直连执行器，禁止转包链</b> —— 不出现 muse → Mac → CCA 之类的二手派工</li>
     <li><b>任务一经领取即锁定，不双发</b> —— 避免两个执行器同时干同一件事</li>
     <li><b>云服务优先 muse bot 直连 API</b>；私人设备经 Tailscale 接入</li>
+    <li><b>能自动化的都自动化</b> —— 用户只做验证码、KYC、付款确认等必须本人的最小操作</li>
   </ol>
 </section>
 
@@ -194,6 +202,18 @@ function esc(s){
   else g2.innerHTML = hs.map(h =>
     '<div class="card"><span class="badge wip">' + esc(h.role) + '</span><h3>' + esc(h.name) + '</h3>' +
     '<p>' + esc(h.desc) + '</p></div>').join('');
+
+  const plan = await loadJSON('data/dispatch-plan.json');
+  const g6 = document.getElementById('plan-grid');
+  if(!plan){ fallback(g6,'连接方案数据加载失败 —— 请用在线页面访问'); }
+  else{
+    g6.innerHTML = plan.paths.map(p =>
+      '<div class="card">' + badge(p.status) + '<h3>' + esc(p.name) + '</h3>' +
+      '<p>' + esc(p.desc) + '</p></div>').join('');
+    const pp = document.getElementById('plan-proto');
+    pp.textContent = 'Inbox/Outbox 协议：' + plan.protocol.inbox + '；' + plan.protocol.outbox +
+      '；' + plan.protocol.rule + '（更新 ' + plan.updated + '）';
+  }
 
   const rt = await loadJSON('data/runtimes.json');
   const g3 = document.getElementById('runtimes-cols');
