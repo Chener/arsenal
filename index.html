@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>军火库 Arsenal —— muse bot 统一调度</title>
+<style>
+:root{
+  --bg:#0b0e14; --panel:#121826; --panel2:#0d1320; --line:#1f2a3d;
+  --text:#e6edf6; --dim:#8b98ad; --cyan:#22d3ee; --violet:#a78bfa;
+  --green:#34d399; --amber:#fbbf24; --blue:#60a5fa;
+}
+*{box-sizing:border-box}
+body{margin:0;color:var(--text);font-family:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.6;
+  background:radial-gradient(1200px 600px at 50% -10%,#162032 0%,var(--bg) 60%)}
+header{max-width:1080px;margin:0 auto;padding:56px 24px 8px;text-align:center}
+header h1{font-size:2.4rem;margin:0;letter-spacing:.04em}
+header h1 .a{color:var(--cyan)}
+header p{color:var(--dim);margin:14px 0 0;font-size:1rem}
+main{max-width:1080px;margin:0 auto;padding:8px 24px 64px}
+section{margin-top:52px}
+section>h2{font-size:1.35rem;margin:0 0 6px;display:flex;align-items:center;gap:10px}
+section>h2::before{content:"";width:8px;height:22px;border-radius:4px;background:linear-gradient(var(--cyan),var(--violet))}
+section>.sub{color:var(--dim);font-size:.9rem;margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+.card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:14px;padding:18px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-3px);border-color:#33507e}
+.card h3{margin:0 0 6px;font-size:1.05rem}
+.card p{margin:6px 0;color:var(--dim);font-size:.9rem}
+.badge{display:inline-block;font-size:.75rem;padding:2px 10px;border-radius:999px;border:1px solid;margin-bottom:10px}
+.badge.ok{color:var(--green);border-color:#14532d;background:rgba(5,46,27,.4)}
+.badge.pending{color:var(--amber);border-color:#573f08;background:rgba(58,44,7,.4)}
+.badge.wip{color:var(--blue);border-color:#1e3a5f;background:rgba(11,36,71,.4)}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.82rem;color:var(--cyan);word-break:break-all}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:720px){.cols{grid-template-columns:1fr}}
+.col{border:1px solid var(--line);border-radius:14px;padding:20px;background:linear-gradient(180deg,var(--panel),var(--panel2))}
+.col h3{margin:0 0 4px}
+.col .tag{font-size:.8rem;color:var(--dim)}
+.kv{margin:12px 0;padding:10px 14px;border-left:3px solid var(--cyan);background:#0d1420;border-radius:0 8px 8px 0}
+.kv b{display:block;font-size:.95rem}
+.kv span{color:var(--dim);font-size:.88rem;display:block;margin-top:2px}
+.timeline{position:relative;margin-left:8px;padding-left:26px;border-left:2px solid var(--line)}
+.tl-item{position:relative;margin:0 0 22px}
+.tl-item::before{content:"";position:absolute;left:-34px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.tl-item .d{font-size:.8rem;color:var(--dim)}
+.tl-item .e{margin:2px 0;font-size:.96rem}
+.tl-item .x{font-size:.8rem;color:var(--violet)}
+ol.principles{margin:0;padding:0;list-style:none;counter-reset:p}
+ol.principles li{counter-increment:p;position:relative;padding:14px 16px 14px 56px;margin-bottom:12px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,var(--panel),var(--panel2))}
+ol.principles li::before{content:counter(p);position:absolute;left:16px;top:12px;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--violet));color:#06121f;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+ol.principles b{color:var(--cyan)}
+.fallback{color:var(--amber);font-size:.9rem;border:1px dashed var(--amber);border-radius:10px;padding:12px 16px}
+svg.topo{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:16px;background:#0a0f1a}
+svg.topo text{font-family:inherit}
+.pulse{stroke:var(--cyan);stroke-width:2;stroke-dasharray:7 9;opacity:.75;animation:dashmove 1.1s linear infinite}
+@keyframes dashmove{to{stroke-dashoffset:-32}}
+footer{max-width:1080px;margin:0 auto;padding:28px 24px 48px;text-align:center;color:var(--dim);font-size:.85rem;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<header>
+  <h1>军火库 <span class="a">Arsenal</span></h1>
+  <p>muse bot 统一调度 · 订阅 / Harness / 运行时 / 项目驱动 / 调度历史</p>
+</header>
+<main>
+
+<section id="topology">
+  <h2>调度拓扑</h2>
+  <p class="sub">muse bot 是唯一派工与记账入口，直连各执行器，禁止转包链</p>
+  <svg class="topo" viewBox="0 0 960 600" role="img" aria-label="调度拓扑图">
+    <defs>
+      <linearGradient id="cg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/>
+      </linearGradient>
+    </defs>
+    <!-- group labels -->
+    <text x="150" y="40" fill="#8b98ad" font-size="15" text-anchor="middle">厂商云执行器</text>
+    <text x="800" y="40" fill="#8b98ad" font-size="15" text-anchor="middle">Tailnet 内执行器</text>
+    <!-- pulse links -->
+    <line class="pulse" x1="404" y1="300" x2="192" y2="300"/>
+    <line class="pulse" x1="496" y1="286" x2="722" y2="100"/>
+    <line class="pulse" x1="496" y1="292" x2="722" y2="180"/>
+    <line class="pulse" x1="496" y1="298" x2="722" y2="260"/>
+    <line class="pulse" x1="496" y1="304" x2="722" y2="340"/>
+    <line class="pulse" x1="496" y1="310" x2="722" y2="420"/>
+    <line class="pulse" x1="496" y1="316" x2="722" y2="500"/>
+    <!-- left node: Cursor Cloud Agent -->
+    <circle cx="150" cy="300" r="42" fill="#0e1626" stroke="#22d3ee" stroke-width="2"/>
+    <text x="150" y="296" fill="#e6edf6" font-size="13" text-anchor="middle">Cursor</text>
+    <text x="150" y="314" fill="#8b98ad" font-size="12" text-anchor="middle">Cloud Agent</text>
+    <!-- center node: muse bot -->
+    <circle cx="450" cy="300" r="46" fill="none" stroke="#22d3ee" stroke-width="2">
+      <animate attributeName="r" values="46;78" dur="2.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;0" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="450" cy="300" r="46" fill="#0e1626" stroke="url(#cg)" stroke-width="3"/>
+    <text x="450" y="296" fill="#e6edf6" font-size="15" font-weight="700" text-anchor="middle">muse bot</text>
+    <text x="450" y="316" fill="#8b98ad" font-size="11" text-anchor="middle">唯一调度入口</text>
+    <!-- right nodes -->
+    <g font-size="13" text-anchor="middle">
+      <rect x="722" y="78" width="156" height="44" rx="22" fill="#0e1626" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="800" y="105" fill="#e6edf6">MacBook Air</text>
+      <rect x="722" y="158" width="156" height="44" rx="22" fill="#0e1626" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="800" y="185" fill="#e6edf6">Mac mini</text>
+      <rect x="722" y="238" width="156" height="44" rx="22" fill="#0e1626" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="800" y="265" fill="#e6edf6">Vultr 硅谷</text>
+      <rect x="722" y="318" width="156" height="44" rx="22" fill="#0e1626" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="800" y="345" fill="#e6edf6">腾讯云南京</text>
+      <rect x="722" y="398" width="156" height="44" rx="22" fill="#0e1626" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="800" y="425" fill="#e6edf6">grok-box</text>
+      <rect x="722" y="478" width="156" height="44" rx="22" fill="#0e1626" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="800" y="505" fill="#e6edf6">绿联 NAS</text>
+    </g>
+    <text x="450" y="560" fill="#8b98ad" font-size="12" text-anchor="middle">脉冲连线 = muse bot 直连派工 · 厂商云默认无私网访问 · Tailnet 内可达私网资源</text>
+  </svg>
+</section>
+
+<section id="subs">
+  <h2>订阅军火</h2>
+  <p class="sub">权益与剩余额度逐项核验中，未核验的一律标注</p>
+  <div class="grid" id="subs-grid"></div>
+</section>
+
+<section id="harness">
+  <h2>Harness</h2>
+  <p class="sub">调度组件：入口、驱动器与能力插件</p>
+  <div class="grid" id="harness-grid"></div>
+</section>
+
+<section id="runtimes">
+  <h2>运行时二分</h2>
+  <p class="sub">按"在哪里跑、能碰到什么"划分；路由策略随踩坑持续迭代</p>
+  <div class="cols" id="runtimes-cols"></div>
+</section>
+
+<section id="projects">
+  <h2>项目驱动方式</h2>
+  <p class="sub">每个项目固定一种驱动方式，变更即记账</p>
+  <div class="grid" id="projects-grid"></div>
+</section>
+
+<section id="log">
+  <h2>调度历史</h2>
+  <p class="sub">周期性同步 · 每次路由变化、故障与选型原因都会记在这里</p>
+  <div class="timeline" id="timeline"></div>
+</section>
+
+<section id="principles">
+  <h2>调度原则</h2>
+  <p class="sub">统一循环：scout → connect → dispatch → verify → ledger</p>
+  <ol class="principles">
+    <li><b>muse bot 是唯一派工与记账入口</b> —— 所有任务从这里分发、验收、记录</li>
+    <li><b>直连执行器，禁止转包链</b> —— 不出现 muse → Mac → CCA 之类的二手派工</li>
+    <li><b>任务一经领取即锁定，不双发</b> —— 避免两个执行器同时干同一件事</li>
+    <li><b>云服务优先 muse bot 直连 API</b>；私人设备经 Tailscale 接入</li>
+  </ol>
+</section>
+
+</main>
+<footer>由 muse bot 维护 · 公开页面，不含任何密钥</footer>
+
+<script>
+async function loadJSON(path){
+  try{
+    const r = await fetch(path);
+    if(!r.ok) throw new Error(r.status);
+    return await r.json();
+  }catch(e){ return null; }
+}
+function fallback(el, msg){
+  el.innerHTML = '<p class="fallback">' + msg + '</p>';
+}
+function badge(status){
+  if(status === '已验证') return '<span class="badge ok">已验证</span>';
+  if(status === '待核验' || status === '信息待补充') return '<span class="badge pending">' + status + '</span>';
+  return '<span class="badge wip">' + status + '</span>';
+}
+function esc(s){
+  return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+(async function(){
+  const subs = await loadJSON('data/subscriptions.json');
+  const g1 = document.getElementById('subs-grid');
+  if(!subs){ fallback(g1,'订阅数据加载失败 —— 请用在线页面访问'); }
+  else g1.innerHTML = subs.map(s =>
+    '<div class="card">' + badge(s.status) + '<h3>' + esc(s.name) + '</h3>' +
+    '<p>' + esc(s.note) + '</p><p>额度：' + esc(s.quota) + '</p></div>').join('');
+
+  const hs = await loadJSON('data/harness.json');
+  const g2 = document.getElementById('harness-grid');
+  if(!hs){ fallback(g2,'Harness 数据加载失败 —— 请用在线页面访问'); }
+  else g2.innerHTML = hs.map(h =>
+    '<div class="card"><span class="badge wip">' + esc(h.role) + '</span><h3>' + esc(h.name) + '</h3>' +
+    '<p>' + esc(h.desc) + '</p></div>').join('');
+
+  const rt = await loadJSON('data/runtimes.json');
+  const g3 = document.getElementById('runtimes-cols');
+  if(!rt){ fallback(g3,'运行时数据加载失败 —— 请用在线页面访问'); }
+  else{
+    const col = (title, tag, items) =>
+      '<div class="col"><h3>' + title + '</h3><div class="tag">' + tag + '</div>' +
+      items.map(i => '<div class="kv"><b>' + esc(i.name) + '</b>' +
+        (i.via ? '<span>接入：' + esc(i.via) + '</span>' : '') +
+        '<span>适合：' + esc(i.fits) + '</span>' +
+        (i.note ? '<span>' + esc(i.note) + '</span>' : '') + '</div>').join('') + '</div>';
+    g3.innerHTML =
+      col('☁️ 厂商云执行器','跑在厂商云，默认无私网访问', rt.cloud || []) +
+      col('🏠 Tailnet 内执行器','Tailnet 内，可达获准的私网资源', rt.tailnet || []);
+  }
+
+  const ps = await loadJSON('data/projects.json');
+  const g4 = document.getElementById('projects-grid');
+  if(!ps){ fallback(g4,'项目数据加载失败 —— 请用在线页面访问'); }
+  else g4.innerHTML = ps.map(p =>
+    '<div class="card">' + badge(p.status) + '<h3>' + esc(p.name) + '</h3>' +
+    '<p>' + esc(p.desc) + '</p>' +
+    '<p class="mono">' + esc(p.repo) + '</p>' +
+    '<p>驱动：' + esc(p.drive) + '</p></div>').join('');
+
+  const log = await loadJSON('data/dispatch-log.json');
+  const g5 = document.getElementById('timeline');
+  if(!log){ fallback(g5,'调度历史加载失败 —— 请用在线页面访问'); }
+  else g5.innerHTML = log.map(e =>
+    '<div class="tl-item"><div class="d">' + esc(e.date) + '</div>' +
+    '<div class="e">' + esc(e.event) + '</div>' +
+    '<div class="x">执行器：' + esc(e.executor) + '</div></div>').join('');
+})();
+</script>
+</body>
+</html>
