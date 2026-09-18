@@ -1,0 +1,25 @@
+{
+ "updated": "2026-09-18",
+ "paths": [
+  {
+   "name": "一句话 inbox 协议",
+   "status": "备用",
+   "desc": "过渡方案：用户在 Grokbot App 发一句话（执行 ~/task-inbox 最新任务），Grok Bot 把结果写进 ~/task-outbox/RESULT-<id>.md，muse bot 经 SSH 直接读取。用户无需复制任何内容，这是唯一需要用户动手的环节。"
+  },
+  {
+   "name": "Mac mini 全自动环路",
+   "status": "规划中",
+   "desc": "Mac mini 到货（2026-09-23，7x24）后安装 Grokbot Mac App；muse bot 经 SSH + GUI 自动化直接驱动 App 收发消息，inbox/outbox 全自动流转，彻底零用户操作。App 本地回执优先从应用数据目录读取，兜底截图 OCR。"
+  },
+  {
+   "name": "offload-agent 直驱算力",
+   "status": "已验证",
+   "desc": "grok-box 上的 Cursor CLI headless 驱动（~/bin/offload-agent），走 Cursor Ultra 额度，非 Grok Bot 模型本体。2026-09-18 修复非交互 SSH 下 PATH 缺失问题后，端到端验证通过，已正式纳入调度池；浏览器资源经 Chrome 调试端口调用。"
+  }
+ ],
+ "protocol": {
+  "inbox": "grok-box 上 ~/task-inbox/TASK-<id>.md：任务描述 + 验收标准，由 muse bot 写入",
+  "outbox": "grok-box 上 ~/task-outbox/RESULT-<id>.md：执行结果，由 Grok Bot 写回，muse bot 经 SSH 读取",
+  "rule": "两文件都在 grok-box 本地、双方可读写，用户不搬运任何内容"
+ }
+}
