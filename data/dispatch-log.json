@@ -259,5 +259,10 @@
   "date": "2026-09-19",
   "title": "调度路由打通：订阅优先原则 + 各 runtime 计费/驱动方式明确",
   "body": "用户立规：除 DeepSeek、TypeSafe（API key only）外，所有模型一律默认走订阅账号，不再上来就用 API key。runtimes.json 每个 cloud 条目新增 billing（subscription/api-key-only/hybrid/service-token/service-oauth/free-tier）与 route 字段；subscriptions.json 明确 Google AI Pro 订阅侧与 API 分账。新增条目：Gemini API（hybrid）、TypeSafe JEV、DeepSeek、Mac Computer Use。起因：Gemini 生图走了 API key 路径撞上新项目 image 免费配额为 0，绕路后确认订阅侧（Gemini 网页版）才是正确通道，教训沉淀为路由规则。"
+ },
+ {
+  "date": "2026-09-19",
+  "event": "连接模型记入军火库：五层连接分层（到达/接口/兜底/事件/信任）+ 兜底梯（AI 原生优先，桌面模拟只当开锁匠）；首例实战 EdgeOne 密钥 headed 桌面模拟进行中",
+  "executor": "muse bot"
  }
 ]

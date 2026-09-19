@@ -167,6 +167,13 @@ footer .mono{font-size:.72rem;color:#5b6b82}
   <ul class="principles" id="principles-list"></ul>
 </section>
 
+<section id="conns">
+  <h2><span class="idx">06</span>连接模型</h2>
+  <p class="sub" id="conns-sub"></p>
+  <div id="conns-layers"></div>
+  <p class="sub" id="conns-tree" style="margin-top:1rem"></p>
+</section>
+
 </main>
 <footer>由 muse bot 维护 · 公开页面，不含任何密钥、IP 与私有仓库名<br><span class="mono" id="foot-meta"></span></footer>
 
@@ -458,6 +465,21 @@ function showNodeDetail(e){
   }
 
   document.getElementById('foot-meta').textContent='runtimes '+(rt?((rt.cloud||[]).length+(rt.tailnet||[]).length+(rt.platforms||[]).length):0)+' · log '+(log0?log0.length:0)+' · subs '+(subs0?subs0.length:0);
+
+  /* ---- 连接模型（connections.json 驱动） ---- */
+  var cx=await loadJSON('data/connections.json');
+  var cl=document.getElementById('conns-layers');
+  if(!cx){cl.innerHTML='<p class="fallback">连接模型加载失败 —— 请用在线页面访问</p>';}
+  else{
+    document.getElementById('conns-sub').textContent=cx.note||'';
+    cl.innerHTML='<div class="grid">'+cx.layers.map(function(l){
+      return cardHTML('<span class="bill">'+esc(l.en)+'</span>',esc(l.name)+' · '+esc(l.desc),
+        kvRow('方式',(l.methods||[]).join(' / '))+kvRow('说明',l.note));
+    }).join('')+'</div>';
+    var fb=cx.fallback_ladder||{};
+    document.getElementById('conns-tree').innerHTML='<b>决策树：</b>'+esc(cx.decision_tree||'')
+      +'<br><br><b>兜底梯 · '+esc(fb.name||'')+'：</b><br>'+((fb.steps||[]).map(function(s){return esc(s);}).join('<br>'));
+  }
 
   bindCards(document);
 })();
