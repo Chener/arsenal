@@ -213,5 +213,15 @@
     "date": "2026-09-19",
     "event": "s1 预览站上线：6 套固定候选原型（①仪器面板 ②连续打印纸 ③走纸记录仪 ④档案袋 ⑤终端收据 ⑥大字报海报）全部自查+协调员独立复验通过（零渐变/零圆角/零外部资源/390px 无溢出/JS 无错）。预览站 ~/workspace/v2-preview（git 分支 feat/v2-candidates）经 Mac wrangler 4.135.0 一次部署到 chenerpath Pages preview：https://feat-v2-candidates.chenerpath.pages.dev，单 URL + ?candidate=1..6 切换器，桌面/手机 UA 均 200。REMIX 均实现为 opt-in 本地 reseed（?seed= 分享、localStorage 历史、GALLERY_HOOK 预留，画廊后端 s2 另起）。待用户拍板一版后进全站实现（build.py 双语 + Functions 路由保持 + canonical 指回 chenerpath.com）。未碰生产部署/DNS。",
     "executor": "s1-coordinator"
+  },
+  {
+    "date": "2026-09-19",
+    "event": "chenerlab.cn 历史清理：DNS 删除 api/gtabrain/pw-a-test/pw-b-test 四条 A 记录（RecordId 2315286954/2315933185/2352801868/2352801902，均指向 175.27.167.223），删除前后快照存 hidden_files/dual-line/（与今晨 recon 快照比对无漂移）；剩余 NS×2 + @ A + cpa-us A 未动。南京 VPS 只读盘点：api→node /srv/apps/agentos-cloud(:8788)；gtabrain 子域名实为误配（无 vhost，真服务在 chenerlab.cn/gtabrain :3000）；pw-a/b-test→docker bitwarden-lite-eval/vaultwarden-eval(:18080/18081)。待用户确认后删 VPS 文件/容器/证书。chenerpath.com 仓库确认为 private，符合默认私有要求。",
+    "executor": "s3-coordinator"
+  },
+  {
+    "date": "2026-09-19",
+    "event": "EdgeOne Token 全自动获取失败转手动：Playwright 驱动复制 Chrome profile 无法继承腾讯云/GitHub 登录态，根因确诊为 macOS Chrome cookie 用钥匙串 Chrome Safe Storage 加密、SSH 非交互会话拿不到密钥（security exit=36 errSecAuthFailed），穷尽 4 种尝试；tccli teo 可调通但公开 API 无 Pages Token 创建接口（仅 CreateInferenceAPIToken）。结论：token 只能用户在自己 Chrome 里手动建（约3分钟）：EdgeOne 控制台开 Pages 免费版→建 API Token→粘贴到 GitHub Secrets EDGEONE_API_TOKEN。token 就位后自动继续：建双项目→合 main→双边部署→DNS 拆线→双视角验收。",
+    "executor": "s3-coordinator"
   }
 ]
