@@ -19,6 +19,20 @@
    "fits": "Mac 本地诊断/分析任务；模型 K2.8 Preview (defaultEffort=max，即 k2.8 max)",
    "via": "muse bot 直派：~/.kimi-code/bin/kimi（注意非交互 SSH 需加该路径到 PATH；~/.local/bin/kimiim-cli 是另一个同名工具）",
    "note": "2026-09-19 验证：OAuth 有效，smoke test 通过"
+  },
+  {
+   "tier": "T2",
+   "name": "Cloudflare",
+   "fits": "Pages 前端托管 + Workers/API 后端 + KV/Durable Object，muse-invite 全栈",
+   "via": "API token（Secure Vault custom.cloudflare），muse bot 云电脑直连",
+   "note": "2026-09-19 验证：muse-bot-api-v3（Pages:Edit + Workers:Edit + Zone:Read）建 Pages 项目、绑自定义域名、wrangler 部署 Worker 均成功；旧 v2 token 暂保留待撤销"
+  },
+  {
+   "tier": "T2",
+   "name": "GitHub（Chener）",
+   "fits": "代码仓库 + Actions 自动部署（Cloudflare Pages 发布）",
+   "via": "Secure Vault custom.github PAT，muse bot 云电脑经 gh-api 直连",
+   "note": "2026-09-19 验证：GET /user 200；已写入仓库 Secrets 并创建 deploy-pages.yml（ci/auto-deploy 休眠分支）；PAT 为全部权限，操作自我约束只用建库/push/Actions 相关能力"
   }
  ],
  "platforms": [
@@ -29,8 +43,9 @@
   {
    "fits": "只做调度：分解、派发、验收、记账；不装执行型工具",
    "name": "muse 云电脑（本调度中枢）",
-   "tier": "T0",
-   "via": "内置 Tailscale 连接器入网"
+   "tier": "T2",
+   "via": "内置 Tailscale 连接器入网",
+   "note": "2026-09-19 按用户终版口径由 T0 更正为 T2（接口层：无所有权、只有部分使用权）"
   },
   {
    "fits": "本地文件、国内网络、快速小任务",
