@@ -9,214 +9,169 @@
   --bg:#0b0e14; --panel:#121826; --panel2:#0d1320; --line:#1f2a3d;
   --text:#e6edf6; --dim:#8b98ad; --cyan:#22d3ee; --violet:#a78bfa;
   --green:#34d399; --amber:#fbbf24; --blue:#60a5fa;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Noto Sans Mono",monospace;
 }
 *{box-sizing:border-box}
+html,body{overflow-x:hidden}
 body{margin:0;color:var(--text);font-family:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.6;
   background:radial-gradient(1200px 600px at 50% -10%,#162032 0%,var(--bg) 60%)}
+.mono{font-family:var(--mono)}
 .hero{max-width:1080px;margin:0 auto;padding:36px 24px 4px;text-align:center}
 .hero h1{font-size:2rem;margin:0;letter-spacing:.04em}
 .hero h1 .a{color:var(--cyan)}
 .hero p{color:var(--dim);margin:8px 0 0;font-size:.92rem}
+.hero .tagline{font-family:var(--mono);font-size:.75rem;color:#5b6b82;letter-spacing:.18em;margin-top:10px}
 /* ---- 全局状态条 ---- */
 .statusbar{position:sticky;top:0;z-index:50;margin:18px auto 0;max-width:1080px;
-  background:rgba(13,19,32,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  background:rgba(13,19,32,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .statusbar .inner{max-width:1080px;margin:0 auto;padding:10px 24px;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:.86rem}
 .dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);display:inline-block;margin-right:6px;animation:blink 2s infinite}
+.dot.t0{background:var(--green);box-shadow:0 0 8px var(--green)}
+.dot.t1{background:var(--amber);box-shadow:0 0 8px var(--amber)}
+.dot.t2{background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.dot.p{background:var(--violet);box-shadow:0 0 8px var(--violet)}
 @keyframes blink{50%{opacity:.45}}
 .sb-item{display:flex;align-items:center;gap:6px;white-space:nowrap}
 .sb-item .k{color:var(--dim)}
-.sb-item b{color:var(--cyan);font-size:1.02rem}
+.sb-item b{color:var(--cyan);font-size:1.02rem;font-family:var(--mono);font-weight:600}
 .chip{display:inline-block;font-size:.78rem;padding:2px 10px;border-radius:999px;border:1px solid #573f08;color:var(--amber);background:rgba(58,44,7,.35)}
 /* ---- 主体 ---- */
 main{max-width:1080px;margin:0 auto;padding:8px 24px 64px}
 section{margin-top:44px}
 section>h2{font-size:1.3rem;margin:0 0 6px;display:flex;align-items:center;gap:10px}
 section>h2::before{content:"";width:8px;height:22px;border-radius:4px;background:linear-gradient(var(--cyan),var(--violet))}
+section>h2 .idx{font-family:var(--mono);font-size:.72rem;color:#5b6b82;border:1px solid var(--line);border-radius:6px;padding:1px 8px}
 section>.sub{color:var(--dim);font-size:.88rem;margin:0 0 16px}
 .hint{color:var(--dim);font-size:.8rem;margin:6px 0 0}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
 /* ---- 可展开卡片 ---- */
 .card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .2s}
-.card.open{border-color:#33507e}
+.card.open{border-color:#33507e;box-shadow:0 0 0 1px rgba(34,211,238,.12)}
 .card-head{padding:14px 16px;cursor:pointer;display:flex;align-items:center;gap:10px;user-select:none}
 .card-head:hover{background:rgba(34,211,238,.04)}
-.card-head h3{margin:0;font-size:1rem;flex:1}
+.card-head h3{margin:0;font-size:1rem;flex:1;min-width:0}
 .card-head .caret{color:var(--dim);transition:transform .25s;font-size:.8rem}
 .card.open .card-head .caret{transform:rotate(180deg)}
-.card-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
-.card.open .card-body{max-height:400px}
+.card-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.card.open .card-body{max-height:520px}
 .card-body .pad{padding:0 16px 16px;color:var(--dim);font-size:.88rem}
 .card-body .pad p{margin:8px 0}
-.card-body .pad .lab{color:var(--cyan);font-size:.78rem}
+.card-body .pad .lab{color:var(--cyan);font-size:.78rem;font-family:var(--mono);letter-spacing:.08em}
 .badge{display:inline-block;font-size:.72rem;padding:2px 10px;border-radius:999px;border:1px solid;white-space:nowrap}
 .badge.ok{color:var(--green);border-color:#14532d;background:rgba(5,46,27,.4)}
 .badge.pending{color:var(--amber);border-color:#573f08;background:rgba(58,44,7,.4)}
 .badge.wip{color:var(--blue);border-color:#1e3a5f;background:rgba(11,36,71,.4)}
-.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.8rem;color:var(--cyan);word-break:break-all}
+.bill{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--cyan);border:1px solid #155e6b;background:rgba(8,51,60,.35);border-radius:6px;padding:2px 8px;white-space:nowrap}
+.mono{font-family:var(--mono);font-size:.8rem;color:var(--cyan);word-break:break-all}
 /* ---- 拓扑 ---- */
 svg.topo{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:16px;background:#0a0f1a}
 svg.topo text{font-family:inherit}
-.pulse{stroke:var(--cyan);stroke-width:2;stroke-dasharray:7 9;opacity:.7;animation:dashmove 1.1s linear infinite}
-@keyframes dashmove{to{stroke-dashoffset:-32}}
+.lane-label{font-family:var(--mono);font-size:13px;letter-spacing:.14em;fill:#5b6b82}
+.lane-sep{stroke:#162032;stroke-width:1}
+.edge{stroke-width:1.2;opacity:.22}
+.edge.via{stroke-dasharray:5 5;opacity:.34}
 .node{cursor:pointer}
-.node rect,.node circle.core{transition:filter .2s}
-.node:hover rect,.node:hover circle.core{filter:brightness(1.35)}
-.node.sel rect{stroke:var(--cyan);stroke-width:2.5}
+.node rect{transition:filter .2s}
+.node:hover rect{filter:brightness(1.4)}
+.node.sel rect{stroke:#fff;stroke-width:2.5}
 .node .t{fill:#e6edf6}
-.node .s{fill:#8b98ad}
+.node .s{fill:#8b98ad;font-family:var(--mono)}
 #node-detail{margin-top:12px;border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:linear-gradient(180deg,var(--panel),var(--panel2));min-height:96px}
 #node-detail h3{margin:0 0 4px;font-size:1.05rem}
-#node-detail .tag{color:var(--violet);font-size:.82rem;margin-bottom:8px}
+#node-detail .tag{font-family:var(--mono);font-size:.78rem;color:var(--violet);margin-bottom:8px;letter-spacing:.04em}
 #node-detail p{margin:6px 0;color:var(--dim);font-size:.9rem}
-.hchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.hchip{font-size:.8rem;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:#0d1420;color:var(--dim);cursor:pointer;transition:border-color .2s,color .2s}
-.hchip:hover{border-color:var(--cyan);color:var(--text)}
-.hchip b{color:var(--cyan);font-weight:600}
+#node-detail .row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 2px;align-items:center}
 /* ---- 分层 ---- */
 .tier{margin-bottom:22px}
-.tier>h3{font-size:1.02rem;margin:0 0 4px}
+.tier>h3{font-size:1.02rem;margin:0 0 4px;display:flex;align-items:center;gap:10px}
+.tier>h3 .n{font-family:var(--mono);color:var(--cyan);font-size:.85rem}
 .tier>.tag{color:var(--dim);font-size:.82rem;margin-bottom:12px}
-.tier .grid{margin-top:0}
 /* ---- 时间线 ---- */
 .timeline{position:relative;margin-left:8px;padding-left:26px;border-left:2px solid var(--line)}
 .tl-item{position:relative;margin:0 0 18px;cursor:pointer}
 .tl-item::before{content:"";position:absolute;left:-33px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
-.tl-item .d{font-size:.78rem;color:var(--dim)}
+.tl-item.latest::before{background:var(--amber);box-shadow:0 0 12px var(--amber)}
+.tl-item .d{font-size:.78rem;color:var(--dim);font-family:var(--mono);letter-spacing:.04em}
 .tl-item .e{margin:2px 0;font-size:.94rem}
 .tl-item .x{font-size:.78rem;color:var(--violet)}
+.tl-item .b{font-size:.82rem;color:var(--dim);margin:4px 0 0;display:none;line-height:1.55}
+.tl-item.open .b{display:block}
 .tl-more{display:none}
 .timeline.expanded .tl-more{display:block}
-#tl-toggle{margin-top:6px;background:none;border:1px solid var(--line);color:var(--cyan);border-radius:999px;padding:8px 22px;font-size:.86rem;cursor:pointer}
+#tl-toggle{margin-top:6px;background:none;border:1px solid var(--line);color:var(--cyan);border-radius:999px;padding:8px 22px;font-size:.86rem;cursor:pointer;font-family:var(--mono)}
 #tl-toggle:hover{border-color:var(--cyan)}
 /* ---- 原则 ---- */
 .principles{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin:0;padding:0;list-style:none}
 .principles li{border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:linear-gradient(180deg,var(--panel),var(--panel2));font-size:.88rem;color:var(--dim)}
 .principles li b{color:var(--cyan);display:block;margin-bottom:2px}
+.principles li .since{font-family:var(--mono);font-size:.7rem;color:#5b6b82}
 .fallback{color:var(--amber);font-size:.9rem;border:1px dashed var(--amber);border-radius:10px;padding:12px 16px}
 footer{max-width:1080px;margin:0 auto;padding:28px 24px 48px;text-align:center;color:var(--dim);font-size:.85rem;border-top:1px solid var(--line)}
-@media(max-width:720px){.hero h1{font-size:1.6rem}.statusbar .inner{font-size:.8rem;gap:6px 12px}}
+footer .mono{font-size:.72rem;color:#5b6b82}
+@media(max-width:720px){
+  .hero h1{font-size:1.6rem}
+  .statusbar .inner{font-size:.8rem;gap:6px 12px;padding:10px 16px}
+  main{padding:8px 16px 48px}
+  #node-detail{padding:12px 14px}
+}
 </style>
 </head>
 <body>
 <header class="hero">
   <h1>军火库 <span class="a">Arsenal</span></h1>
-  <p>muse bot 调度看板 · 一眼看状态，点击看细节</p>
+  <p>muse bot 调度看板 · 数据驱动，一眼看状态，点击看细节</p>
+  <div class="tagline">SCOUT → CONNECT → DISPATCH → VERIFY → LEDGER</div>
 </header>
 
 <div class="statusbar"><div class="inner" id="statusbar">
   <span class="sb-item"><span class="dot"></span><b>muse bot</b><span class="k">唯一调度入口</span></span>
   <span class="sb-item" id="sb-tiers"><span class="k">加载中…</span></span>
-  <span class="sb-item" id="sb-active"></span>
+  <span class="sb-item" id="sb-subs"></span>
+  <span class="sb-item" id="sb-logdate"></span>
   <span class="sb-item" id="sb-wool"></span>
-  <span class="sb-item"><span class="k">更新</span><span id="sb-updated">—</span></span>
+  <span class="sb-item"><span class="k">更新</span><span id="sb-updated" class="mono" style="font-size:.8rem">—</span></span>
 </div></div>
 
 <main>
 
 <section id="topology">
-  <h2>调度拓扑</h2>
-  <p class="sub">muse bot 是唯一派工与记账入口，直连各执行器，禁止转包链 · 点击节点看详情</p>
-  <svg class="topo" viewBox="0 0 960 640" role="img" aria-label="调度拓扑图">
-    <defs>
-      <linearGradient id="cg" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/>
-      </linearGradient>
-    </defs>
-    <text x="170" y="42" fill="#8b98ad" font-size="15" text-anchor="middle">分支 ① · FirstMate 整体</text>
-    <text x="800" y="42" fill="#8b98ad" font-size="15" text-anchor="middle">分支 ② · muse bot 直派</text>
-    <!-- 脉冲连线 -->
-    <line class="pulse" x1="268" y1="310" x2="420" y2="310"/>
-    <line class="pulse" x1="528" y1="296" x2="716" y2="110"/>
-    <line class="pulse" x1="528" y1="304" x2="716" y2="230"/>
-    <line class="pulse" x1="528" y1="312" x2="716" y2="350"/>
-    <line class="pulse" x1="528" y1="320" x2="716" y2="470"/>
-    <!-- 分支1：FirstMate 整体 -->
-    <g class="node" data-key="firstmate">
-      <rect x="70" y="282" width="200" height="56" rx="16" fill="#0e1626" stroke="#a78bfa" stroke-width="1.5"/>
-      <text class="t" x="170" y="305" font-size="14" font-weight="700" text-anchor="middle">FirstMate 整体</text>
-      <text class="s" x="170" y="326" font-size="11" text-anchor="middle">captain → second mates → workers</text>
-    </g>
-    <!-- 中央：muse bot -->
-    <g class="node" data-key="muse">
-      <circle cx="476" cy="310" r="50" fill="none" stroke="#22d3ee" stroke-width="2">
-        <animate attributeName="r" values="50;84" dur="2.2s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.7;0" dur="2.2s" repeatCount="indefinite"/>
-      </circle>
-      <circle class="core" cx="476" cy="310" r="50" fill="#0e1626" stroke="url(#cg)" stroke-width="3"/>
-      <text class="t" x="476" y="306" font-size="16" font-weight="700" text-anchor="middle">muse bot</text>
-      <text class="s" x="476" y="328" font-size="11" text-anchor="middle">唯一派工 / 记账入口</text>
-    </g>
-    <!-- 分支2：直派 workers -->
-    <g font-size="13" text-anchor="middle">
-      <g class="node" data-key="cca">
-        <rect x="716" y="88" width="188" height="44" rx="22" fill="#0e1626" stroke="#22d3ee" stroke-width="1.5"/>
-        <text class="t" x="810" y="115" font-size="13">Cursor Cloud Agent</text>
-      </g>
-      <g class="node" data-key="qoder">
-        <rect x="716" y="208" width="188" height="44" rx="22" fill="#0e1626" stroke="#fbbf24" stroke-width="1.5"/>
-        <text class="t" x="810" y="235" font-size="13">Qoder CLI ⚡接入中</text>
-      </g>
-      <g class="node" data-key="grokbox">
-        <rect x="716" y="328" width="188" height="44" rx="22" fill="#0e1626" stroke="#22d3ee" stroke-width="1.5"/>
-        <text class="t" x="810" y="355" font-size="13">grok-box 直驱</text>
-      </g>
-      <g class="node" data-key="ssh">
-        <rect x="716" y="448" width="188" height="44" rx="22" fill="#0e1626" stroke="#22d3ee" stroke-width="1.5"/>
-        <text class="t" x="810" y="475" font-size="13">SSH 直驱私网</text>
-      </g>
-    </g>
-    <text x="480" y="580" fill="#8b98ad" font-size="12" text-anchor="middle">脉冲连线 = muse bot 直连派工 · ① 由 muse bot 安排"做什么"，FirstMate 按自己机制执行 · ② 不经 FirstMate</text>
-    <text x="480" y="604" fill="#5b6b82" font-size="11" text-anchor="middle">muse bot 云电脑只做调度，不装执行型工具</text>
-  </svg>
+  <h2><span class="idx">01</span>调度拓扑</h2>
+  <p class="sub">muse bot 是唯一派工与记账入口，直连各执行器，禁止转包链 · 节点按 T0 / T1 / T2 分层，点击节点看详情</p>
+  <svg class="topo" id="topo" viewBox="0 0 1360 880" role="img" aria-label="三层调度拓扑图"></svg>
   <div id="node-detail"></div>
-  <p class="hint">调度组件</p>
-  <div class="hchips" id="harness-chips"></div>
-</section>
-
-<section id="runtimes">
-  <h2>执行器</h2>
-  <p class="sub">按"在哪里跑、能碰到什么"划分 · 点击卡片展开详情</p>
-  <div id="runtimes-tiers"></div>
-</section>
-
-<section id="subs">
-  <h2>订阅军火</h2>
-  <p class="sub">权益与剩余额度逐项核验中，未核验的一律标注 · 点击展开</p>
-  <div class="grid" id="subs-grid"></div>
-</section>
-
-<section id="projects">
-  <h2>项目</h2>
-  <p class="sub">每个项目固定一种驱动方式，变更即记账 · 点击展开驱动方式</p>
-  <div class="grid" id="projects-grid"></div>
 </section>
 
 <section id="log">
-  <h2>调度历史</h2>
-  <p class="sub">每次路由变化、故障与选型原因都记在这里 · 最新在前</p>
+  <h2><span class="idx">02</span>调度历史</h2>
+  <p class="sub" id="log-sub">每次路由变化、故障与选型原因都记在这里 · 最新在前，点击条目展开详情</p>
   <div class="timeline" id="timeline"></div>
   <button id="tl-toggle"></button>
 </section>
 
+<section id="runtimes">
+  <h2><span class="idx">03</span>运行时明细</h2>
+  <p class="sub">按"能管到哪一层"划分 · 计费方式决定调用路线：订阅优先，API key 仅为例外 · 点击卡片展开</p>
+  <div id="runtimes-tiers"></div>
+</section>
+
+<section id="subs">
+  <h2><span class="idx">04</span>订阅军火</h2>
+  <p class="sub">权益与剩余额度逐项核验中，未核验的一律标注 · 订阅侧与 API 分账，不要混用 · 点击展开</p>
+  <div class="grid" id="subs-grid"></div>
+</section>
+
 <section id="principles">
-  <h2>调度原则</h2>
-  <p class="sub">统一循环：scout → connect → dispatch → verify → ledger</p>
-  <ul class="principles">
-    <li><b>唯一派工与记账入口</b>muse bot 分发、验收、记录一切任务</li>
-    <li><b>直连执行器，禁止转包链</b>不出现 muse → Mac → CCA 之类的二手派工</li>
-    <li><b>任务一经领取即锁定</b>不双发，避免两个执行器干同一件事</li>
-    <li><b>云服务优先直连 API</b>私人设备经 Tailscale 接入</li>
-    <li><b>能自动化的都自动化</b>用户只做验证码、KYC、付款确认等必须本人的最小操作</li>
-    <li><b>评估后没价值的不装不留</b>云电脑保持轻量富裕</li>
-  </ul>
+  <h2><span class="idx">05</span>调度原则</h2>
+  <p class="sub">立规即记账，全部来自 dispatch-plan.json</p>
+  <ul class="principles" id="principles-list"></ul>
 </section>
 
 </main>
-<footer>由 muse bot 维护 · 公开页面，不含任何密钥、IP 与私有仓库名</footer>
+<footer>由 muse bot 维护 · 公开页面，不含任何密钥、IP 与私有仓库名<br><span class="mono" id="foot-meta"></span></footer>
 
 <script>
-function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 async function loadJSON(path){
   try{const r=await fetch(path);if(!r.ok)throw new Error(r.status);return await r.json();}
   catch(e){return null;}
@@ -226,133 +181,285 @@ function badge(status){
   if(status==='待核验'||status==='信息待补充'||status==='接入中'||status==='备用')return '<span class="badge pending">'+esc(status)+'</span>';
   return '<span class="badge wip">'+esc(status)+'</span>';
 }
-function cardHTML(b, title, bodyHTML){
-  return '<div class="card"><div class="card-head">'+b+'<h3>'+esc(title)+'</h3><span class="caret">▾</span></div>'+
+var BILL_LABEL={'subscription':'SUBSCRIPTION','api-key-only':'API-KEY ONLY','hybrid':'HYBRID','service-token':'SERVICE TOKEN','service-oauth':'SERVICE OAUTH','free-tier':'FREE TIER','subscription-backed':'SUB-BACKED'};
+function billBadge(b){
+  return '<span class="bill">'+esc(BILL_LABEL[b]||String(b||'—').toUpperCase())+'</span>';
+}
+function cardHTML(badges,title,bodyHTML){
+  return '<div class="card"><div class="card-head">'+badges+'<h3>'+esc(title)+'</h3><span class="caret">▾</span></div>'+
     '<div class="card-body"><div class="pad">'+bodyHTML+'</div></div></div>';
 }
 function bindCards(scope){
-  scope.querySelectorAll('.card-head').forEach(h=>{
-    h.addEventListener('click',()=>h.parentElement.classList.toggle('open'));
+  scope.querySelectorAll('.card-head').forEach(function(h){
+    h.addEventListener('click',function(){h.parentElement.classList.toggle('open');});
   });
 }
-function countUp(el, to){
-  let cur=0;const step=Math.max(1,Math.ceil(to/24));
-  const t=setInterval(()=>{cur+=step;if(cur>=to){cur=to;clearInterval(t);}el.textContent=cur;},40);
+function countUp(el,to){
+  var cur=0;var step=Math.max(1,Math.ceil(to/24));
+  var t=setInterval(function(){cur+=step;if(cur>=to){cur=to;clearInterval(t);}el.textContent=cur;},40);
 }
-const TIER_TAG={T0:'自有硬件 · 核心凭证只在这层',T1:'自有 VPS · 只放次级凭证',T2:'订阅云沙箱 · 外部执行者'};
-
-const NODES={
-  muse:{tag:'唯一派工 / 记账入口',body:'<p>分解 → 派发 → 验收 → 记账，直连各执行器，禁止转包链。</p><p>云电脑保持轻量富裕：不装任何执行型 CLI / 运行时。用户只做必须本人的最小操作（登录批准、验证码、KYC、付款确认）。</p>'},
-  firstmate:{tag:'分支 ① · muse bot 安排"做什么"',body:'<p>captain → second mates → core workers 是一套，有它自己的记忆。原来用户打字跟它说的事，现在由 muse bot 翻译成指令下达；它照常按自己的机制执行。</p><p>已移交待办：订阅权益盘点收尾 · agy 钥匙串弹窗方案 · hoh 地区跟进（09-19 16:30）。</p>'},
-  cca:{tag:'分支 ② · muse bot 直派',body:'<p>Cursor Cloud Agent：仓库级开发、重构、修 bug、PR 工作流、长时间无人值守。</p><p class="mono">接入：muse bot 直连 Cloud Agents API v1（Grok Bot 驱动降为备用）</p>'},
-  qoder:{tag:'分支 ② · muse bot 直派 · 接入中',body:'<p>Qoder CLI（qoderclicn）：国内任务优先，轻量编码、改 bug。</p><p>⚡ Qwen3.8-Flash 免费窗口：9/18–9/30，CN 区免登录即用；每天可领 100 Credits。</p><p>走阿里云国内网络，网络友好。当前状态：接入中——待用户在 CLI 里登录授权一次，之后由 muse bot 直接派活，不经 FirstMate。</p>'},
-  grokbox:{tag:'分支 ② · muse bot 直派',body:'<p>grok-box：Grok Bot 云电脑，offload-agent（Cursor CLI headless）驱动，烧 Cursor Ultra 额度；浏览器资源经 Chrome 调试端口调用。</p><p id="grok-proto"></p>'},
-  ssh:{tag:'分支 ② · muse bot 直派',body:'<p>SSH 直驱 Tailnet 私网：MacBook Air / 绿联 NAS / Vultr 硅谷 / 腾讯云南京。</p><p>NAS 已升级为可执行节点（2026-09-18 免密直连验证通过），不依赖 Mac、不依赖在家。</p>'}
+function normTier(t){
+  t=String(t||'');
+  if(t.indexOf('T0')===0)return 'T0';
+  if(t.indexOf('T1')===0)return 'T1';
+  return 'T2';
+}
+var TIER_META={
+  T0:{color:'#34d399',desc:'自有硬件 · 核心凭证只在这层'},
+  T1:{color:'#fbbf24',desc:'租用整机 · 100% 使用权'},
+  T2:{color:'#22d3ee',desc:'无所有权 · 按接口/订阅调用'}
 };
-function showNode(key){
-  const n=NODES[key];if(!n)return;
-  document.querySelectorAll('.node').forEach(g=>g.classList.toggle('sel',g.dataset.key===key));
-  const titles={muse:'muse bot',firstmate:'FirstMate 整体',cca:'Cursor Cloud Agent',qoder:'Qoder CLI',grokbox:'grok-box 直驱',ssh:'SSH 直驱私网'};
-  document.getElementById('node-detail').innerHTML='<h3>'+titles[key]+'</h3><div class="tag">'+n.tag+'</div>'+n.body;
-  const gp=document.getElementById('grok-proto');
-  if(gp&&window._planProto)gp.innerHTML='连接协议：'+esc(window._planProto);
+function normName(n){return String(n||'').toLowerCase().replace(/[^a-z0-9\u4e00-\u9fa5]/g,'');}
+function shortName(n){
+  var s=String(n||'');
+  var i=s.indexOf('（');
+  if(i>0)s=s.slice(0,i);
+  return s;
+}
+function statusColor(entry){
+  var txt=(entry.note||'')+' '+(entry.status||'');
+  if(/(待|接入中|未补录|待定)/.test(txt))return '#fbbf24';
+  return '#34d399';
 }
 
+/* ============ 拓扑图（runtimes.json + topology.json 驱动） ============ */
+function buildTopology(rt,topo){
+  var svg=document.getElementById('topo');
+  var entries=[];
+  ['cloud','tailnet'].forEach(function(k){(rt[k]||[]).forEach(function(e){entries.push(e);});});
+  var platforms=(rt.platforms||[]).map(function(p){return {name:p,tier:'P',fits:'公开网页与无服务器托管',via:'只用部署 token'};});
+  var all=entries.concat(platforms);
+
+  /* 用 topology.json 做信息增强：按归一化名称互相包含匹配 */
+  var topoNodes=(topo&&topo.nodes)||[];
+  function enrich(e){
+    var n=normName(e.name);
+    for(var i=0;i<topoNodes.length;i++){
+      var tn=normName(topoNodes[i].name);
+      if(tn&&n&&(tn.indexOf(n)===0||n.indexOf(tn)===0||tn.indexOf(n)>-1&&n.length>3||n.indexOf(tn)>-1&&tn.length>3))return topoNodes[i];
+    }
+    return null;
+  }
+  all.forEach(function(e){e._ex=enrich(e);e._tier=e.tier==='P'?'P':normTier(e.tier);});
+
+  var W=1360,H=880,HUB_X=112,HUB_Y=452,NX0=300,NX1=1340;
+  var lanes=[
+    {tier:'T0',label:'T0 · 自有硬件',y:150},
+    {tier:'T1',label:'T1 · 租用整机',y:398},
+    {tier:'T2',label:'T2 · 订阅 / 接口',y:646},
+    {tier:'P', label:'P · 托管平台', y:806}
+  ];
+  var s='';
+  s+='<defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/></linearGradient></defs>';
+  lanes.forEach(function(L){
+    s+='<line class="lane-sep" x1="16" y1="'+(L.y-74)+'" x2="1344" y2="'+(L.y-74)+'"/>';
+    s+='<text class="lane-label" x="24" y="'+(L.y-52)+'">'+esc(L.label)+'</text>';
+  });
+
+  /* hub：muse bot */
+  var hub=(topo&&topo.hub)||{name:'muse bot'};
+  s+='<g class="node" data-hub="1">'
+    +'<circle cx="'+HUB_X+'" cy="'+HUB_Y+'" r="46" fill="none" stroke="#22d3ee" stroke-width="2">'
+    +'<animate attributeName="r" values="46;78" dur="2.4s" repeatCount="indefinite"/>'
+    +'<animate attributeName="opacity" values="0.7;0" dur="2.4s" repeatCount="indefinite"/></circle>'
+    +'<circle cx="'+HUB_X+'" cy="'+HUB_Y+'" r="46" fill="#0e1626" stroke="url(#cg)" stroke-width="3"/>'
+    +'<text class="t" x="'+HUB_X+'" y="'+(HUB_Y-2)+'" font-size="15" font-weight="700" text-anchor="middle">'+esc(hub.name)+'</text>'
+    +'<text class="s" x="'+HUB_X+'" y="'+(HUB_Y+18)+'" font-size="10" text-anchor="middle">唯一入口/出口</text>'
+    +'</g>';
+  window._topoHub=hub;
+
+  /* 节点布局 */
+  var nodes=[];
+  lanes.forEach(function(L){
+    var items=all.filter(function(e){return e._tier===L.tier;});
+    var conf=L.tier==='T2'?{w:142,h:56,fs:11.5,gap:10}:{w:L.tier==='P'?240:210,h:56,fs:13,gap:20};
+    var cols=L.tier==='T2'?7:items.length;
+    var rows=Math.ceil(items.length/cols);
+    for(var r=0;r<rows;r++){
+      var rowItems=items.slice(r*cols,(r+1)*cols);
+      var rowW=rowItems.length*conf.w+(rowItems.length-1)*conf.gap;
+      var x0=NX0+((NX1-NX0)-rowW)/2;
+      var yy=L.y+(r-(rows-1)/2)*(conf.h+18);
+      rowItems.forEach(function(e,i){
+        nodes.push({e:e,x:x0+i*(conf.w+conf.gap),y:yy-conf.h/2,w:conf.w,h:conf.h,fs:conf.fs});
+      });
+    }
+  });
+
+  /* 连线 hub → 节点 */
+  nodes.forEach(function(nd){
+    var via=nd.e._ex&&nd.e._ex.path==='via';
+    var col=via?'#fbbf24':'#22d3ee';
+    s+='<line class="edge'+(via?' via':'')+'" x1="'+(HUB_X+52)+'" y1="'+HUB_Y+'" x2="'+nd.x+'" y2="'+(nd.y+nd.h/2)+'" stroke="'+col+'"/>';
+  });
+
+  /* 节点 */
+  nodes.forEach(function(nd,idx){
+    var e=nd.e;
+    var col=e._tier==='P'?'#a78bfa':TIER_META[e._tier].color;
+    var st=statusColor(e);
+    var l1=shortName(e.name);
+    if(l1.length>11)l1=l1.slice(0,11)+'…';
+    var bill=(BILL_LABEL[e.billing]||'').split(' ')[0];
+    var l2=e._tier+(bill?' · '+bill:'');
+    var cx=nd.x+14,cy=nd.y+13;
+    var begin='-'+((idx*0.37)%2.4).toFixed(2)+'s';
+    s+='<g class="node" data-idx="'+idx+'">'
+      +'<rect x="'+nd.x+'" y="'+nd.y+'" width="'+nd.w+'" height="'+nd.h+'" rx="14" fill="#0e1626" stroke="'+col+'" stroke-width="1.5"/>'
+      +'<circle cx="'+cx+'" cy="'+cy+'" r="4" fill="'+st+'">'
+      +'<animate attributeName="opacity" values="1;.3;1" dur="2.4s" begin="'+begin+'" repeatCount="indefinite"/></circle>'
+      +'<text class="t" x="'+(nd.x+nd.w/2+6)+'" y="'+(nd.y+24)+'" font-size="'+nd.fs+'" font-weight="600" text-anchor="middle">'+esc(l1)+'</text>'
+      +'<text class="s" x="'+(nd.x+nd.w/2+6)+'" y="'+(nd.y+42)+'" font-size="9.5" text-anchor="middle">'+esc(l2)+'</text>'
+      +'</g>';
+  });
+  s+='<text x="680" y="862" fill="#5b6b82" font-size="11" text-anchor="middle" font-family="ui-monospace,monospace">呼吸灯 = 在线 · 虚线 = 经中转到达 · 点击节点看详情</text>';
+  svg.innerHTML=s;
+  window._topoNodes=nodes;
+
+  svg.querySelectorAll('.node').forEach(function(g){
+    g.addEventListener('click',function(){
+      if(g.dataset.hub){showHub();return;}
+      showNodeDetail(nodes[parseInt(g.dataset.idx,10)].e);
+      svg.querySelectorAll('.node').forEach(function(x){x.classList.remove('sel');});
+      g.classList.add('sel');
+    });
+  });
+}
+function kvRow(lab,val,mono){
+  if(!val)return '';
+  return '<p><span class="lab">'+lab+'</span><br>'+(mono?'<span class="mono">'+esc(val)+'</span>':esc(val))+'</p>';
+}
+function showHub(){
+  var hub=window._topoHub||{name:'muse bot'};
+  document.querySelectorAll('#topo .node').forEach(function(x){x.classList.toggle('sel',!!x.dataset.hub);});
+  document.getElementById('node-detail').innerHTML=
+    '<h3>'+esc(hub.name)+'</h3><div class="tag">HUB · '+(hub.tier||'T2')+'</div>'
+    +'<div class="row">'+billBadge('subscription')+'</div>'
+    +'<p>'+esc(hub.note||'用户意图的唯一入口、验收结果的唯一出口。')+'</p>';
+}
+function showNodeDetail(e){
+  var ex=e._ex||{};
+  var html='<h3>'+esc(e.name)+'</h3><div class="tag">'+e._tier+(ex.id?' · <span class="mono">'+esc(ex.id)+'</span>':'')+'</div>'
+    +'<div class="row">'+(e.billing?billBadge(e.billing):'')+(ex.path==='via'?'<span class="badge pending">经中转</span>':'<span class="badge ok">直连</span>')+'</div>'
+    +kvRow('适合',e.fits)+kvRow('接入',e.via||ex.credential,true)+kvRow('路线',e.route)+kvRow('备注',e.note||ex.note)
+    +(ex.via?kvRow('中转经',ex.via,true):'')+(ex.egress?kvRow('出口',ex.egress,true):'');
+  document.getElementById('node-detail').innerHTML=html;
+}
+
+/* ============ 主流程 ============ */
 (async function(){
-  /* ---- 状态条 ---- */
-  const rt=await loadJSON('data/runtimes.json');
-  const ps=await loadJSON('data/projects.json');
+  var rt=await loadJSON('data/runtimes.json');
+  var topo=await loadJSON('data/topology.json');
+
+  /* ---- 状态条（加强） ---- */
   if(rt){
-    const tiers={T0:0,T1:0,T2:0};
-    (rt.cloud||[]).concat(rt.tailnet||[]).forEach(i=>{if(tiers[i.tier]!=null)tiers[i.tier]++;});
-    const p=(rt.platforms||[]).length;
+    var tiers={T0:0,T1:0,T2:0,P:0};
+    (rt.cloud||[]).concat(rt.tailnet||[]).forEach(function(i){tiers[normTier(i.tier)]++;});
+    tiers.P=(rt.platforms||[]).length;
     document.getElementById('sb-tiers').innerHTML=
-      ['T0','T1','T2'].map(t=>'<span class="sb-item"><span class="k">'+t+'</span><b data-count="'+tiers[t]+'">0</b></span>').join('')+
-      '<span class="sb-item"><span class="k">P</span><b data-count="'+p+'">0</b></span>';
-    document.querySelectorAll('#sb-tiers [data-count]').forEach(el=>countUp(el,parseInt(el.dataset.count,10)));
+      ['T0','T1','T2'].map(function(t){
+        return '<span class="sb-item"><span class="dot '+t.toLowerCase()+'"></span><span class="k">'+t+'</span><b data-count="'+tiers[t]+'">0</b></span>';
+      }).join('')+
+      '<span class="sb-item"><span class="dot p"></span><span class="k">P</span><b data-count="'+tiers.P+'">0</b></span>';
+    document.querySelectorAll('#sb-tiers [data-count]').forEach(function(el){countUp(el,parseInt(el.dataset.count,10));});
   }
-  if(ps){
-    const active=ps.filter(x=>!['已验证','已盘点','已接管'].includes(x.status)).length;
-    document.getElementById('sb-active').innerHTML='<span class="k">进行中项目</span><b id="sb-active-n">0</b>';
-    countUp(document.getElementById('sb-active-n'),active);
+  var subs0=await loadJSON('data/subscriptions.json');
+  if(subs0){
+    var okN=subs0.filter(function(s){return s.status==='已验证';}).length;
+    document.getElementById('sb-subs').innerHTML='<span class="k">订阅</span><b id="sb-subs-n">0</b><span class="k">已验证</span><b id="sb-subs-ok">0</b>';
+    countUp(document.getElementById('sb-subs-n'),subs0.length);
+    countUp(document.getElementById('sb-subs-ok'),okN);
   }
-  const daysLeft=Math.max(0,Math.ceil((new Date('2026-10-01T00:00:00+08:00')-Date.now())/86400000));
+  var log0=await loadJSON('data/dispatch-log.json');
+  if(log0&&log0.length){
+    var items0=log0.slice().reverse();
+    document.getElementById('sb-logdate').innerHTML='<span class="k">最新记账</span><b class="mono" style="font-size:.82rem">'+esc(items0[0].date||'—')+'</b>';
+  }
+  var daysLeft=Math.max(0,Math.ceil((new Date('2026-10-01T00:00:00+08:00')-Date.now())/86400000));
   document.getElementById('sb-wool').innerHTML='<span class="chip">⚡ Qwen3.8-Flash 免费剩 '+daysLeft+' 天</span>';
-  document.getElementById('sb-updated').textContent='2026-09-18';
+  if(topo&&topo.updated)document.getElementById('sb-updated').textContent=topo.updated;
 
-  /* ---- 拓扑节点点击 ---- */
-  document.querySelectorAll('.node').forEach(g=>g.addEventListener('click',()=>showNode(g.dataset.key)));
-  const hs=await loadJSON('data/harness.json');
-  const hc=document.getElementById('harness-chips');
-  if(hs){hc.innerHTML=hs.map(h=>'<span class="hchip" data-h="'+esc(h.name)+'"><b>'+esc(h.role)+'</b> · '+esc(h.name)+'</span>').join('');
-    hc.querySelectorAll('.hchip').forEach(c=>c.addEventListener('click',()=>{
-      const h=hs.find(x=>x.name===c.dataset.h);
-      document.getElementById('node-detail').innerHTML='<h3>'+esc(h.name)+'</h3><div class="tag">调度组件 · '+esc(h.role)+'</div><p>'+esc(h.desc)+'</p>';
-      document.querySelectorAll('.node').forEach(g=>g.classList.remove('sel'));
-    }));
+  /* ---- 拓扑 ---- */
+  if(!rt){
+    document.getElementById('topo').outerHTML='<p class="fallback">拓扑数据加载失败 —— 请用在线页面访问</p>';
+  }else{
+    buildTopology(rt,topo);
+    showHub();
   }
 
-  /* ---- 执行器（按层分组） ---- */
-  const rg=document.getElementById('runtimes-tiers');
-  if(!rt){rg.innerHTML='<p class="fallback">运行时数据加载失败 —— 请用在线页面访问</p>';}
-  else{
-    const all=(rt.cloud||[]).concat(rt.tailnet||[]);
-    rg.innerHTML=['T0','T1','T2'].map(t=>{
-      const items=all.filter(i=>i.tier===t);
-      if(!items.length)return '';
-      return '<div class="tier"><h3>'+t+'</h3><div class="tag">'+TIER_TAG[t]+' · '+items.length+' 个</div><div class="grid">'+
-        items.map(i=>cardHTML(badge(i.note&&i.note.indexOf('接入中')===0?'接入中':'已验证'),i.name,
-          '<p><span class="lab">适合</span><br>'+esc(i.fits)+'</p>'+
-          (i.via?'<p><span class="lab">接入</span><br>'+esc(i.via)+'</p>':'')+
-          (i.note?'<p><span class="lab">备注</span><br>'+esc(i.note)+'</p>':'')
-        )).join('')+'</div></div>';
-    }).join('')+
-    '<div class="tier"><h3>P · 托管平台</h3><div class="tag">公开网页与无服务器 · 只用部署 token</div><div class="hchips">'+
-      (rt.platforms||[]).map(p=>'<span class="hchip">'+esc(p)+'</span>').join('')+'</div></div>';
-  }
-
-  /* ---- 订阅 ---- */
-  const subs=await loadJSON('data/subscriptions.json');
-  const sg=document.getElementById('subs-grid');
-  if(!subs){sg.innerHTML='<p class="fallback">订阅数据加载失败 —— 请用在线页面访问</p>';}
-  else sg.innerHTML=subs.map(s=>cardHTML(badge(s.status),s.name,
-    '<p>'+esc(s.note)+'</p><p><span class="lab">额度</span><br>'+esc(s.quota)+'</p>'+
-    (s.quota_note?'<p><span class="lab">权益细节</span><br>'+esc(s.quota_note)+'</p>':'')
-  )).join('');
-
-  /* ---- 项目 ---- */
-  const pg=document.getElementById('projects-grid');
-  if(!ps){pg.innerHTML='<p class="fallback">项目数据加载失败 —— 请用在线页面访问</p>';}
-  else pg.innerHTML=ps.map(p=>cardHTML(badge(p.status),p.name,
-    '<p>'+esc(p.desc)+'</p><p class="mono">'+esc(p.repo)+'</p><p><span class="lab">驱动方式</span><br>'+esc(p.drive)+'</p>'
-  )).join('');
-
-  /* ---- 调度历史（最新在前，可折叠） ---- */
-  const log=await loadJSON('data/dispatch-log.json');
-  const tl=document.getElementById('timeline');
-  const tg=document.getElementById('tl-toggle');
-  if(!log){tl.innerHTML='<p class="fallback">调度历史加载失败 —— 请用在线页面访问</p>';tg.style.display='none';}
-  else{
-    const items=log.slice().reverse();
-    const N=6;
-    tl.innerHTML=items.map((e,idx)=>
-      '<div class="tl-item'+(idx>=N?' tl-more':'')+'"><div class="d">'+esc(e.date)+'</div><div class="e">'+esc(e.event)+
-      '</div><div class="x">执行器：'+esc(e.executor)+'</div></div>').join('');
+  /* ---- 调度历史（最新在前，可折叠+可展开单条） ---- */
+  var tl=document.getElementById('timeline');
+  var tg=document.getElementById('tl-toggle');
+  if(!log0){
+    tl.innerHTML='<p class="fallback">调度历史加载失败 —— 请用在线页面访问</p>';tg.style.display='none';
+  }else{
+    var items=log0.slice().reverse();
+    var N=6;
+    document.getElementById('log-sub').textContent='共 '+items.length+' 条记账 · 最新在前，点击条目展开详情';
+    tl.innerHTML=items.map(function(e,idx){
+      var title=e.title||e.event||'(无标题)';
+      var body=e.body||'';
+      var x=e.executor?'执行器：'+esc(e.executor):'';
+      return '<div class="tl-item'+(idx>=N?' tl-more':'')+(idx===0?' latest':'')+'">'
+        +'<div class="d">'+esc(e.date||'—')+'</div><div class="e">'+esc(title)+'</div>'
+        +(x?'<div class="x">'+x+'</div>':'')
+        +(body?'<div class="b">'+esc(body)+'</div>':'')+'</div>';
+    }).join('');
+    tl.querySelectorAll('.tl-item').forEach(function(it){
+      it.addEventListener('click',function(){it.classList.toggle('open');});
+    });
     tg.textContent='展开全部 '+items.length+' 条';
-    tg.addEventListener('click',()=>{
-      const ex=tl.classList.toggle('expanded');
+    tg.addEventListener('click',function(){
+      var ex=tl.classList.toggle('expanded');
       tg.textContent=ex?'收起':'展开全部 '+items.length+' 条';
     });
   }
 
-  /* ---- 连接协议（grok-box 详情用） ---- */
-  const plan=await loadJSON('data/dispatch-plan.json');
-  if(plan&&plan.protocol){
-    window._planProto='inbox '+plan.protocol.inbox+'；outbox '+plan.protocol.outbox+'；'+plan.protocol.rule;
+  /* ---- 运行时明细（按层分组卡片） ---- */
+  var rg=document.getElementById('runtimes-tiers');
+  if(!rt){rg.innerHTML='<p class="fallback">运行时数据加载失败 —— 请用在线页面访问</p>';}
+  else{
+    var all=(rt.cloud||[]).concat(rt.tailnet||[]);
+    var order=['T0','T1','T2'];
+    rg.innerHTML=order.map(function(t){
+      var grp=all.filter(function(i){return normTier(i.tier)===t;});
+      if(!grp.length)return '';
+      return '<div class="tier"><h3><span class="dot '+t.toLowerCase()+'"></span>'+t+' <span class="n">'+grp.length+'</span></h3>'
+        +'<div class="tag">'+TIER_META[t].desc+'</div><div class="grid">'
+        +grp.map(function(i){
+          return cardHTML(billBadge(i.billing),i.name,
+            kvRow('适合',i.fits)+kvRow('接入',i.via,true)+kvRow('路线',i.route)+kvRow('备注',i.note));
+        }).join('')+'</div></div>';
+    }).join('')
+    +'<div class="tier"><h3><span class="dot p"></span>P <span class="n">'+(rt.platforms||[]).length+'</span></h3>'
+    +'<div class="tag">托管平台 · 只用部署 token</div><div class="grid">'
+    +(rt.platforms||[]).map(function(p){return cardHTML('<span class="bill">HOSTING</span>',p,'<p><span class="lab">用途</span><br>静态站 / Serverless 托管</p>');}).join('')
+    +'</div></div>';
   }
 
+  /* ---- 订阅 ---- */
+  var sg=document.getElementById('subs-grid');
+  if(!subs0){sg.innerHTML='<p class="fallback">订阅数据加载失败 —— 请用在线页面访问</p>';}
+  else sg.innerHTML=subs0.map(function(s){
+    return cardHTML(badge(s.status),s.name,
+      '<p>'+esc(s.note)+'</p>'
+      +kvRow('额度',s.quota)+kvRow('权益细节',s.quota_note)+kvRow('路线',s.route));
+  }).join('');
+
+  /* ---- 调度原则（dispatch-plan.json 驱动） ---- */
+  var plan=await loadJSON('data/dispatch-plan.json');
+  var pl=document.getElementById('principles-list');
+  if(plan&&plan.principles&&plan.principles.length){
+    pl.innerHTML=plan.principles.map(function(p){
+      return '<li><b>'+esc(p.name)+'</b><span class="since">SINCE '+esc(p.since||'—')+'</span><br>'+esc(p.rule)+'</li>';
+    }).join('');
+  }else{
+    pl.innerHTML='<li>原则数据加载失败 —— 请用在线页面访问</li>';
+  }
+
+  document.getElementById('foot-meta').textContent='runtimes '+(rt?((rt.cloud||[]).length+(rt.tailnet||[]).length+(rt.platforms||[]).length):0)+' · log '+(log0?log0.length:0)+' · subs '+(subs0?subs0.length:0);
+
   bindCards(document);
-  showNode('muse');
 })();
 </script>
 </body>
