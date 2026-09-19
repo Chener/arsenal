@@ -1,202 +1,212 @@
 [
- {
-  "date": "2026-09-18",
-  "event": "Tailnet 达 7 台：NAS 经 Docker 进网，全部设备 key expiry 关闭",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "Cursor Cloud Agents API v1 打通（muse bot 直连），派工拓扑定为唯一入口",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "agy 1.2.5 登录用户 Google AI Pro（数据分享关闭），headless 可用",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "grok-box SSH 直驱打通，offload-agent 待首次端到端验证",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "GitHub 接入：Secure Vault 收 PAT → 建公开库 Chener/arsenal → 可视化页面上线",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "grok-box offload-agent 修复 PATH 缺失并端到端验通，算力与浏览器资源正式纳入调度池",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "Grok Bot 连接方案确定：一句话 inbox/outbox 协议作备用，Mac mini 到货后走 App 全自动环路（规划）",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "Gmail 注册第 2 次尝试：chenerodyssey01 信息填完，进入 Google 二维码设备验证，待用户手机扫码",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "NAS 接入优化：管理界面经 Tailnet 云端直达验证成功（Mac 不在家也能连）；账号在 Mac 端无记录，待用户经绿联 App 短信找回",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "NAS 升级为可执行节点：本地账号 ChenerX2 经手机 App 找回密码并开启 SSH，muse bot 公钥安装完成；ssh ugreen-nas 经 Tailnet 免密直连验证通过（不经过 Mac）",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "Tailscale 组网完成：tailnet 达 8 台，全部 key expiry 关闭；tailscale-mesh-s1 关闭，Mac mini 09-23 到货再加入",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "FirstMate 派工移交 muse bot：muse bot 为唯一派工/记账入口；FirstMate 照常运作，“做什么”由 muse bot 安排",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "军火库页面重做：交互式调度看板上线（一眼看状态、点击看细节）",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "Qoder CLI 接入中：Qwen3.8-Flash 9/18–9/30 免费窗口，待用户登录授权后由 muse bot 直派国内任务",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "Gmail 注册转用户手动：两次尝试均卡在 Google 二维码设备验证（大陆手机发不出短信、YouTube 绕法失效），chenerodyssey01~05 改由用户手动创建",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "调度策略更新：执行器二分法写入 dispatch-policy.md，Tailnet 原生执行器可访问网内资源，厂商云执行器默认只访问 GitHub/公网",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "Antigravity 多账号调度决策：主力宿主定为 09-23 到货的 Mac mini（单机多实例轮换），GCE 每号一台方案否决；云电脑不装 agy",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "X 书签 Demo 归 muse bot 接管：PR #26 用户手动合并，hub v2 上线中，当前无运行中的 agent；#1 #2 stale PR 待决策",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "Monid 评估结论：实为按调用付费的聚合层（非永久免费），决定不接入；云电脑上已卸载",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "firstmate 本地 HEAD 经验吸收完成：家规/五条硬规则/验收纪律/Chrome profile 规则等并入 muse bot 默认行为",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "决策规则更新：折腾无解且用户手动效率明显更高时果断转手动，不硬扛自动化",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "Muse 订阅升级支付：Stripe Link 显示不支持中国，大陆账户可行升级路径待确认",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "调度巡检 cron 落地：grokbox-ssh-watch（每 3h）与 mac-back-online-survey（每小时）上线，状态变化才打扰用户",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "event": "Memory ownership final model confirmed (2026-09-18)：用户确认最终记忆归属架构——muse bot 为唯一 owner 驱动所有模块（含军火库 Harness 运行时 T0/T1/T2 及其他 Cloud）；Mac 上 FirstMate 作为自带记忆的模块接固定项目，X 书签 demo 等项目固定由 muse bot 直接调用无记忆独立 AI（Qoder CLI、Cursor Cloud Agent）执行；所有记忆在 muse bot 汇总",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-18",
-  "title": "Qoder CLI verified as direct worker",
-  "detail": "用户完成阿里云账号授权登录；qoderclicn --list-models 确认 Qwen3.8-Flash / Qwen3.8-Max 可见；Qwen3.8-Flash 无副作用 smoke test 通过。Qoder CLI 正式成为 muse bot 直派 worker（T2，经 Mac Air），军火库 runtimes 状态更新为可用。"
- },
- {
-  "date": "2026-09-19",
-  "title": "调度纪律：所有编排与托管安排必须在军火库体现",
-  "detail": "用户全局要求：此后一切调度安排（含网页托管方式）都要在军火库页面中体现，军火库是用户掌控编排的总览；muse bot 为用户唯一主力对接，须对军火库相关设备、订阅、编排任务全知。同期：Muse 邀请码站 V2（Cloudflare Worker 投票+码主自助更新）直接开工。"
- },
- {
-  "date": "2026-09-19",
-  "event": "腾讯云 CAM 子用户 muse-bot 建成（4 条全读写策略），API 密钥存 Mac tccli（0600），dnspod API 真实验通",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "夜间派工：chenerpath.com 主站 v1 上线（Chener/chenerpath.com，GitHub Pages，apex A 记录已加，HTTPS 待签发）",
-  "executor": "夜间协调员"
- },
- {
-  "date": "2026-09-19",
-  "event": "夜间派工：muse.chenerpath.com 验收通过（DNS 生效/HTTP 200，HTTPS 证书待 GitHub 签发）",
-  "executor": "夜间协调员"
- },
- {
-  "date": "2026-09-19",
-  "event": "夜间派工：Muse V2 Worker 代码+部署脚本就绪（Chener/muse-invite-worker），前端 feat/worker-v2 分支待部署后验收",
-  "executor": "夜间协调员"
- },
- {
-  "date": "2026-09-19",
-  "event": "夜间派工：agy-keychain-popup-fix-s1 只出方案（根因：acct 钥匙串空密码+SSH 解锁缺失），fleet-cloud-perks-inventory-s1 建议关闭",
-  "executor": "夜间协调员"
- },
- {
-  "date": "2026-09-19",
-  "event": "muse.invite 全 Cloudflare 迁移完成：Pages 项目 muse-invite 上线并绑定 muse.chenerpath.com（LE 证书生效），DNSPod CNAME 由 Chener.github.io 改为 muse-invite.pages.dev，V2 前端已部署生产",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "前端 workerReady 误判 bug 修复（线上部署包已修，GitHub 分支未修、待合并时带过去）；浏览器复验：实时服务已连接，E5WOGK 显示已认领/剩余17",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "Worker 大修：KV → 单例 Durable Object（InviteState，new_sqlite_classes），根治并发写覆盖 bug；KV 全量备份后迁移，迁移密钥已删；muse bot 独立复验：三连操作票数不再丢失、10路并发更新全过、CORS 仅放行官网",
-  "executor": "云子代理（JEV 调度建议，muse bot 独立复核通过）"
- },
- {
-  "date": "2026-09-19",
-  "event": "GitHub 自动部署改走 Actions：Cloudflare GitHub App 授权被 GitHub API 明令禁止走 PAT（/user/installations 403），路线作废；CLOUDFLARE_API_TOKEN/ACCOUNT_ID Secrets 已写入（token 在 Mac 本地加密、未离机），workflow 放 ci/auto-deploy 分支休眠，push main 即激活",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "JEV 首次真实调度：Durable Object 大修派工前调用 typesafe JEV（jev-1.13.0），推荐 cloud child agent（confidence 0.68），muse bot 独立复核后采用；校准结论：任务链短、不新增费用、密钥不出 Mac 时优先云执行器",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "Codex 用量恢复验证（T2 审计一次性任务 codex-quota-recheck-20260919）：14:20 耗尽的 ChatGPT 订阅 Codex 用量，16:47 经 m5air 最小 smoke test（codex exec 返回 ok，rc=0，无 usage limit）确认已恢复可用",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "chenerpath.com 主站双语上线：独立验货发现同一 hostname 不能绑两个 Pages 项目，原双项目方案作废；JEV choice 仲裁单项目+Functions 边缘分发（P=0.68）。调试踩坑：①deploy job 未 checkout 导致 functions/ 未被 wrangler 打包（404）；②ASSETS.fetch 内部改写被 Pages 自身 index.html 规范化 308 掉，改 302 跳转 /zh/ /en/；③DNSPod @ 不支持显性URL（域名未备案），但实测 @ CNAME 可建（需先删冲突的 A 记录）；④tccli 传参 SubDomain=@ 会被当成文件引用语法，改用 file:// JSON 传参。终态：apex+www 双活，腾讯云南京 curl 302→/zh/ 中文，云电脑 302→/en/ 英文，HTTPS 正常；旧 GitHub Pages 已关，空项目已删",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "chenerpath.com 主站 v2 视觉重设计会诊完成（只出规格未写代码）：JEV choice 初判 terminal-lab 0.66 居首；3 路子 agent 独立出概念（A 终端实验室 / B 生成式场域 / C 纸质仪器挑战者）；muse bot 综合仲裁选定「纸质仪器·生成测量」融合方案——C 为基座（浅色纸面+仪器面板，在深色 dev 站海洋里纸色即记忆点）+ B 生成算法核心（等高线流场/双色套印/6 油墨/brand salt 构建期注入项目数据）+ A 机器生命感交互（描迹启动/CAL 编号/页脚 reboot/进程台账/校准日志）。JEV 标注修正：终端暗站可复制性过高，记忆点边际收益为负，修正为 C 基座融合。规格文档已存 goals/chenerpath-com-main-site-and-subdomain-system/files/2026-09-19-chenerpath-v2-design-spec.md：hash 种子=SHA-256(IP‖UA‖日期) XOR 构建期 brand 盐，splitmix64，marching squares 等高线+谐波波形+Baudot 打孔带，全静态印版（无 rAF 常驻），hero JS<50KB，PC+手机双端为验收硬标准。待用户拍板后再派实现（先做 hero 原型验证）。",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "chenerpath.com 双线托管技术调研（只读、零开通、零花费）：国内线选 EdgeOne Pages（对标 CF Pages，Git/CLI/API Token 三种部署，免费版长期有效官方口径不限流量/请求），排除 COS+CDN（持续按量计费且同样要备案）。DNSPod 分线路已只读验证：境内(7=0)/境外(3=0)/默认线路可用，apex 无 MX/TXT 冲突。最大卡点=ICP 备案：chenerpath.com 未备案（DomainNotBeian 实证），无备案只能选 EdgeOne“全球可用区（不含大陆）”，国内访客走 HK/SG/Tokyo PoP 仍优于 CF 免费；备案后可升满血大陆节点。同步设计：单仓库 GitHub Actions 一次构建 dist/ 并行部署 CF+EO（新增 EDGEONE_API_TOKEN Secret），语言路由中间件拆 shared/i18n-router.mjs + 双边薄适配（CF 用 functions/_middleware.ts 取 request.cf.country，EO 用 edge-functions/[[default]].js 取 context.request.eo.countryCodeAlpha2），回滚=历史产物重部署 + DNS 境内切回 CF。费用结论：免费额度内 ¥0；待用户确认事项=开通免费版（费用红线）+ 是否做 ICP 备案（本人实名 1-3 周）。方案文档已落 goals/chenerpath-com-main-site-and-subdomain-system/files/2026-09-19-chenerpath-dual-line-hosting-plan.md",
-  "executor": "muse bot"
- }
+  {
+    "date": "2026-09-18",
+    "event": "Tailnet 达 7 台：NAS 经 Docker 进网，全部设备 key expiry 关闭",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "Cursor Cloud Agents API v1 打通（muse bot 直连），派工拓扑定为唯一入口",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "agy 1.2.5 登录用户 Google AI Pro（数据分享关闭），headless 可用",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "grok-box SSH 直驱打通，offload-agent 待首次端到端验证",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "GitHub 接入：Secure Vault 收 PAT → 建公开库 Chener/arsenal → 可视化页面上线",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "grok-box offload-agent 修复 PATH 缺失并端到端验通，算力与浏览器资源正式纳入调度池",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "Grok Bot 连接方案确定：一句话 inbox/outbox 协议作备用，Mac mini 到货后走 App 全自动环路（规划）",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "Gmail 注册第 2 次尝试：chenerodyssey01 信息填完，进入 Google 二维码设备验证，待用户手机扫码",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "NAS 接入优化：管理界面经 Tailnet 云端直达验证成功（Mac 不在家也能连）；账号在 Mac 端无记录，待用户经绿联 App 短信找回",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "NAS 升级为可执行节点：本地账号 ChenerX2 经手机 App 找回密码并开启 SSH，muse bot 公钥安装完成；ssh ugreen-nas 经 Tailnet 免密直连验证通过（不经过 Mac）",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "Tailscale 组网完成：tailnet 达 8 台，全部 key expiry 关闭；tailscale-mesh-s1 关闭，Mac mini 09-23 到货再加入",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "FirstMate 派工移交 muse bot：muse bot 为唯一派工/记账入口；FirstMate 照常运作，“做什么”由 muse bot 安排",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "军火库页面重做：交互式调度看板上线（一眼看状态、点击看细节）",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "Qoder CLI 接入中：Qwen3.8-Flash 9/18–9/30 免费窗口，待用户登录授权后由 muse bot 直派国内任务",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "Gmail 注册转用户手动：两次尝试均卡在 Google 二维码设备验证（大陆手机发不出短信、YouTube 绕法失效），chenerodyssey01~05 改由用户手动创建",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "调度策略更新：执行器二分法写入 dispatch-policy.md，Tailnet 原生执行器可访问网内资源，厂商云执行器默认只访问 GitHub/公网",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "Antigravity 多账号调度决策：主力宿主定为 09-23 到货的 Mac mini（单机多实例轮换），GCE 每号一台方案否决；云电脑不装 agy",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "X 书签 Demo 归 muse bot 接管：PR #26 用户手动合并，hub v2 上线中，当前无运行中的 agent；#1 #2 stale PR 待决策",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "Monid 评估结论：实为按调用付费的聚合层（非永久免费），决定不接入；云电脑上已卸载",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "firstmate 本地 HEAD 经验吸收完成：家规/五条硬规则/验收纪律/Chrome profile 规则等并入 muse bot 默认行为",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "决策规则更新：折腾无解且用户手动效率明显更高时果断转手动，不硬扛自动化",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "Muse 订阅升级支付：Stripe Link 显示不支持中国，大陆账户可行升级路径待确认",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "调度巡检 cron 落地：grokbox-ssh-watch（每 3h）与 mac-back-online-survey（每小时）上线，状态变化才打扰用户",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "event": "Memory ownership final model confirmed (2026-09-18)：用户确认最终记忆归属架构——muse bot 为唯一 owner 驱动所有模块（含军火库 Harness 运行时 T0/T1/T2 及其他 Cloud）；Mac 上 FirstMate 作为自带记忆的模块接固定项目，X 书签 demo 等项目固定由 muse bot 直接调用无记忆独立 AI（Qoder CLI、Cursor Cloud Agent）执行；所有记忆在 muse bot 汇总",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-18",
+    "title": "Qoder CLI verified as direct worker",
+    "detail": "用户完成阿里云账号授权登录；qoderclicn --list-models 确认 Qwen3.8-Flash / Qwen3.8-Max 可见；Qwen3.8-Flash 无副作用 smoke test 通过。Qoder CLI 正式成为 muse bot 直派 worker（T2，经 Mac Air），军火库 runtimes 状态更新为可用。"
+  },
+  {
+    "date": "2026-09-19",
+    "title": "调度纪律：所有编排与托管安排必须在军火库体现",
+    "detail": "用户全局要求：此后一切调度安排（含网页托管方式）都要在军火库页面中体现，军火库是用户掌控编排的总览；muse bot 为用户唯一主力对接，须对军火库相关设备、订阅、编排任务全知。同期：Muse 邀请码站 V2（Cloudflare Worker 投票+码主自助更新）直接开工。"
+  },
+  {
+    "date": "2026-09-19",
+    "event": "腾讯云 CAM 子用户 muse-bot 建成（4 条全读写策略），API 密钥存 Mac tccli（0600），dnspod API 真实验通",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-19",
+    "event": "夜间派工：chenerpath.com 主站 v1 上线（Chener/chenerpath.com，GitHub Pages，apex A 记录已加，HTTPS 待签发）",
+    "executor": "夜间协调员"
+  },
+  {
+    "date": "2026-09-19",
+    "event": "夜间派工：muse.chenerpath.com 验收通过（DNS 生效/HTTP 200，HTTPS 证书待 GitHub 签发）",
+    "executor": "夜间协调员"
+  },
+  {
+    "date": "2026-09-19",
+    "event": "夜间派工：Muse V2 Worker 代码+部署脚本就绪（Chener/muse-invite-worker），前端 feat/worker-v2 分支待部署后验收",
+    "executor": "夜间协调员"
+  },
+  {
+    "date": "2026-09-19",
+    "event": "夜间派工：agy-keychain-popup-fix-s1 只出方案（根因：acct 钥匙串空密码+SSH 解锁缺失），fleet-cloud-perks-inventory-s1 建议关闭",
+    "executor": "夜间协调员"
+  },
+  {
+    "date": "2026-09-19",
+    "event": "muse.invite 全 Cloudflare 迁移完成：Pages 项目 muse-invite 上线并绑定 muse.chenerpath.com（LE 证书生效），DNSPod CNAME 由 Chener.github.io 改为 muse-invite.pages.dev，V2 前端已部署生产",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-19",
+    "event": "前端 workerReady 误判 bug 修复（线上部署包已修，GitHub 分支未修、待合并时带过去）；浏览器复验：实时服务已连接，E5WOGK 显示已认领/剩余17",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-19",
+    "event": "Worker 大修：KV → 单例 Durable Object（InviteState，new_sqlite_classes），根治并发写覆盖 bug；KV 全量备份后迁移，迁移密钥已删；muse bot 独立复验：三连操作票数不再丢失、10路并发更新全过、CORS 仅放行官网",
+    "executor": "云子代理（JEV 调度建议，muse bot 独立复核通过）"
+  },
+  {
+    "date": "2026-09-19",
+    "event": "GitHub 自动部署改走 Actions：Cloudflare GitHub App 授权被 GitHub API 明令禁止走 PAT（/user/installations 403），路线作废；CLOUDFLARE_API_TOKEN/ACCOUNT_ID Secrets 已写入（token 在 Mac 本地加密、未离机），workflow 放 ci/auto-deploy 分支休眠，push main 即激活",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-19",
+    "event": "JEV 首次真实调度：Durable Object 大修派工前调用 typesafe JEV（jev-1.13.0），推荐 cloud child agent（confidence 0.68），muse bot 独立复核后采用；校准结论：任务链短、不新增费用、密钥不出 Mac 时优先云执行器",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-19",
+    "event": "Codex 用量恢复验证（T2 审计一次性任务 codex-quota-recheck-20260919）：14:20 耗尽的 ChatGPT 订阅 Codex 用量，16:47 经 m5air 最小 smoke test（codex exec 返回 ok，rc=0，无 usage limit）确认已恢复可用",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-19",
+    "event": "chenerpath.com 主站双语上线：独立验货发现同一 hostname 不能绑两个 Pages 项目，原双项目方案作废；JEV choice 仲裁单项目+Functions 边缘分发（P=0.68）。调试踩坑：①deploy job 未 checkout 导致 functions/ 未被 wrangler 打包（404）；②ASSETS.fetch 内部改写被 Pages 自身 index.html 规范化 308 掉，改 302 跳转 /zh/ /en/；③DNSPod @ 不支持显性URL（域名未备案），但实测 @ CNAME 可建（需先删冲突的 A 记录）；④tccli 传参 SubDomain=@ 会被当成文件引用语法，改用 file:// JSON 传参。终态：apex+www 双活，腾讯云南京 curl 302→/zh/ 中文，云电脑 302→/en/ 英文，HTTPS 正常；旧 GitHub Pages 已关，空项目已删",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-19",
+    "event": "chenerpath.com 主站 v2 视觉重设计会诊完成（只出规格未写代码）：JEV choice 初判 terminal-lab 0.66 居首；3 路子 agent 独立出概念（A 终端实验室 / B 生成式场域 / C 纸质仪器挑战者）；muse bot 综合仲裁选定「纸质仪器·生成测量」融合方案——C 为基座（浅色纸面+仪器面板，在深色 dev 站海洋里纸色即记忆点）+ B 生成算法核心（等高线流场/双色套印/6 油墨/brand salt 构建期注入项目数据）+ A 机器生命感交互（描迹启动/CAL 编号/页脚 reboot/进程台账/校准日志）。JEV 标注修正：终端暗站可复制性过高，记忆点边际收益为负，修正为 C 基座融合。规格文档已存 goals/chenerpath-com-main-site-and-subdomain-system/files/2026-09-19-chenerpath-v2-design-spec.md：hash 种子=SHA-256(IP‖UA‖日期) XOR 构建期 brand 盐，splitmix64，marching squares 等高线+谐波波形+Baudot 打孔带，全静态印版（无 rAF 常驻），hero JS<50KB，PC+手机双端为验收硬标准。待用户拍板后再派实现（先做 hero 原型验证）。",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-19",
+    "event": "chenerpath.com 双线托管技术调研（只读、零开通、零花费）：国内线选 EdgeOne Pages（对标 CF Pages，Git/CLI/API Token 三种部署，免费版长期有效官方口径不限流量/请求），排除 COS+CDN（持续按量计费且同样要备案）。DNSPod 分线路已只读验证：境内(7=0)/境外(3=0)/默认线路可用，apex 无 MX/TXT 冲突。最大卡点=ICP 备案：chenerpath.com 未备案（DomainNotBeian 实证），无备案只能选 EdgeOne“全球可用区（不含大陆）”，国内访客走 HK/SG/Tokyo PoP 仍优于 CF 免费；备案后可升满血大陆节点。同步设计：单仓库 GitHub Actions 一次构建 dist/ 并行部署 CF+EO（新增 EDGEONE_API_TOKEN Secret），语言路由中间件拆 shared/i18n-router.mjs + 双边薄适配（CF 用 functions/_middleware.ts 取 request.cf.country，EO 用 edge-functions/[[default]].js 取 context.request.eo.countryCodeAlpha2），回滚=历史产物重部署 + DNS 境内切回 CF。费用结论：免费额度内 ¥0；待用户确认事项=开通免费版（费用红线）+ 是否做 ICP 备案（本人实名 1-3 周）。方案文档已落 goals/chenerpath-com-main-site-and-subdomain-system/files/2026-09-19-chenerpath-dual-line-hosting-plan.md",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-19",
+    "event": "s1 设计轨开工（用户 18:00 拍板 refined plan）：默认固定版 canonical + REMIX opt-in（?seed= 分享、localStorage 历史、右上角 标准版/我的/画廊；画廊后端 s2 另起）。并行派 3 个制作 agent 各出 2 套高保真 hero 级固定候选（共 6 套，纸质仪器视觉语言，零渐变零圆角，PC+手机双端），输出到 goals/chenerpath-com-main-site-and-subdomain-system/files/v2-candidates/candidate-1..6/，随后集成 agent 组装 ?candidate=1..6 预览站并经 Mac wrangler 部署到 chenerpath Pages preview 分支。用户拍板一版后进全站实现。不碰 DNS/托管（s3 轨）。",
+    "executor": "s1-coordinator"
+  },
+  {
+    "date": "2026-09-19",
+    "event": "s3 双线托管实施进展（用户 18:00 拍板）：A路只读侦察完成——chenerlab.cn 在本账号 DNSPod 下（@ A→175.27.167.223=南京VPS，api/gtabrain/pw-*-test 同机勿动）；备案未独立核验（tccli 无口径、MIIT 需验证码），ground truth 为 EdgeOne 开通绑定时的备案校验；DNSPod 免费版无原生快照（CreateSnapshot 被套餐拒绝），已用手工 JSON 快照替代；edgeone CLI v1.6.40 已在 Mac 装好（makers 新命名空间）；API Token 必须控制台创建（CLI/API 建不了）→ 待用户在 EdgeOne 控制台（China 体系）开通并 Create Token，经 Secure Vault 交回。B路 CI 代码就绪并推分支 feat/dual-line（3d4cdbd9）：shared/i18n-router.mjs、edge-functions/[[default]].js（onRequest 签名已按官方文档确认；eo.countryCodeAlpha2 加防御降级，待线上实测）、build.py 加 canonical（→chenerpath.com）与 dist/.build-meta.json、deploy-eo job（缺 EDGEONE_API_TOKEN 时静默跳过；deploy 前 cp edge-functions 进 dist）。JEV 仲裁 chenerlab.cn 本体托管：edgeone_pages（0.99）。注意 s1 重写 build.py 时须保留 canonical 注入与 build-meta 逻辑。下一步（被用户 token 卡住前可做）：无——开通/DNS/验收均待 token。",
+    "executor": "s3-coordinator"
+  }
 ]
