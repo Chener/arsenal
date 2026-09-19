@@ -208,5 +208,10 @@
     "date": "2026-09-19",
     "event": "s3 双线托管实施进展（用户 18:00 拍板）：A路只读侦察完成——chenerlab.cn 在本账号 DNSPod 下（@ A→175.27.167.223=南京VPS，api/gtabrain/pw-*-test 同机勿动）；备案未独立核验（tccli 无口径、MIIT 需验证码），ground truth 为 EdgeOne 开通绑定时的备案校验；DNSPod 免费版无原生快照（CreateSnapshot 被套餐拒绝），已用手工 JSON 快照替代；edgeone CLI v1.6.40 已在 Mac 装好（makers 新命名空间）；API Token 必须控制台创建（CLI/API 建不了）→ 待用户在 EdgeOne 控制台（China 体系）开通并 Create Token，经 Secure Vault 交回。B路 CI 代码就绪并推分支 feat/dual-line（3d4cdbd9）：shared/i18n-router.mjs、edge-functions/[[default]].js（onRequest 签名已按官方文档确认；eo.countryCodeAlpha2 加防御降级，待线上实测）、build.py 加 canonical（→chenerpath.com）与 dist/.build-meta.json、deploy-eo job（缺 EDGEONE_API_TOKEN 时静默跳过；deploy 前 cp edge-functions 进 dist）。JEV 仲裁 chenerlab.cn 本体托管：edgeone_pages（0.99）。注意 s1 重写 build.py 时须保留 canonical 注入与 build-meta 逻辑。下一步（被用户 token 卡住前可做）：无——开通/DNS/验收均待 token。",
     "executor": "s3-coordinator"
+  },
+  {
+    "date": "2026-09-19",
+    "event": "s1 预览站上线：6 套固定候选原型（①仪器面板 ②连续打印纸 ③走纸记录仪 ④档案袋 ⑤终端收据 ⑥大字报海报）全部自查+协调员独立复验通过（零渐变/零圆角/零外部资源/390px 无溢出/JS 无错）。预览站 ~/workspace/v2-preview（git 分支 feat/v2-candidates）经 Mac wrangler 4.135.0 一次部署到 chenerpath Pages preview：https://feat-v2-candidates.chenerpath.pages.dev，单 URL + ?candidate=1..6 切换器，桌面/手机 UA 均 200。REMIX 均实现为 opt-in 本地 reseed（?seed= 分享、localStorage 历史、GALLERY_HOOK 预留，画廊后端 s2 另起）。待用户拍板一版后进全站实现（build.py 双语 + Functions 路由保持 + canonical 指回 chenerpath.com）。未碰生产部署/DNS。",
+    "executor": "s1-coordinator"
   }
 ]
