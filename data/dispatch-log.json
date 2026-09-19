@@ -238,5 +238,26 @@
   "date": "2026-09-19",
   "event": "v2 P1 交付：动漫致敬风格引擎 + 3 套世界观原生隐喻呈现上线 preview。引擎：seeded PRNG→design tokens→全站渲染，纯客户端；?theme=&seed= 协议；REMIX 整站重生成（pushState 可分享）；右上角 标准版/我的/画廊（画廊 P2 stub）；localStorage 历史封顶 30。三套：blue-22c「22世纪蓝」→百宝袋道具卡（弹簧 pop 取出）；shadow-case「黑影追缉档案」→案件档案袋（拆封+打字机+红印章）；sky-acorn「飞行艇与橡果」→飞行邮局包裹（传送带+邮戳）。preview: https://feat-v2-engine.chenerpath.pages.dev（Mac wrangler --branch feat/v2-engine）。独立复验：6 URL×双UA 全 200；商标词零命中；零外部资源；gradient 全为硬色阶 flat 图案。收据已彻底移除（DNA receipt 对象作废）。源码 ~/workspace/v2-engine。P2 接口：THEMES 加数据包 + PRESENTATIONS.xxx 五件套；tokens 契约已冻结。未动仓库/DNS/生产。",
   "executor": "v2-engine-coordinator"
+ },
+ {
+  "date": "2026-09-19",
+  "event": "v2 P2 第一波：真实项目数据 + 插画管线验证。数据：~/workspace/v2-p2/data/projects.json，5 项目中英双语（muse-invite/xdemo/arsenal 为 live；poem-world 为 coming_soon，Pages 已可访问但未接域名；home 为本站），SOURCES.md 行级来源，私有仓库敏感细节未落盘。插画：Pollinations.ai 免 key 管线打通但不达标 hero 级（静默降分辨率 1600→1024、无视 nologo 致水印已手动裁掉、实际跑 sana 快速模型、flat vector 风格遵循差），2 张 blue-22c 图通过三秒版权测试，转为占位图（manifest 标 placeholder:true）；illustration-guide.md 沉淀 prompt 模板+铁律+三秒测试+条款（用户保留生成内容所有权、商用须合法不侵犯第三方 IP、不永久存储）。主路线等 custom.gemini key 落库后走 Nano Banana 6-8 张终版。",
+  "executor": "v2-p2-coordinator"
+ },
+ {
+  "date": "2026-09-19",
+  "event": "画廊后端上线：Worker cpath-gallery（https://cpath-gallery.chenhuitf2.workers.dev ，经 Mac wrangler deploy 一次成功，token 仅进进程环境变量、未打印；未碰引擎仓库/DNS；零费用）。单例 DO GalleryState（SQLite，new_sqlite_classes，沿用 muse-invite 模式），只存 {theme,seed,ts}；POST /api/gallery（theme allowlist + seed 0..999999 校验→400；同一 IP 10 分钟 10 次写入→429；LRU 封顶 300 条）；GET /api/gallery/recent；CORS 仅放行 https://chenerpath.com、https://www.chenerpath.com、https://*.chenerpath.pages.dev。独立复验：health/recent/400 非法 theme/403 恶意 origin 均符合预期；node 单测 95/95。免费额度（官方文档 2026-09-19 核实无变化）：Workers 10 万请求/日、DO Free 可用（仅 SQLite 后端），超限报错不扣费，配合限流符合零费用红线。前端接入片段 gallery-frontend-snippet.js 已交付、未接入引擎。代码 ~/workspace/v2-p2/gallery-worker/（worker.js/wrangler.toml/README/RUNBOOK/deploy.sh/test）。",
+  "executor": "v2-p2-coordinator"
+ },
+ {
+  "date": "2026-09-19",
+  "event": "P0 blue-22c 发布级集成完成、待总调度独立验收：分支 Chener/chenerpath.com feat/v2-blue22c-prod（commit 523425e，main+1，未合 main），preview https://feat-v2-blue22c-prod.chenerpath.pages.dev（经 Mac wrangler 自身认证部署；Mac 存的 CF API token 文件已确认损坏 53 字符、未使用，Workers AI 路径停用）。生产构建仍为 python3 site/build.py→dist/；/、/zh/、/en/ 首页换为 blue-22c 引擎（构建时双语预渲染），语言中间件 functions/_middleware.ts 保留并加 Accept-Language 第三回退，根 302（lang cookie→对应语言、无 cookie 按地区、query 保留）；canonical→https://chenerpath.com/zh|/en；仓库此前无 canonical，本次补上。5 真实项目注入（SAMPLE 痕迹清零，poem-world 为即将上线态无外链）；STR.en 33 键完整；首屏骨架屏（含 reduced-motion 静态）、自画 SVG favicon（百宝袋圆环母题）、OG 占位 SVG 卡（待换真图）；零外部资源。跨站 P1：.chenerpath.com 域 cookie cpath_theme/cpath_seed（一年期/SameSite=Lax/Secure，写失败回退 host-only）；/cpath-engine/v1/（engine.js+themes.js+presentations.js+README），CPathEngine.mountChrome 只接管子站 chrome（顶栏/导航/背景/母题/动效）不动内容，子站 REMIX=同主题换种子；协议文档在分支 docs/subdomain-integration.md，副本已入军火库 files/v2-engine/。REMIX=同主题内 8 个场景种子整站重渲染；生产 theme allowlist 仅 blue-22c（未知回退并规范化 URL）；主题切换器 UI 未放出。独立复验：12 URL×桌面/手机 UA 全 200（8 组亲测+关键路径），动漫商标词（中英日）零命中，cookie 域/占位标记/lib 文件 200 均实测，webp 合法。残留待决：真机 390px 与 REMIX 真实点击无 headless 条件未实测（逻辑层单测 36/36+DOM 烟雾 19/19 已覆盖）；cookie 跨子域真实行为待合 main 上线后验证；最终插画+OG 真图等 custom.gemini key 落库后另行任务；根 index.html（旧 v1 深色页，线上不可达）合 main 前定删留。",
+  "executor": "v2-p2-coordinator"
+ },
+ {
+  "id": 52,
+  "date": "2026-09-19",
+  "title": "调度路由打通：订阅优先原则 + 各 runtime 计费/驱动方式明确",
+  "body": "用户立规：除 DeepSeek、TypeSafe（API key only）外，所有模型一律默认走订阅账号，不再上来就用 API key。runtimes.json 每个 cloud 条目新增 billing（subscription/api-key-only/hybrid/service-token/service-oauth/free-tier）与 route 字段；subscriptions.json 明确 Google AI Pro 订阅侧与 API 分账。新增条目：Gemini API（hybrid）、TypeSafe JEV、DeepSeek、Mac Computer Use。起因：Gemini 生图走了 API key 路径撞上新项目 image 免费配额为 0，绕路后确认订阅侧（Gemini 网页版）才是正确通道，教训沉淀为路由规则。"
  }
 ]

@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-18",
+ "updated": "2026-09-19",
  "paths": [
   {
    "name": "一句话 inbox 协议",
@@ -20,11 +20,23 @@
    "name": "腾讯云 CLI/API 路线",
    "status": "已验证",
    "desc": "CAM 子用户 muse-bot（仅编程访问），挂 DNSPod/CVM/轻量应用服务器/域名注册 4 条全读写策略；API 密钥存 Mac ~/.tccli/default.credential（tccli 3.x JSON 格式，0600 权限），muse bot 经 SSH 在 Mac 上跑 tccli，密钥不出 Mac。2026-09-19 经 dnspod DescribeDomainList/DescribeRecordList 真实验证有效；浏览器持久登录为兜底。"
+  },
+  {
+   "name": "Mac Computer Use 环路（订阅侧能力）",
+   "status": "已验证调起，待用户点屏幕录制权限",
+   "desc": "muse bot 经 SSH 在 Mac 写 LaunchAgent（bootstrap gui/<uid>），图形会话中起 codex exec 调用 computer-use 插件，驱动登录态 Chrome（如 Gemini 网页版走 AI Pro 订阅生图）。文件落盘 ~/.config/muse-bot/ 后 muse bot 经 SSH 取回。2026-09-19：legacy MCP 路径修正并启用；plugin 侧本就 enabled；GUI 链路验证调起成功，首张截图待 TCC 权限。"
   }
  ],
  "protocol": {
   "inbox": "grok-box 上 ~/task-inbox/TASK-<id>.md：任务描述 + 验收标准，由 muse bot 写入",
   "outbox": "grok-box 上 ~/task-outbox/RESULT-<id>.md：执行结果，由 Grok Bot 写回，muse bot 经 SSH 读取",
   "rule": "两文件都在 grok-box 本地、双方可读写，用户不搬运任何内容"
- }
+ },
+ "principles": [
+  {
+   "name": "订阅优先于 API key",
+   "since": "2026-09-19",
+   "rule": "除 DeepSeek、TypeSafe（API key only，无订阅）外，所有模型默认走订阅账号。订阅侧能力（如 Gemini 网页版生图）走 Mac computer-use/登录态浏览器；API key 只用于无订阅替代的文本类调用。派工前查 runtimes.json 的 billing/route 字段，不要上来就用 API key。"
+  }
+ ]
 }

@@ -22,8 +22,9 @@
   "note": "agy 1.2.5 已登录此账号，数据分享已关闭（2026-09-17）",
   "quota": "待核验",
   "status": "已验证",
-  "quota_note": "含 Google Developer Program premium：每月 $10 Google Cloud credit（2026-01 起官方确认），可用于 Vertex AI Gemini API 等 GCP 后付费服务；另有 Antigravity 扩展额度",
-  "verified": true
+  "quota_note": "订阅侧能力（与 API 分账）：Gemini App 内 Nano Banana 生图、Whisk、Flow/Veo（每月约 1000 AI Credits）、NotebookLM、2TB 存储；Gemini Developer API 单独计费，订阅额度不通用。muse bot 默认走订阅侧（Mac computer-use + 网页版），API key（custom.gemini）只用于文本类调用。",
+  "verified": true,
+  "route": "订阅优先：网页/App 版走 Mac computer-use；API 通道仅文本"
  },
  {
   "name": "Muse 免费版",

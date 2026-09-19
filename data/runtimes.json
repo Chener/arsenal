@@ -4,56 +4,108 @@
    "fits": "仓库级开发、重构、修 bug、PR 工作流、长时间无人值守",
    "name": "Cursor Cloud Agent",
    "tier": "T2",
-   "via": "muse bot 直连 Cloud Agents API v1"
+   "via": "muse bot 直连 Cloud Agents API v1",
+   "billing": "subscription",
+   "route": "Cursor Ultra 订阅；muse bot 经 Cloud Agents API v1 直连（走订阅额度，非 API 计费）"
   },
   {
    "fits": "国内任务优先：轻量编码、改 bug；Qwen3.8-Flash 免费窗口 9/18–9/30",
    "name": "Qoder CLI（qoderclicn）",
    "note": "可用（2026-09-18 用户授权登录验证通过，smoke test 通过；Qwen3.8-Flash 免费 9/18-9/30）",
    "tier": "T2",
-   "via": "Mac Air 本地 CLI，走阿里云国内网络；muse bot 直接派活，不经 FirstMate"
+   "via": "Mac Air 本地 CLI，走阿里云国内网络；muse bot 直接派活，不经 FirstMate",
+   "billing": "free-tier",
+   "route": "Qwen 免费窗口；Mac Air 本地 CLI"
   },
   {
    "name": "kimi-code CLI",
    "tier": "T2",
    "fits": "Mac 本地诊断/分析任务；模型 K2.8 Preview (defaultEffort=max，即 k2.8 max)",
    "via": "Mac ~/.kimi-code/bin/kimi（v2.0.1，不在默认 PATH，需全路径），muse bot 经 SSH 直驱",
-   "note": "2026-09-19 验证：宿主确认为 Mac（之前 which 找不到是因不在 PATH）；OAuth 有效，smoke test 通过"
+   "note": "2026-09-19 验证：宿主确认为 Mac（之前 which 找不到是因不在 PATH）；OAuth 有效，smoke test 通过",
+   "billing": "subscription",
+   "route": "Kimi Code Plan ¥699 订阅；Mac ~/.kimi-code/bin/kimi 经 SSH 直驱"
   },
   {
    "tier": "T2",
    "name": "Cloudflare",
    "fits": "Pages 前端托管 + Workers/API 后端 + KV/Durable Object，muse-invite 全栈",
    "via": "API token 只在 Mac 本地 ~/.config/muse-bot/cloudflare_token（0600），muse bot 经 Mac SSH 调用；Secure Vault custom.cloudflare 仍 401，未补录",
-   "note": "2026-09-19 验证：muse-bot-api-v3 调 /user/tokens/verify 返回 success/active；旧 v2 token 暂保留待撤销"
+   "note": "2026-09-19 验证：muse-bot-api-v3 调 /user/tokens/verify 返回 success/active；旧 v2 token 暂保留待撤销",
+   "billing": "service-token",
+   "route": "服务类非模型：API token 只在 Mac 本地，muse bot 经 Mac SSH 调用"
   },
   {
    "tier": "T2",
    "name": "GitHub（Chener）",
    "fits": "代码仓库 + Actions 自动部署（Cloudflare Pages 发布）",
    "via": "Secure Vault custom.github PAT，muse bot 云电脑经 gh-api 直连",
-   "note": "2026-09-19 验证：GET /user 200；已写入仓库 Secrets 并创建 deploy-pages.yml（ci/auto-deploy 休眠分支）；PAT 为全部权限，操作自我约束只用建库/push/Actions 相关能力"
+   "note": "2026-09-19 验证：GET /user 200；已写入仓库 Secrets 并创建 deploy-pages.yml（ci/auto-deploy 休眠分支）；PAT 为全部权限，操作自我约束只用建库/push/Actions 相关能力",
+   "billing": "service-token",
+   "route": "服务类非模型：Secure Vault custom.github PAT，云电脑 gh-api 直连"
   },
   {
    "tier": "T2",
    "name": "Gmail（chenhui.wu08@gmail.com）",
    "fits": "邮件搜索/阅读/收验证码、发信/回信/草稿、退订整理；muse bot 唯一的邮件收发通道",
    "via": "官方 Gmail 连接器，muse bot 云电脑经 hatch_gws_cli 直连（gmail skill）",
-   "note": "2026-09-19 验证：status=connected，users.getProfile 200（账号 chenhui.wu08@gmail.com，邮件 15833 封/线程 13001）；发信需用户确认原文后才发送"
+   "note": "2026-09-19 验证：status=connected，users.getProfile 200（账号 chenhui.wu08@gmail.com，邮件 15833 封/线程 13001）；发信需用户确认原文后才发送",
+   "billing": "service-oauth",
+   "route": "服务类非模型：官方 Gmail 连接器直连"
   },
   {
    "tier": "T2",
    "name": "Codex（Mac）",
    "fits": "仓库级开发、重构、修 bug；走 ChatGPT 订阅额度",
    "via": "Mac /opt/homebrew/bin/codex（v0.154.0），muse bot 经 SSH 非交互调用：codex exec --skip-git-repo-check --ephemeral --sandbox read-only",
-   "note": "2026-09-19 验证：auth_mode=chatgpt，登录有效；但 ChatGPT Codex 用量已耗尽，16:12 后恢复（codex 官方提示 try again at 4:12 PM）。注意：首次 exec 超 110s 无返回系其在限额下重试，不要误判为卡死"
+   "note": "2026-09-19 验证：auth_mode=chatgpt，登录有效；但 ChatGPT Codex 用量已耗尽，16:12 后恢复（codex 官方提示 try again at 4:12 PM）。注意：首次 exec 超 110s 无返回系其在限额下重试，不要误判为卡死",
+   "billing": "subscription",
+   "route": "ChatGPT 订阅；Mac codex CLI（auth_mode=chatgpt）经 SSH 非交互调用"
   },
   {
    "tier": "T2",
    "name": "Claude Code（Mac）",
    "fits": "独立于 Cursor/Grok 的另一路模型执行器；与 Codex 互为故障切换",
    "via": "Mac ~/.local/bin/claude（v2.1.275），muse bot 经 SSH 非交互调用：claude -p",
-   "note": "2026-09-19 验证：.claude.json 有 oauthAccount（chenhui.wu08@gmail.com），但实际调用 403 Failed to authenticate——登录态已失效，需用户在 Mac 上重新 claude /login 后才能用"
+   "note": "2026-09-19 验证：.claude.json 有 oauthAccount（chenhui.wu08@gmail.com），但实际调用 403 Failed to authenticate——登录态已失效，需用户在 Mac 上重新 claude /login 后才能用",
+   "billing": "subscription",
+   "route": "Claude Max 订阅；Mac claude CLI 经 SSH 非交互调用"
+  },
+  {
+   "name": "Gemini API（custom.gemini）",
+   "tier": "T2",
+   "billing": "hybrid",
+   "fits": "文本生成走 API key（免费档可用）；生图走 API 需开 billing（新项目 image 免费配额为 0）",
+   "via": "Secure Vault custom.gemini（AI Studio key，?key= query param 经 surrogate 注入）；skill 在 ~/workspace/skills/gemini/",
+   "route": "默认走订阅路线：Mac GUI computer-use 驱动 Chrome 打开 Gemini 网页版（AI Pro 订阅额度生图），文件落盘后 muse bot 取回；API key 只用于文本类调用",
+   "note": "2026-09-19 接通：text 冒烟通过（默认模型 gemini-3.6-flash）；image 模型（2.5-flash-image / 3.1-flash-image）免费档配额为 0，已确认"
+  },
+  {
+   "name": "TypeSafe JEV",
+   "tier": "T2",
+   "billing": "api-key-only",
+   "fits": "调度仲裁（noul/choice/score 三类判断），派工前先过 JEV",
+   "via": "Secure Vault custom.typesafe；skill 在 ~/workspace/skills/typesafe/（bin/jev）",
+   "route": "API key 唯一通道（无订阅概念）；每次派工前调用，结果由 muse bot 独立复核",
+   "note": "2026-09-19 接通冒烟通过（jev-1.13.0）"
+  },
+  {
+   "name": "DeepSeek",
+   "tier": "T2",
+   "billing": "api-key-only",
+   "fits": "API key 模型，无订阅；备用文本/推理通道",
+   "via": "API key（待接入时再定 vault 条目）",
+   "route": "API key 唯一通道",
+   "note": "2026-09-19 用户明确：DeepSeek 与 TypeSafe 为仅有的 API key 例外，其余一律订阅优先"
+  },
+  {
+   "name": "Mac Computer Use（CodeX CUA）",
+   "tier": "T0+agent",
+   "billing": "subscription-backed",
+   "fits": "驱动 Mac 图形桌面：登录态浏览器操作（Gemini 网页版等订阅侧能力）、系统权限弹窗点按",
+   "via": "Mac ~/.codex/computer-use/ 内 Codex Computer Use.app；muse bot 经 SSH 写 LaunchAgent（bootstrap gui/<uid>）在图形会话中起 codex exec 调用 computer-use 插件",
+   "route": "muse bot 派工 → Mac GUI 会话执行 → 文件落盘 ~/.config/muse-bot/ → muse bot 经 SSH 取回；TCC 权限（屏幕录制/辅助功能）需用户点一次",
+   "note": "2026-09-19 修好启用：legacy [mcp_servers.computer-use] 路径修正并打开；plugin computer-use@openai-bundled / unified-computer-use@openai-bundled 本就 enabled；GUI 链路经 LaunchAgent 验证调起成功，待用户点屏幕录制权限"
   }
  ],
  "platforms": [
