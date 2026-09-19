@@ -37,6 +37,16 @@
    "name": "订阅优先于 API key",
    "since": "2026-09-19",
    "rule": "除 DeepSeek、TypeSafe（API key only，无订阅）外，所有模型默认走订阅账号。订阅侧能力（如 Gemini 网页版生图）走 Mac computer-use/登录态浏览器；API key 只用于无订阅替代的文本类调用。派工前查 runtimes.json 的 billing/route 字段，不要上来就用 API key。"
+  },
+  {
+   "name": "本地驱动无头优先",
+   "since": "2026-09-19",
+   "rule": "Mac 本地的 computer-use/浏览器自动化一律先走无头（headless CDP、codex exec 等 CLI）；headed 桌面截屏点按只做兜底。已在跑的 headed 任务让它跑完，从下一单开始执行。"
+  },
+  {
+   "name": "生图多源、Gemini 作储备",
+   "since": "2026-09-19",
+   "rule": "生图不只押 Gemini：Grok 生图能力加入备选，Gemini（Nano Banana）降为储备（尽量无头调用）。派工时按任务选生图源。"
   }
  ]
 }
