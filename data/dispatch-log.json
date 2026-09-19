@@ -279,5 +279,10 @@
   "date": "2026-09-19",
   "event": "主站终端完整 QA 收尾（jsdom 39 断言全过）：help/open/lang/mail/whoami/sudo/rm -rf //neofetch/42 九命令、↑↓历史、localStorage 优先级链、Reduced Motion 双路径、1440px/390px 结构、国内外跳转链；无功能 bug（仅 390px 真实像素渲染建议后续 headed 补截图）",
   "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-20",
+  "event": "X Slop Tagger v4 真凶：MV3 content script 带 Authorization 头直调第三方 API，CORS 预检被 TypeSafe 拒（400 Disallowed CORS origin），全部判定死在预检上致满屏黑\"?\"。修复 0.4.1：新增 background service worker 做 API 代理（MV3 标准做法，不受预检约束），content/options 改走 chrome.runtime.sendMessage。真实 Chromium153+真实key+真实JEV 复测：Slop 95%/97% 红印章，零\"?\"。架构红线：MV3 content script 跨域 fetch 一律走 SW 代理。",
+  "executor": "muse bot"
  }
 ]
