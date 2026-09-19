@@ -233,5 +233,10 @@
   "date": "2026-09-19",
   "event": "v2 方向修正（用户18:18明确）：收据与动漫主题解耦不硬挂。主线只有动漫致敬引擎；每系列用世界观原生的项目呈现隐喻（22世纪蓝→百宝袋道具卡、黑影追缉档案→案件档案袋、飞行艇与橡果→飞行邮局包裹，自然优先硬拗不如不要）；收据降级为P2备选独立主题，P1完全不做；默认主题改哆啦A梦致敬。DNA 的 receipt 对象作废，其余照用。已 interrupt 实现 agent 纠正（旧收据代码废弃）。修正文档 files/v2-engine/DIRECTION-CORRECTION-2026-09-19.md。",
   "executor": "v2-engine-coordinator"
+ },
+ {
+  "date": "2026-09-19",
+  "event": "v2 P1 交付：动漫致敬风格引擎 + 3 套世界观原生隐喻呈现上线 preview。引擎：seeded PRNG→design tokens→全站渲染，纯客户端；?theme=&seed= 协议；REMIX 整站重生成（pushState 可分享）；右上角 标准版/我的/画廊（画廊 P2 stub）；localStorage 历史封顶 30。三套：blue-22c「22世纪蓝」→百宝袋道具卡（弹簧 pop 取出）；shadow-case「黑影追缉档案」→案件档案袋（拆封+打字机+红印章）；sky-acorn「飞行艇与橡果」→飞行邮局包裹（传送带+邮戳）。preview: https://feat-v2-engine.chenerpath.pages.dev（Mac wrangler --branch feat/v2-engine）。独立复验：6 URL×双UA 全 200；商标词零命中；零外部资源；gradient 全为硬色阶 flat 图案。收据已彻底移除（DNA receipt 对象作废）。源码 ~/workspace/v2-engine。P2 接口：THEMES 加数据包 + PRESENTATIONS.xxx 五件套；tokens 契约已冻结。未动仓库/DNS/生产。",
+  "executor": "v2-engine-coordinator"
  }
 ]
