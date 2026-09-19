@@ -178,5 +178,10 @@
   "date": "2026-09-19",
   "event": "JEV 首次真实调度：Durable Object 大修派工前调用 typesafe JEV（jev-1.13.0），推荐 cloud child agent（confidence 0.68），muse bot 独立复核后采用；校准结论：任务链短、不新增费用、密钥不出 Mac 时优先云执行器",
   "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-19",
+  "event": "Codex 用量恢复验证（T2 审计一次性任务 codex-quota-recheck-20260919）：14:20 耗尽的 ChatGPT 订阅 Codex 用量，16:47 经 m5air 最小 smoke test（codex exec 返回 ok，rc=0，无 usage limit）确认已恢复可用",
+  "executor": "muse bot"
  }
 ]
