@@ -33,6 +33,13 @@
    "fits": "代码仓库 + Actions 自动部署（Cloudflare Pages 发布）",
    "via": "Secure Vault custom.github PAT，muse bot 云电脑经 gh-api 直连",
    "note": "2026-09-19 验证：GET /user 200；已写入仓库 Secrets 并创建 deploy-pages.yml（ci/auto-deploy 休眠分支）；PAT 为全部权限，操作自我约束只用建库/push/Actions 相关能力"
+  },
+  {
+   "tier": "T2",
+   "name": "Gmail（chenhui.wu08@gmail.com）",
+   "fits": "邮件搜索/阅读/收验证码、发信/回信/草稿、退订整理；muse bot 唯一的邮件收发通道",
+   "via": "官方 Gmail 连接器，muse bot 云电脑经 hatch_gws_cli 直连（gmail skill）",
+   "note": "2026-09-19 验证：status=connected，users.getProfile 200（账号 chenhui.wu08@gmail.com，邮件 15833 封/线程 13001）；发信需用户确认原文后才发送"
   }
  ],
  "platforms": [
