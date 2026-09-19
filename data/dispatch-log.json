@@ -266,159 +266,18 @@
   "executor": "muse bot"
  },
  {
-  "id": 54,
   "date": "2026-09-19",
-  "title": "容器/程序二分拓扑模型确立",
-  "summary": "用户确立数字世界架构四原则：①容器/程序二分（T0/T1=我的容器，T2=别人容器里的程序，SSH/Tailscale是连接程序）；②密钥收归Mac Mini（muse bot提分级细化：文件型密钥全收归Mini经SSH调用，OAuth连接器列清单审计，待拍板）；③全局偏好主动挑战不盲从；④前端先出多媒体对标包再派工。已记入topology.json container_program_model。",
-  "tags": [
-   "topology",
-   "原则",
-   "2026-09-19"
-  ]
- },
- {
-  "date": "2026-09-19",
-  "event": "TypeSafe JEV 接通：API key 经 Secure Vault custom.typesafe 入库，skill 落在 workspace/skills/typesafe（bin/jev，支持 noul/choice/score），冒烟验证 HTTP 200（jev-1.13.0）",
+  "event": "国内站上线：acme.sh 在 Mac 上已签发 LE ECC 证书（chenerlab.cn+www），deploy hook 手动首跑成功（SSL CertificateId=avgHnk2H，EdgeOne 双域名绑定生效，配置确认 CertInfo 非空）；上一轮执行器误报“签发仍在后台”，实际签发已完成但 hook 未注册——已补注册 Le_DeployHook= edgeonecert，续期链闭环",
   "executor": "muse bot"
  },
  {
   "date": "2026-09-19",
-  "event": "Qoder CLI 授权状态修正：此前授权未落到 CLI 会话（--list-models 返回未登录），新设备授权链接已过期，仍待用户重新授权后由 muse bot 直派",
+  "event": "国内站独立复现验收：南京节点 https://chenerlab.cn 与 https://www.chenerlab.cn 严格证书校验 200，openssl 确认 CN=chenerlab.cn、SAN 双域名、LE 签发、有效期至 2026-12-18；首页 title=Chener·终端；大陆访问 chenerpath.com 302 至 .cn 保留 path/query；海外 chenerpath.com/www 200 不受影响",
   "executor": "muse bot"
  },
  {
   "date": "2026-09-19",
-  "event": "grok-box 05:26 失联根因查明：宿主机冻结整机约 83 分钟（tailscaled 日志 time jump 1h23m12s），非进程崩溃；落地本机看门狗（每 5 分钟保活 tailscaled/sshd），宿主机层冻结仍需用户出面找对方",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "grok-box 监控策略变更（用户要求）：删掉 3 小时间隔巡检 grokbox-ssh-watch，改为派工前主动探测（grokbox-probe.sh，exit 0/1/2 区分本机失联与本地出口故障）",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "腾讯云南京 VPS 直连打通：新建专用密钥经 Tailscale 免密 SSH，不再经 Mac 跳；pages-https-watch 探测迁移到该国内节点",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "Vultr 硅谷 VPS 直连打通：根因为 Tailscale SSH（RunSSH）接管 22 端口要求交互校验，经 Mac 在其系统 sshd 执行 tailscale set --ssh=false 后 tailnet 直连恢复",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "Cloudflare API token 恢复：此前三次截图/转抄来源均 401（字符误认）；经浏览器 DOM 重建 muse-bot-api-v3（Pages/Workers Scripts/KV/Routes Edit，All zones），存 Mac 本地并验证 active；Vault 旧 custom.cloudflare 仍不可用",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "Gmail 官方连接器接通并验证（读邮件链路可用），登记军火库 T2；发信/回复仍需先向用户确认收件人、主题和正文",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "Claude Code 403 根因查明：非交互 SSH 未继承 FlClash 代理、流量从国内直连被区域 차단，并非登录失效；补代理变量后调用验证可用（已记 TOOLS.md）",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "账号敏感调用固定出口落地：Vultr 上 tinyproxy 强制固定公网 IPv4 出口 + 云电脑 SSH 本地转发；Anthropic/Claude Code/OpenAI/Codex/Cursor Cloud Agent/Jules 控制面调用前必须加载该出口（已记 AGENTS.md）",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "官方地区条款核验完成：Anthropic/OpenAI 官方文本确认中国大陆不在支持名单；固定出口只能减少 IP 跳变风控信号，不能消除 ToS 残余风险；固定出口纪律仅针对控制面调用",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "运行时分级最终口径：只看'能管到哪一层'——T0 硬件层（有所有权）/T1 系统层（整机 root）/T2 接口层（只有服务接口）；Grok Bot 定为 T2（SSH 自动挡+App 手动挡），GitHub/连接器/云电脑均归 T2",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "X Demo 全 Cloudflare 部署：Pages 项目 bookmark-demo-lab 上线，xdemo.chenerpath.com HTTPS 200；ballot-api Worker 重部署（绑定 ballot-votes KV）；三条 Actions workflow（Pages 自动部署+PR 预览、Worker 自动部署、KV→git 每 15 分钟同步）；旧 GitHub Pages 已禁用",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "X Demo 自动化验收通过：KV→git 同步曾因 Python urllib 默认 UA 被 Workers 403，修复为自定义 UA 后手动触发成功；临时 PR #27 验证每个 PR 独立 Pages 预览可用后关闭删除",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "Gemini 连接器接通（Secure Vault custom.gemini），凭证由运行时安全存储；生图 skill 待创建，正式插画待生成",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "军火库作战指挥室上线：index.html 重做（T0/T1/T2 三层 SVG 拓扑、21 运行时节点状态灯、dispatch 时间线、加强状态条），muse bot 独立复查后推 main 上线",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "调度纪律补充：muse bot 只做听需求、拆任务、派工、验收回报四件事；超过几分钟的活先异步派出再回对话，对话永不阻塞（已记 AGENTS.md）",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "主站开发节奏收敛（用户要求）：不上随机种子、不扩展动漫主题；现阶段手动指派优先、自动调度以后再议；muse bot 继续用 JEV 打磨真实派工",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "主站 v1（Opus'个人印务所'）构建完成并推 ui/v1-opus 分支，Cloudflare Pages Preview 上线，静态冒烟通过",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "主站方向拍板'凡人赛博之路'：用户否决 v1，定赛博朋克风主站（品牌 Chener）；工程路线：执行器固定 Mac 本地 Claude Max（豆包备胎），monorepo 单仓，muse-invite 因 Worker+DO 后端保持独立仓库",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "主站 v2（Antigravity/Gemini 3.8 Flash'物理工坊与模块卡带'）构建完成，但随'凡人赛博之路'新方向拍板作废归档",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "仓库默认私有立规：Chener/chenerpath.com 已由公开翻为私有（Actions/wrangler 部署链不受影响）；除已公开外默认私有",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "chenerlab.cn 备案号查到：皖ICP备2021006287号-2（headed 桌面模拟在腾讯云备案控制台查到，公开信息），待加入国内站 footer",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "EdgeOne API 密钥仍未建成：执行器因密钥会进入截图主动拒绝创建；待用户二选一：授权'截图用后即删'后重跑，或给子用户补 CAM 权限后走 tccli",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "密钥三层模型修正（用户拍板，旧'密钥只存 Mac Mini'作废）：①Vault 层——能进 Secure Vault 的全进 Vault，muse bot 直接调用；②本地层——Vault 放不下的放用户本地 Mac；③官方侧——OAuth/信用卡等只登记不搬运",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "主站 v3（凡人赛博之路）两轮修订 Preview 上线：夜街完整版+Chener 品牌+军火库招牌+四项目二级域名链接；分支别名斜杠/横杠 bug 修复后固定别名返回新版；浏览器补充 QA 通过；待用户反馈后定是否合生产",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "Agent 群会诊原则确立（QCA 文章启发）：muse bot 仍是唯一派工口和唯一对接人；卡点先在 agent 间闭环（查军火库、补资料、调 JEV、拉群讨论），只有业务决策/权限/资金三类才升级找用户",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "主站 blue-22c 发布级曾合 main 上线生产（/zh/ /en/ /www 200）；随后 20:00 用户要求收敛方向，该版本不再继续迭代",
-  "executor": "muse bot"
- },
- {
-  "date": "2026-09-19",
-  "event": "Mac Computer Use 探针纠正：系统设置里 Computer Use 权限本就已勾选，真正缺的是 ChatGPT.app 未运行（用户已启动）；CUA 组件已调起但端到端截图未打通；本地驱动定为无头优先，桌面点按只兜底",
+  "event": "主站终端完整 QA 收尾（jsdom 39 断言全过）：help/open/lang/mail/whoami/sudo/rm -rf //neofetch/42 九命令、↑↓历史、localStorage 优先级链、Reduced Motion 双路径、1440px/390px 结构、国内外跳转链；无功能 bug（仅 390px 真实像素渲染建议后续 headed 补截图）",
   "executor": "muse bot"
  }
 ]

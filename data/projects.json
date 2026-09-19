@@ -4,7 +4,7 @@
     "desc": "Wu 的网站作品集聚合导航（所有网站项目入口）",
     "repo": "Chener/chenerpath.com",
     "url": "https://chenerpath.com",
-    "status": "已上线（HTTPS 正常）；2026-09-19 国内外双视角验收通过",
+    "status": "已上线；2026-09-19 夜间国内线上线：chenerlab.cn + www.chenerlab.cn 经 EdgeOne HTTPS 200（南京节点严格校验通过），Let's Encrypt ECC 证书（CN=chenerlab.cn，SAN 含 www，有效期至 2026-12-18），Mac acme.sh cron 自动续期 + deploy hook 已注册自动上传绑定；海外 chenerpath.com 200 不受影响，大陆访问 .com 302 至 .cn（保留 path/query）；主站终端完整 QA 收尾：九命令/历史/localStorage/Reduced Motion/1440px+390px 共 39 断言全过，无功能 bug",
     "drive": "muse bot 直派：2026-09-19 双语重构（JEV 架构选择 P=0.68 仲裁单项目方案，废弃 chenerpath-zh/en 双项目）；GitHub Actions 自动部署（build→deploy 单链，wrangler）；旧 GitHub Pages 已关闭，空项目已删除；腾讯云密钥/Cloudflare token 均只留 Mac，muse bot 经 Tailscale SSH 驱动 Mac 执行",
     "host": "Cloudflare Pages（项目 chenerpath，chenerpath.pages.dev）；单项目内 /zh/ /en/ 双版，Pages Functions 中间件按 cf.country 分发（CN→中文，其余→英文），lang cookie 覆盖手动切换；DNS 本账号 DNSPod：@ CNAME→chenerpath.pages.dev、www CNAME→chenerpath.pages.dev"
   },
