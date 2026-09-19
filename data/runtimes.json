@@ -17,15 +17,15 @@
    "name": "kimi-code CLI",
    "tier": "T2",
    "fits": "Mac 本地诊断/分析任务；模型 K2.8 Preview (defaultEffort=max，即 k2.8 max)",
-   "via": "muse bot 直派：~/.kimi-code/bin/kimi（注意非交互 SSH 需加该路径到 PATH；~/.local/bin/kimiim-cli 是另一个同名工具）",
-   "note": "2026-09-19 验证：OAuth 有效，smoke test 通过"
+   "via": "Mac ~/.kimi-code/bin/kimi（v2.0.1，不在默认 PATH，需全路径），muse bot 经 SSH 直驱",
+   "note": "2026-09-19 验证：宿主确认为 Mac（之前 which 找不到是因不在 PATH）；OAuth 有效，smoke test 通过"
   },
   {
    "tier": "T2",
    "name": "Cloudflare",
    "fits": "Pages 前端托管 + Workers/API 后端 + KV/Durable Object，muse-invite 全栈",
-   "via": "API token（Secure Vault custom.cloudflare），muse bot 云电脑直连",
-   "note": "2026-09-19 验证：muse-bot-api-v3（Pages:Edit + Workers:Edit + Zone:Read）建 Pages 项目、绑自定义域名、wrangler 部署 Worker 均成功；旧 v2 token 暂保留待撤销"
+   "via": "API token 只在 Mac 本地 ~/.config/muse-bot/cloudflare_token（0600），muse bot 经 Mac SSH 调用；Secure Vault custom.cloudflare 仍 401，未补录",
+   "note": "2026-09-19 验证：muse-bot-api-v3 调 /user/tokens/verify 返回 success/active；旧 v2 token 暂保留待撤销"
   },
   {
    "tier": "T2",
@@ -40,6 +40,20 @@
    "fits": "邮件搜索/阅读/收验证码、发信/回信/草稿、退订整理；muse bot 唯一的邮件收发通道",
    "via": "官方 Gmail 连接器，muse bot 云电脑经 hatch_gws_cli 直连（gmail skill）",
    "note": "2026-09-19 验证：status=connected，users.getProfile 200（账号 chenhui.wu08@gmail.com，邮件 15833 封/线程 13001）；发信需用户确认原文后才发送"
+  },
+  {
+   "tier": "T2",
+   "name": "Codex（Mac）",
+   "fits": "仓库级开发、重构、修 bug；走 ChatGPT 订阅额度",
+   "via": "Mac /opt/homebrew/bin/codex（v0.154.0），muse bot 经 SSH 非交互调用：codex exec --skip-git-repo-check --ephemeral --sandbox read-only",
+   "note": "2026-09-19 验证：auth_mode=chatgpt，登录有效；但 ChatGPT Codex 用量已耗尽，16:12 后恢复（codex 官方提示 try again at 4:12 PM）。注意：首次 exec 超 110s 无返回系其在限额下重试，不要误判为卡死"
+  },
+  {
+   "tier": "T2",
+   "name": "Claude Code（Mac）",
+   "fits": "独立于 Cursor/Grok 的另一路模型执行器；与 Codex 互为故障切换",
+   "via": "Mac ~/.local/bin/claude（v2.1.275），muse bot 经 SSH 非交互调用：claude -p",
+   "note": "2026-09-19 验证：.claude.json 有 oauthAccount（chenhui.wu08@gmail.com），但实际调用 403 Failed to authenticate——登录态已失效，需用户在 Mac 上重新 claude /login 后才能用"
   }
  ],
  "platforms": [
