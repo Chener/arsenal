@@ -1,68 +1,68 @@
 [
- {
-  "name": "chenerpath.com 主站",
-  "desc": "Wu 的网站作品集聚合导航（所有网站项目入口）",
-  "repo": "Chener/chenerpath.com",
-  "url": "http://chenerpath.com",
-  "status": "已上线（HTTP）/HTTPS证书签发中",
-  "drive": "muse bot 直派：2026-09-19 凌晨 v1 静态站上线（GitHub Pages；apex A 记录经 Mac tccli 加到本账号 DNSPod）；HTTPS 证书待 GitHub 签发后再开强制",
-  "host": "GitHub Pages；apex A -> 185.199.108.153/109.153（DNSPod 免费版上限2条）；DNS: 本账号 DNSPod(chenerpath.com)"
- },
- {
-  "name": "arsenal",
-  "desc": "军火库可视化页面（本页）",
-  "repo": "Chener/arsenal",
-  "drive": "muse bot 直连 GitHub API（建库/push/Pages），调度历史每日自动同步；2026-09-19 凌晨：腾讯云 CLI 路线、chenerpath.com 主站、muse 域名验收状态已同步",
-  "status": "已验证"
- },
- {
-  "name": "bookmark-demo-lab",
-  "desc": "X 书签每日技术 demo（Cloudflare Pages 预览）",
-  "repo": "Chener/bookmark-demo-lab",
-  "drive": "muse bot 已接管：PR #26 于 2026-09-18 合入 main；原 Grok Bot→CCA 驱动路径交接完成，无运行中 agent",
-  "status": "已接管"
- },
- {
-  "name": "poem-world",
-  "desc": "三首公版诗的可行走世界（GitHub Pages 发布）",
-  "repo": "Chener/poem-world",
-  "drive": "ChenerX2 本人主导，PR 工作流（#26-#29，2026-09-17 活跃）；执行器待确认",
-  "status": "待核验"
- },
- {
-  "name": "CodexBar",
-  "desc": "Codex / Claude Code 用量统计菜单栏工具",
-  "repo": "Chener/CodexBar",
-  "drive": "上游开源项目 fork（steipete），跟随上游同步更新",
-  "status": "已验证"
- },
- {
-  "name": "firstmate",
-  "desc": "Talk to one agent. Ship with a crew.（Mac crew 调度相关）",
-  "repo": "Chener/firstmate",
-  "drive": "上游开源项目 fork（kunchenguid），跟随上游同步更新",
-  "status": "已验证"
- },
- {
-  "name": "pxml-akit-site",
-  "desc": "个人静态站点（series-100 / ATS 页面）",
-  "repo": "Chener/pxml-akit-site",
-  "drive": "ChenerX2 本人维护更新",
-  "status": "已验证"
- },
- {
-  "name": "私有项目 ×42",
-  "desc": "活跃自研 14 / 灾备镜像 14 / 其余 14（2026-09-18 全量盘点）",
-  "repo": "私有明细不上公开页",
-  "drive": "muse bot 统一盘点，按活跃度纳入调度",
-  "status": "已盘点"
- },
- {
-  "name": "muse-invite",
-  "desc": "Muse 邀请码聚合站（muse.chenerpath.com）—— 全 Cloudflare 架构",
-  "repo": "Chener/muse-invite",
-  "drive": "muse bot 直派。2026-09-19 切全 Cloudflare：Pages 项目已建并绑定正式域名（API 字段用 name 非 domain）；V2 前端（feat/worker-v2，未合并）已手动部署生产；Worker 从 KV 大修为单例 Durable Object（InviteState，SQLite 后端），修复 KV 并发写覆盖 bug（muse bot 独立复验通过）；GitHub 只做代码仓库，自动部署改走 Actions（Secrets 已配，workflow 在 ci/auto-deploy 分支休眠，push main 即激活）；前端 workerReady 误判 bug 已修。pages-https-watch 定时任务已删。",
-  "status": "已上线（全Cloudflare）",
-  "host": "前端 Cloudflare Pages（项目 muse-invite，muse-invite.pages.dev，自定义域名 active，LE 证书至 2026-12-18）；后端 Cloudflare Worker muse-invite-v2 + Durable Object；DNS 本账号 DNSPod：CNAME muse -> muse-invite.pages.dev"
- }
+  {
+    "name": "chenerpath.com 主站",
+    "desc": "Wu 的网站作品集聚合导航（所有网站项目入口）",
+    "repo": "Chener/chenerpath.com",
+    "url": "https://chenerpath.com",
+    "status": "已上线（HTTPS 正常）；2026-09-19 国内外双视角验收通过",
+    "drive": "muse bot 直派：2026-09-19 双语重构（JEV 架构选择 P=0.68 仲裁单项目方案，废弃 chenerpath-zh/en 双项目）；GitHub Actions 自动部署（build→deploy 单链，wrangler）；旧 GitHub Pages 已关闭，空项目已删除；腾讯云密钥/Cloudflare token 均只留 Mac，muse bot 经 Tailscale SSH 驱动 Mac 执行",
+    "host": "Cloudflare Pages（项目 chenerpath，chenerpath.pages.dev）；单项目内 /zh/ /en/ 双版，Pages Functions 中间件按 cf.country 分发（CN→中文，其余→英文），lang cookie 覆盖手动切换；DNS 本账号 DNSPod：@ CNAME→chenerpath.pages.dev、www CNAME→chenerpath.pages.dev"
+  },
+  {
+    "name": "arsenal",
+    "desc": "军火库可视化页面（本页）",
+    "repo": "Chener/arsenal",
+    "drive": "muse bot 直连 GitHub API（建库/push/Pages），调度历史每日自动同步；2026-09-19 凌晨：腾讯云 CLI 路线、chenerpath.com 主站、muse 域名验收状态已同步",
+    "status": "已验证"
+  },
+  {
+    "name": "bookmark-demo-lab",
+    "desc": "X 书签每日技术 demo（Cloudflare Pages 预览）",
+    "repo": "Chener/bookmark-demo-lab",
+    "drive": "muse bot 已接管：PR #26 于 2026-09-18 合入 main；原 Grok Bot→CCA 驱动路径交接完成，无运行中 agent",
+    "status": "已接管"
+  },
+  {
+    "name": "poem-world",
+    "desc": "三首公版诗的可行走世界（GitHub Pages 发布）",
+    "repo": "Chener/poem-world",
+    "drive": "ChenerX2 本人主导，PR 工作流（#26-#29，2026-09-17 活跃）；执行器待确认",
+    "status": "待核验"
+  },
+  {
+    "name": "CodexBar",
+    "desc": "Codex / Claude Code 用量统计菜单栏工具",
+    "repo": "Chener/CodexBar",
+    "drive": "上游开源项目 fork（steipete），跟随上游同步更新",
+    "status": "已验证"
+  },
+  {
+    "name": "firstmate",
+    "desc": "Talk to one agent. Ship with a crew.（Mac crew 调度相关）",
+    "repo": "Chener/firstmate",
+    "drive": "上游开源项目 fork（kunchenguid），跟随上游同步更新",
+    "status": "已验证"
+  },
+  {
+    "name": "pxml-akit-site",
+    "desc": "个人静态站点（series-100 / ATS 页面）",
+    "repo": "Chener/pxml-akit-site",
+    "drive": "ChenerX2 本人维护更新",
+    "status": "已验证"
+  },
+  {
+    "name": "私有项目 ×42",
+    "desc": "活跃自研 14 / 灾备镜像 14 / 其余 14（2026-09-18 全量盘点）",
+    "repo": "私有明细不上公开页",
+    "drive": "muse bot 统一盘点，按活跃度纳入调度",
+    "status": "已盘点"
+  },
+  {
+    "name": "muse-invite",
+    "desc": "Muse 邀请码聚合站（muse.chenerpath.com）—— 全 Cloudflare 架构",
+    "repo": "Chener/muse-invite",
+    "drive": "muse bot 直派。2026-09-19 切全 Cloudflare：Pages 项目已建并绑定正式域名（API 字段用 name 非 domain）；V2 前端（feat/worker-v2，未合并）已手动部署生产；Worker 从 KV 大修为单例 Durable Object（InviteState，SQLite 后端），修复 KV 并发写覆盖 bug（muse bot 独立复验通过）；GitHub 只做代码仓库，自动部署改走 Actions（Secrets 已配，workflow 在 ci/auto-deploy 分支休眠，push main 即激活）；前端 workerReady 误判 bug 已修。pages-https-watch 定时任务已删。",
+    "status": "已上线（全Cloudflare）",
+    "host": "前端 Cloudflare Pages（项目 muse-invite，muse-invite.pages.dev，自定义域名 active，LE 证书至 2026-12-18）；后端 Cloudflare Worker muse-invite-v2 + Durable Object；DNS 本账号 DNSPod：CNAME muse -> muse-invite.pages.dev"
+  }
 ]
