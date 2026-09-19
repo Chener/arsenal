@@ -153,5 +153,30 @@
   "date": "2026-09-19",
   "event": "夜间派工：agy-keychain-popup-fix-s1 只出方案（根因：acct 钥匙串空密码+SSH 解锁缺失），fleet-cloud-perks-inventory-s1 建议关闭",
   "executor": "夜间协调员"
+ },
+ {
+  "date": "2026-09-19",
+  "event": "muse.invite 全 Cloudflare 迁移完成：Pages 项目 muse-invite 上线并绑定 muse.chenerpath.com（LE 证书生效），DNSPod CNAME 由 Chener.github.io 改为 muse-invite.pages.dev，V2 前端已部署生产",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-19",
+  "event": "前端 workerReady 误判 bug 修复（线上部署包已修，GitHub 分支未修、待合并时带过去）；浏览器复验：实时服务已连接，E5WOGK 显示已认领/剩余17",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-19",
+  "event": "Worker 大修：KV → 单例 Durable Object（InviteState，new_sqlite_classes），根治并发写覆盖 bug；KV 全量备份后迁移，迁移密钥已删；muse bot 独立复验：三连操作票数不再丢失、10路并发更新全过、CORS 仅放行官网",
+  "executor": "云子代理（JEV 调度建议，muse bot 独立复核通过）"
+ },
+ {
+  "date": "2026-09-19",
+  "event": "GitHub 自动部署改走 Actions：Cloudflare GitHub App 授权被 GitHub API 明令禁止走 PAT（/user/installations 403），路线作废；CLOUDFLARE_API_TOKEN/ACCOUNT_ID Secrets 已写入（token 在 Mac 本地加密、未离机），workflow 放 ci/auto-deploy 分支休眠，push main 即激活",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-19",
+  "event": "JEV 首次真实调度：Durable Object 大修派工前调用 typesafe JEV（jev-1.13.0），推荐 cloud child agent（confidence 0.68），muse bot 独立复核后采用；校准结论：任务链短、不新增费用、密钥不出 Mac 时优先云执行器",
+  "executor": "muse bot"
  }
 ]
