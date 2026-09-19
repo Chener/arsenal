@@ -46,7 +46,7 @@
   {
    "name": "生图多源、Gemini 作储备",
    "since": "2026-09-19",
-   "rule": "生图不只押 Gemini：Grok 生图能力加入备选，Gemini（Nano Banana）降为储备（尽量无头调用）。派工时按任务选生图源。"
+   "rule": "生图不只押 Gemini：备选 = ChatGPT 订阅的 image 模型（用户称 image 2.5）+ Grok 的生图能力；Gemini（Nano Banana）降为储备（尽量无头调用）。派工时按任务选生图源。"
   }
  ]
 }
