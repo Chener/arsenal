@@ -50,19 +50,13 @@ main{max-width:1180px;margin:0 auto;padding:18px 22px 80px}
 /* ---------- map ---------- */
 .mapwrap{position:relative;background:var(--card);border:1px solid var(--line);border-radius:20px;
   box-shadow:var(--shadow);overflow:hidden}
-#map,#map2{width:100%;display:block;touch-action:manipulation}
+#map,#cmpmap{width:100%;display:block;touch-action:manipulation}
 .node{cursor:pointer}
 .node .pill{transition:filter .18s}
 .node:hover .pill{filter:brightness(.95) drop-shadow(0 4px 10px rgba(30,41,59,.20))}
 .node.dim{opacity:.13;pointer-events:none;transition:opacity .4s}
 .edge{fill:none;stroke:#c9d2df;stroke-width:1.4;opacity:.7}
 .edge.hot{stroke:#8fa3c2;stroke-width:2;opacity:1}
-.routeline{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
-.routeline.planned{stroke:#3f74d6;stroke-dasharray:9 7}
-.routeline.actual{stroke:#2f9e6e}
-.routeline.ghost{stroke:#b9c4d4;stroke-dasharray:4 6;stroke-width:2.5}
-.seqbadge{font-size:12px;font-weight:700;fill:#fff;pointer-events:none;text-anchor:middle}
-.evchip{cursor:default}
 /* ---------- detail card ---------- */
 .detail{position:absolute;z-index:40;width:302px;background:#fff;border:1px solid var(--line);
   border-radius:16px;box-shadow:0 14px 44px rgba(30,41,59,.18);padding:18px;display:none;
@@ -123,25 +117,30 @@ main{max-width:1180px;margin:0 auto;padding:18px 22px 80px}
 .stbadge{font-size:.68rem;border-radius:999px;padding:1px 8px;margin-left:6px;white-space:nowrap}
 .st-completed{background:#e6f5ee;color:#1e7a4e}
 .st-running{background:#fff4dd;color:#a86f14}
-.replaybar{display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
-.seg{display:flex;background:#e9edf3;border-radius:999px;padding:3px}
-.seg button{border:0;background:transparent;padding:6px 16px;border-radius:999px;font-size:.82rem;color:var(--dim);cursor:pointer}
-.seg button.on{background:#fff;color:var(--ink);font-weight:600;box-shadow:0 2px 8px rgba(30,41,59,.12)}
-.verpin{font-size:.76rem;color:var(--dim);border:1px dashed #c3ccd9;border-radius:999px;padding:4px 12px}
-.timeline{margin-top:14px;background:var(--card);border:1px solid var(--line);border-radius:16px;
-  box-shadow:var(--shadow);padding:8px 0}
-.step{display:flex;gap:12px;padding:12px 18px;border-bottom:1px solid #eef1f6;cursor:pointer}
-.step:last-child{border-bottom:0}
-.step:hover{background:#f7f9fc}
-.step .n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#e9edf3;color:var(--dim);
-  font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center}
-.step.lit .n{background:var(--c-container);color:#fff}
-.step.skip .n{background:#fff;border:2px dashed #b9c4d4;color:#b9c4d4}
-.step .body{flex:1;min-width:0}
-.step .who{font-size:.78rem;color:var(--dim)}
-.step .act{font-size:.88rem;margin:2px 0}
-.step .out{font-size:.8rem;color:var(--ok)}
-.step .tm{font-size:.72rem;color:var(--faint)}
+/* ---------- match compare: 放射式 RPG 技能盘 ---------- */
+.cmpcol{min-width:0}
+.viewtitle{font-size:1.15rem;margin:2px 2px 14px}
+.verbar{display:flex;align-items:center;gap:10px;background:#eef3fc;border:1px solid #c9d8f2;
+  border-radius:12px;padding:9px 14px;font-size:.82rem;color:#2c4a7c;margin-bottom:12px;flex-wrap:wrap}
+.verbar .vnote{color:#5a7396;font-size:.76rem}
+.runhead{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);
+  padding:16px 18px;margin-bottom:12px}
+.runhead .rt{margin:0 0 6px;font-size:1.02rem;font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.runhead .task{margin:0 0 8px;font-size:.85rem;color:var(--dim)}
+.runhead .meta{display:flex;gap:8px 16px;flex-wrap:wrap;font-size:.78rem;color:var(--dim)}
+.cmplegend{display:flex;gap:8px 18px;flex-wrap:wrap;font-size:.78rem;color:var(--dim);
+  margin:2px 2px 10px;align-items:center}
+.cmplegend .cmptitle{font-weight:700;color:var(--ink);font-size:.88rem;margin-right:4px}
+.cmplegend .li{display:flex;align-items:center;gap:6px}
+.cmplegend .li.hint{color:var(--faint);font-size:.74rem}
+#cmpmap{width:100%;display:block;touch-action:manipulation}
+.cmknode{cursor:pointer}
+.cmknode:hover .core{filter:brightness(1.07)}
+.cmknode.sel .core{stroke:#1d2433;stroke-width:4}
+.stagearc{cursor:pointer}
+.stagearc:hover .arcband{filter:brightness(.94)}
+.cmpdetail{z-index:45;max-height:70vh;overflow-y:auto}
+.cmpdetail .kbadge{font-size:.7rem;font-weight:700;border-radius:999px;padding:2px 10px;color:#fff}
 .devcard{margin-top:14px;background:#fffdf4;border:1px solid #f0dfae;border-radius:16px;padding:16px 18px}
 .devcard h4{margin:0 0 8px;font-size:.95rem}
 .devcard p{font-size:.85rem;color:#5a5340;margin:6px 0}
@@ -189,22 +188,18 @@ main{max-width:1180px;margin:0 auto;padding:18px 22px 80px}
     <p style="color:var(--faint);font-size:.78rem;margin-top:10px" data-i="maphint">点击类别展开节点 · 点击节点查看详情 · 点击容器可展开其内部程序</p>
   </section>
   <section id="view-match" style="display:none">
+    <h2 class="viewtitle" data-i="cmpReview">执行复盘</h2>
     <div class="matchgrid">
       <div class="runlist" id="runlist"></div>
-      <div>
-        <div class="replaybar">
-          <div class="seg" id="modeseg">
-            <button data-mode="planned" class="on" data-i="mPlanned">计划路线</button>
-            <button data-mode="actual" data-i="mActual">实际路线</button>
-            <button data-mode="both" data-i="mBoth">对比</button>
-          </div>
-          <span class="verpin" id="runver"></span>
-        </div>
-        <div class="mapwrap" id="mapwrap2">
-          <svg id="map2" role="img" aria-label="Match replay"></svg>
+      <div class="cmpcol">
+        <div class="verbar" id="verbar"></div>
+        <div class="runhead" id="runhead"></div>
+        <div class="cmplegend" id="cmplegend"></div>
+        <div class="mapwrap" id="cmpwrap">
+          <svg id="cmpmap" role="img" aria-label="Planned vs actual"></svg>
+          <div class="detail cmpdetail" id="cmpdetail"></div>
         </div>
         <div class="devcard" id="devcard" style="display:none"></div>
-        <div class="timeline" id="timeline"></div>
       </div>
     </div>
   </section>
@@ -228,14 +223,26 @@ zh:{
   noDiff:"两版完全一致", viewingHist:"正在查看历史版本", notLatest:",非最新",
   nodes:"节点", edges:"条关系", typeNames:{container:"容器",program:"程序",network:"网络",credential:"凭证"},
   statusNames:{active:"正常",degraded:"降级",planned:"规划中"},
-  mPlanned:"计划路线", mActual:"实际路线", mBoth:"对比",
-  runOnVer:"渲染版本", runNoVer:"该 run 未记录 mesh 版本，按当前版本渲染",
   devTitle:"计划 vs 实际：差值", devAdded:"计划外的关键节点", devRemoved:"被短路的计划节点", devNote:"备注",
   noRuns:"暂无对战记录", expandInner:"展开内部程序", collapse:"收起",
   relNames:{runs_on:"运行于",auth_with:"鉴权",connects_via:"经由连接",serves:"服务",migrates_to:"迁移至",routes_to:"路由至"},
   attrNames:{tier:"层级",ip:"内网 IP",public_ip:"公网 IP",note:"备注",role:"职责",billing:"计费",where:"存放"},
   external:"外部步骤", running:"进行中", completed:"已完成",
   close:"关闭", innerProgs:"内部程序",
+  heroSub:"调度中枢", cmpReview:"执行复盘", cmpTitle:"计划 vs 实际",
+  runNo:"执行 #", run:"执行", plannedN:"计划 {n} 步", actualN:"实际 {n} 步",
+  plannedCnt:"计划", actualCnt:"实际", started:"开始", ended:"结束",
+  cmpPlanned:"计划", cmpActual:"实际",
+  legendPlanned:"计划步骤（虚线）", legendActual:"实际步骤（实心）",
+  legendAligned:"计划≈实际（同心）", legendSkipped:"被短路的计划", legendDev:"偏差",
+  cmpHint:"点击节点查看详情",
+  verLock:"锁定 Mesh", verPinned:"复盘锁定版本",
+  verInferred:"该 run 未记录执行时的 mesh 版本，按仓库决议回放为 v0.1.0",
+  emptyActual:"该 run 暂无实际执行记录", node:"步骤",
+  phExpand:"展开", phSteps:"步",
+  dAction:"动作", dExecutor:"执行者", dAt:"时间", dEnv:"环境",
+  dOutput:"输出", dCredential:"密钥", dVia:"经由", dMapsPlan:"对应计划",
+  dAligned:"对齐", dSkipped:"被短路", dUnplanned:"计划外", dDevNote:"偏差说明",
 },
 en:{
   title:"Arsenal Mesh", subtitle:"Arsenal · Resource Topology", tabMesh:"Mesh", tabMatch:"Match Runs",
@@ -247,14 +254,26 @@ en:{
   noDiff:"The two versions are identical", viewingHist:"Viewing historical version", notLatest:", not the latest",
   nodes:"nodes", edges:"edges", typeNames:{container:"Containers",program:"Programs",network:"Networks",credential:"Credentials"},
   statusNames:{active:"active",degraded:"degraded",planned:"planned"},
-  mPlanned:"Planned", mActual:"Actual", mBoth:"Compare",
-  runOnVer:"rendered on", runNoVer:"This run has no recorded mesh version; rendered on current version",
   devTitle:"Planned vs actual: deviation", devAdded:"Unplanned key nodes", devRemoved:"Short-circuited planned nodes", devNote:"Note",
   noRuns:"No match runs yet", expandInner:"Reveal inner programs", collapse:"Collapse",
   relNames:{runs_on:"runs on",auth_with:"auth with",connects_via:"connects via",serves:"serves",migrates_to:"migrates to",routes_to:"routes to"},
   attrNames:{tier:"tier",ip:"LAN IP",public_ip:"public IP",note:"note",role:"role",billing:"billing",where:"stored in"},
   external:"external step", running:"running", completed:"completed",
   close:"Close", innerProgs:"Inner programs",
+  heroSub:"dispatch hub", cmpReview:"Execution Review", cmpTitle:"Planned vs Actual",
+  runNo:"Run #", run:"Run", plannedN:"{n} planned steps", actualN:"{n} actual steps",
+  plannedCnt:"Planned", actualCnt:"Actual", started:"Started", ended:"Ended",
+  cmpPlanned:"planned", cmpActual:"actual",
+  legendPlanned:"Planned step (dashed)", legendActual:"Actual step (solid)",
+  legendAligned:"Planned≈actual (concentric)", legendSkipped:"Short-circuited plan", legendDev:"Deviation",
+  cmpHint:"Tap a node for details",
+  verLock:"Pinned mesh", verPinned:"Review pinned to",
+  verInferred:"This run recorded no mesh version at execution time; replayed as v0.1.0 per repo decision",
+  emptyActual:"No actual execution recorded for this run yet", node:"Step",
+  phExpand:"expand", phSteps:"steps",
+  dAction:"Action", dExecutor:"Executor", dAt:"Time", dEnv:"Environment",
+  dOutput:"Output", dCredential:"Credential", dVia:"via", dMapsPlan:"Maps to plan",
+  dAligned:"Aligned", dSkipped:"Short-circuited", dUnplanned:"Unplanned", dDevNote:"Deviation notes",
 }};
 /* 默认语言：手动选择优先（localStorage），否则按国内/国际自动判定。
    对标主站 functions/_middleware.ts：cookie 手动 > cf.country（CN→zh）。
@@ -598,174 +617,447 @@ function resolveStep(reg, step){
   }
   return {external:true, label:cands[0]||""};
 }
-/* ================= match replay ================= */
-const Replay = { run:null, meta:null, mode:"planned", resolved:[], timers:[] };
+/* ================= match compare: 放射式 RPG 技能盘（计划 vs 实际） =================
+锁定 spec: ~/workspace/arsenal-match-proto/specs/style2-compare-spec.md（样式二，compare-only）
+标记语言: 实心圆=实际步骤；虚线圆=计划步骤；对齐→同心单标记（实心核+虚线光环），
+一个标记双编码；分歧→计划留内圈虚线、实际走外圈实线，偏差点之间画⚡连线，
+计划外节点带⚡光环；实际每一步都显示，不合并。
+对齐算法（buildCompare，纯函数，可在 node 下用真实 run JSON 单测）：
+1. parseSeqRefs 从 deviation 文本解析显式引用："planned seqN"/"计划步N"→跳过的计划步；
+"actual seqN"→明确标记的计划外实际步。deviation 支持 {summary,nodes_added,nodes_removed,note}
+与 [str,...] 两种形状（001 是对象，002 是数组）。
+2. 贪心配对：未跳过的计划步 × 未被占用的实际步，按 term-containment 相似度取最佳；
+相似度≥0.5 → 对齐。"（待）"只表示计划时待定：实际执行了就该对齐（如 #002 P6→A4 备份→原子替换），
+未执行的自然落到内圈虚线；阈值本身已防止误合并。
+term-containment = 短文本去重词项中有多少能在长文本词项中找到子串包含（对中英混杂稳健）。
+3. 未配对计划步→内圈虚线（跳过的置灰）；未配对实际步→外圈实心（即计划外，带⚡光环）。
+4. ⚡连线：每个被跳过的计划步 → 其之后（seq≥）最早的计划外实际步（分叉点），每实际步最多被连一次。
+拥挤规则：可见标记>15 → 中圈可折叠标记按阶段（连续相同 program）收成阶段弧，点击下钻；
+⚡节点与被跳过的计划节点永不折叠、永不隐藏。
+*/
+const CMP = { run:null, meta:null, file:null, model:null, expandedPhase:null, sel:null};
+const ALIGN_MIN = 0.5, ARC_THRESHOLD = 15;
+/* v0.2.0 changelog 决议：#001/#002 执行时未记录 mesh_version，固定渲染 0.1.0 快照（旧 run 不挪用新版本） */
+const LEGACY_MESH_VERSION = "0.1.0";
+
+function termsOf(s){
+return String(s||"").toLowerCase()
+.split(/[\s,，。.；;：:、！？!?"'“”‘’（）()\[\]\/\\|+\-—→・·*～~…]+/)
+.map(x=>x.trim()).filter(x=>x.length>=2);
+}
+function termSim(a,b){
+const A=termsOf(a), B=termsOf(b);
+if(!A.length||!B.length) return 0;
+const S=A.length<=B.length?A:B, L=A.length<=B.length?B:A;
+let n=0;
+for(const t of S){ if(L.some(u=>u.indexOf(t)>=0||t.indexOf(u)>=0)) n++;}
+return n/Math.min(A.length,B.length);
+}
+function stepText(s){ return [s.program,s.action].filter(Boolean).join(" ");}
+function actualStepsOf(run){
+const ac=run.actual_chain, ch=run.chain;
+return ((ac&&ac.length?ac:null)||(ch&&ch.length?ch:null))||[];
+}
+function plannedStepsOf(run){ return run.planned_chain||[];}
+function parseSeqRefs(run){
+const texts=[];
+const d=run.deviation;
+if(d){
+if(Array.isArray(d)){ for(const x of d) texts.push(x);}
+else{
+texts.push(d.summary||"");
+(d.nodes_added||[]).forEach(x=>texts.push(x));
+(d.nodes_removed||[]).forEach(x=>texts.push(x));
+texts.push(d.note||"");
+}
+}
+const skipped=new Set(), added=new Set();
+for(const tx of texts){
+let m;
+const reP=/(?:planned|计划)[^\d]{0,8}seq\s*(\d+)/gi;
+const reP2=/计划步\s*(\d+)/g;
+const reA=/(?:actual|实际)[^\d]{0,8}seq\s*(\d+)/gi;
+while((m=reP.exec(tx))) skipped.add(+m[1]);
+while((m=reP2.exec(tx))) skipped.add(+m[1]);
+while((m=reA.exec(tx))) added.add(+m[1]);
+}
+return {skipped:skipped, added:added};
+}
+function buildCompare(run){
+const planned=plannedStepsOf(run), actual=actualStepsOf(run);
+const refs=parseSeqRefs(run);
+const pairs=[], usedA=new Set();
+for(const p of planned){
+if(refs.skipped.has(p.seq)) continue;
+let best=null, bs=0;
+for(const a of actual){
+if(usedA.has(a.seq)) continue;
+const s=termSim(stepText(p),stepText(a));
+if(s>bs){ bs=s; best=a;}
+}
+if(best&&bs>=ALIGN_MIN){ pairs.push({p:p, a:best}); usedA.add(best.seq);}
+}
+const pp=new Set(), pa=new Set();
+pairs.forEach(x=>{ pp.add(x.p.seq); pa.add(x.a.seq);});
+const unplanned=actual.filter(a=>!pa.has(a.seq)).sort((x,y)=>x.seq-y.seq);
+const links=[], linkedA=new Set();
+Array.from(refs.skipped).sort((x,y)=>x-y).forEach(ps=>{
+const tgt=unplanned.find(a=>a.seq>=ps&&!linkedA.has(a.seq));
+if(tgt){ links.push({p:ps, a:tgt.seq}); linkedA.add(tgt.seq);}
+});
+return {planned:planned, actual:actual, pairs:pairs, pp:pp, pa:pa,
+skipped:refs.skipped, added:refs.added,
+unplanned:unplanned.map(a=>a.seq), links:links};
+}
+function runMeshVersion(run){
+if(run.mesh_version) return {v:run.mesh_version, inferred:false};
+return {v:LEGACY_MESH_VERSION, inferred:true};
+}
+/* 阶段：连续相同 program 的标记归为一组（纯函数） */
+function phasesOf(markers){
+const ph=[];
+markers.forEach(m=>{
+const prog=(m.a&&m.a.program)||(m.p&&m.p.program)||(m.step&&m.step.program)||"?";
+const last=ph[ph.length-1];
+if(last&&last.program===prog) last.markers.push(m);
+else ph.push({program:prog, markers:[m]});
+});
+return ph;
+}
+function polar(cx,cy,R,deg){ const a=deg*Math.PI/180; return [cx+R*Math.cos(a), cy+R*Math.sin(a)];}
+function arcPath(cx,cy,R,a0,a1){
+const p=a=>{ const r=a*Math.PI/180; return [cx+R*Math.cos(r), cy+R*Math.sin(r)];};
+const q0=p(a0), q1=p(a1), large=(a1-a0)>180?1:0;
+return "M "+q0[0].toFixed(1)+" "+q0[1].toFixed(1)+
+" A "+R+" "+R+" 0 "+large+" 1 "+q1[0].toFixed(1)+" "+q1[1].toFixed(1);
+}
+function shortLbl(s,n){ s=String(s==null?"":s); return s.length>n? s.slice(0,n)+"…": s;}
+
 function openRun(file){
-  Replay.run=DB.runs[file]; Replay.meta=DB.runsIndex.runs.find(m=>m.file===file);
-  Replay.mode="planned";
-  document.querySelectorAll("#modeseg button").forEach(b=>b.classList.toggle("on", b.dataset.mode==="planned"));
-  document.querySelectorAll(".runitem").forEach(e=>e.classList.toggle("sel", e.dataset.file===file));
-  renderReplay();
+CMP.run=DB.runs[file]; CMP.meta=(DB.runsIndex.runs||[]).find(m=>m.file===file);
+CMP.file=file; CMP.expandedPhase=null; CMP.sel=null;
+hideCmpDetail();
+document.querySelectorAll(".runitem").forEach(e=>e.classList.toggle("sel", e.dataset.file===file));
+renderCompare();
 }
-/* 真实链兼容：actual_chain（新）|| chain（旧字段，Run #001 的真实执行链）|| planned_chain */
-function actualSteps(){
-  const run=Replay.run, ac=run.actual_chain, ch=run.chain;
-  return ((ac&&ac.length?ac:null)||(ch&&ch.length?ch:null)||run.planned_chain)||[];
-}
-function chainSteps(){
-  const run=Replay.run;
-  return (Replay.mode==="actual"? actualSteps() : run.planned_chain)||[];
-}
-function renderReplay(){
-  const run=Replay.run; if(!run) return;
-  Replay.timers.forEach(clearTimeout); Replay.timers=[];
-  const steps=chainSteps();
-  Replay.resolved=steps.map(s=>resolveStep(DB.registry, s));
-  const mode=Replay.mode;
-  const removedTxt=(run.deviation&&run.deviation.nodes_removed||[]).join(" ");
-  const isSkipped=(s)=> removedTxt.includes("seq"+s.seq);
-  renderMesh("map2", {dimAll:true, allExpanded:true, lockBg:true, onRender:(st, layers)=>{
-    const {root, svg}=layers;
-    const over=el("g",{},svg);
-    // move overlay into root coords: append to root so bbox includes it
-    root.appendChild(over);
-    const nodePos=st.nodePos;
-    const routePts=[];
-    Replay.resolved.forEach((r,i)=>{
-      if(r.node&&nodePos[r.node]) routePts.push({i, id:r.node, x:nodePos[r.node].x, y:nodePos[r.node].y});
-    });
-    const drawPath=(pts, cls)=>{
-      for(let k=0;k<pts.length-1;k++){
-        const a=pts[k], b=pts[k+1], mx=(a.x+b.x)/2;
-        const path=el("path",{class:"routeline "+cls,
-          d:`M${a.x},${a.y} C${mx},${a.y} ${mx},${b.y} ${b.x},${b.y}`},over);
-        const isGhost=cls.includes("ghost"), isPlanned=cls.includes("planned");
-        if(isGhost||isPlanned){
-          path.style.opacity=0; path.style.transition="opacity .5s";
-          Replay.timers.push(setTimeout(()=>{ path.style.opacity=1; }, 350+k*450));
-        }else{
-          const len=path.getTotalLength();
-          path.style.strokeDasharray=String(len); path.style.strokeDashoffset=len;
-          path.getBoundingClientRect();
-          path.style.transition="stroke-dashoffset .7s ease";
-          Replay.timers.push(setTimeout(()=>{ path.style.strokeDashoffset=0; }, 350+k*450));
-        }
-      }
-    };
-    const badge=(p, num, fill, skip)=>{
-      const g=el("g",{transform:`translate(${p.x},${p.y-24})`,opacity:0},over);
-      el("circle",{r:13, fill:skip?"#fff":fill, stroke:"#fff","stroke-width":2, class:"seqbg"},g);
-      if(skip){ el("line",{x1:-6,y1:0,x2:6,y2:0,stroke:"#b9c4d4","stroke-width":2.5},g); }
-      else { const tx=el("text",{class:"seqbadge", y:4.2},g); tx.textContent=num; }
-      g.style.transition="opacity .4s";
-      Replay.timers.push(setTimeout(()=>{ g.style.opacity=1; }, 300+p.i*450));
-    };
-    if(mode==="planned"||mode==="both"){
-      drawPath(routePts, mode==="both"?"planned ghost":"planned");
-      routePts.forEach(p=>badge(p, p.i+1, "#3f74d6", false));
-    }
-    if(mode==="actual"||mode==="both"){
-      // 对比模式：actual 绿色实线按真实链独立解析绘制，与 planned 虚线同屏
-      let aPts;
-      if(mode==="both"){
-        const aSteps=actualSteps();
-        const aRes=aSteps.map(s=>resolveStep(DB.registry,s));
-        aPts=[];
-        aRes.forEach((r,i)=>{ if(r.node&&nodePos[r.node]) aPts.push({i, id:r.node, x:nodePos[r.node].x, y:nodePos[r.node].y}); });
-        drawPath(aPts,"actual");
-      }else{
-        aPts=routePts.filter(p=>!isSkipped(steps[p.i]));
-        drawPath(aPts,"actual"); aPts.forEach(p=>badge(p,p.i+1,"#2f9e6e",false));
-      }
-      routePts.forEach(p=>{ if(isSkipped(steps[p.i])) badge(p, p.i+1, "#fff", true); });
-      const added=(run.deviation&&run.deviation.nodes_added)||[];
-      added.forEach((txt,idx)=>{
-        const anchor=aPts.length?aPts[Math.min(idx+2,aPts.length-1)]:routePts[0];
-        if(!anchor) return;
-        const ex=anchor.x+(idx%2?95:-95), ey=anchor.y-72-idx*10;
-        const g=el("g",{class:"evchip", transform:`translate(${ex},${ey})`, opacity:0},over);
-        el("rect",{x:-14,y:-14,width:28,height:28,rx:8,fill:"#fff4dd",stroke:"#d9932c","stroke-width":1.5},g);
-        const tx=el("text",{y:6,"text-anchor":"middle","font-size":15},g); tx.textContent="⚡";
-        const title=el("title",{},g); title.textContent=txt.slice(0,140);
-        const ln=el("line",{x1:anchor.x,y1:anchor.y-24,x2:ex,y2:ey+14,stroke:"#d9932c","stroke-width":1.5,"stroke-dasharray":"4 4",opacity:0},over);
-        g.style.transition="opacity .4s"; ln.style.transition="opacity .4s";
-        Replay.timers.push(setTimeout(()=>{ g.style.opacity=1; ln.setAttribute("opacity",".8"); }, 600+idx*500));
-      });
-    }
-    // refit viewBox to include overlay
-    try{
-      const bb=root.getBBox();
-      const cur=svg.viewBox.baseVal;
-      const nx=Math.min(cur.x,bb.x-44), ny=Math.min(cur.y,bb.y-32);
-      const nx2=Math.max(cur.x+cur.width,bb.x+bb.width+44), ny2=Math.max(cur.y+cur.height,bb.y+bb.height+32);
-      svg.setAttribute("viewBox",`${nx} ${ny} ${nx2-nx} ${ny2-ny}`);
-    }catch(e){}
-  }});
-  renderRunMeta(); renderTimeline();
+function hideCmpDetail(){
+const b=document.getElementById("cmpdetail");
+if(b) b.classList.remove("show");
+CMP.sel=null;
+document.querySelectorAll("#cmpmap .cmknode.sel").forEach(e=>e.classList.remove("sel"));
 }
 
-function renderRunMeta(){
-  const run=Replay.run, meta=Replay.meta;
-  const syncv=(run._sync&&run._sync.mesh_version)||DB.versions.latest;
-  const recorded=!!run.mesh_version;
-  document.getElementById("runver").textContent =
-    `${t("runOnVer")} mesh v${syncv}` + (recorded?"":" · "+t("runNoVer"));
-  const dev=document.getElementById("devcard");
-  if(run.deviation){
-    const d=run.deviation;
-    dev.style.display="block";
-    dev.innerHTML=`<h4>⚡ ${esc(t("devTitle"))}</h4>
-      <p>${esc(d.summary||"")}</p>
-      ${d.nodes_added&&d.nodes_added.length?`<p><b>${esc(t("devAdded"))}：</b></p><ul>${d.nodes_added.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}
-      ${d.nodes_removed&&d.nodes_removed.length?`<p><b>${esc(t("devRemoved"))}：</b></p><ul>${d.nodes_removed.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}
-      ${d.note?`<p style="color:var(--faint)">📝 ${esc(d.note)}</p>`:""}`;
-  } else dev.style.display="none";
+/* ---------- 头部：版本锁定条 / run 信息 / 图例 ---------- */
+function renderCmpBar(run){
+const mv=runMeshVersion(run);
+document.getElementById("verbar").innerHTML =
+"🔒 <span><b>"+esc(t("verLock"))+"</b> v"+esc(mv.v)+" · "+esc(t("verPinned"))+"</span>"+
+(mv.inferred?'<span class="vnote">'+esc(t("verInferred"))+"</span>":"");
 }
-function renderTimeline(){
-  const run=Replay.run, tl=document.getElementById("timeline");
-  const steps=chainSteps();
-  const removedTxt2=(run.deviation&&run.deviation.nodes_removed||[]).join(" ");
-  tl.innerHTML=steps.map((s,i)=>{
-    const r=Replay.resolved[i]||{};
-    const skip=removedTxt2.includes("seq"+s.seq);
-    const who=[s.program, s.container_name||s.container].filter(Boolean).join(" · ");
-    const nodeNm=r.node?(nodeById(DB.registry,r.node)||{}).name:null;
-    return `<div class="step${skip?" skip":""}" data-i="${i}">
-      <div class="n">${skip?"–":(i+1)}</div>
-      <div class="body">
-        <div class="who">${esc(who)}${nodeNm?` → <b>${esc(nodeNm)}</b>`:r.external?` · ${esc(t("external"))}`:""}</div>
-        <div class="act">${esc(s.action||"")}</div>
-        ${s.output?`<div class="out">✓ ${esc(s.output)}</div>`:""}
-        ${s.at?`<div class="tm">${esc(s.at)}</div>`:""}
-      </div></div>`;
-  }).join("");
-  tl.querySelectorAll(".step").forEach(elm=>{
-    elm.addEventListener("click", ()=>{
-      const i=+elm.dataset.i, r=Replay.resolved[i];
-      if(r&&r.node){
-        // flash corresponding badge
-        elm.classList.add("lit"); setTimeout(()=>elm.classList.remove("lit"),900);
-      }
-    });
-  });
+function renderCmpHead(run){
+const meta=CMP.meta||{};
+const M=CMP.model;
+const st=run.status||meta.status||"";
+document.getElementById("runhead").innerHTML =
+'<p class="rt">'+esc(t("runNo"))+" #"+esc(run.match_run||meta.match_run||"")+" · "+esc(run.title||"")+
+' <span class="stbadge st-'+esc(st)+'">'+esc(t(st)||st)+"</span></p>"+
+(run.task?'<p class="task">'+esc(run.task)+"</p>":"")+
+'<div class="meta"><span>'+esc(t("started"))+" "+esc(run.started_at||meta.started_at||"")+"</span>"+
+"<span>"+esc(t("ended"))+" "+esc(run.ended_at||t("notEnded"))+"</span>"+
+"<span>"+esc(t("plannedCnt"))+" "+M.planned.length+" "+esc(t("phSteps"))+"</span>"+
+"<span>"+esc(t("actualCnt"))+" "+M.actual.length+" "+esc(t("phSteps"))+"</span></div>";
 }
+function renderCmpLegend(){
+document.getElementById("cmplegend").innerHTML =
+'<span class="cmptitle">'+esc(t("cmpReview"))+" · "+esc(t("cmpTitle"))+"</span>"+
+'<span class="li"><svg width="30" height="24"><circle cx="15" cy="12" r="10" fill="#2f9e6e"/><circle cx="15" cy="12" r="14" fill="none" stroke="#9aa4b5" stroke-width="2" stroke-dasharray="4 3"/></svg>'+esc(t("legendAligned"))+"</span>"+
+'<span class="li"><svg width="30" height="24"><circle cx="15" cy="12" r="9" fill="#fff" stroke="#9aa4b5" stroke-width="3" stroke-dasharray="5 4"/></svg>'+esc(t("legendPlanned"))+"</span>"+
+'<span class="li"><svg width="30" height="24"><circle cx="15" cy="12" r="9" fill="#2f9e6e"/></svg>'+esc(t("legendActual"))+"</span>"+
+'<span class="li"><svg width="30" height="24"><circle cx="15" cy="12" r="9" fill="#2f9e6e"/><text x="15" y="17" text-anchor="middle" font-size="13">⚡</text></svg>'+esc(t("legendDev"))+"</span>"+
+'<span class="li"><svg width="30" height="24"><circle cx="15" cy="12" r="9" fill="#fff" stroke="#b9c4d4" stroke-width="3" stroke-dasharray="5 4" opacity=".5"/></svg>'+esc(t("legendSkipped"))+"</span>"+
+'<span class="li hint">'+esc(t("cmpHint"))+"</span>";
+}
+function renderCmpMeta(){
+const run=CMP.run, dev=document.getElementById("devcard");
+const d=run.deviation;
+let items=[];
+if(d){
+if(Array.isArray(d)) items=d.filter(Boolean);
+else{
+if(d.summary) items.push(d.summary);
+(d.nodes_added||[]).forEach(x=>items.push("＋ "+x));
+(d.nodes_removed||[]).forEach(x=>items.push("－ "+x));
+if(d.note) items.push("📝 "+d.note);
+}
+}
+if(!items.length){ dev.style.display="none"; return;}
+dev.style.display="block";
+dev.innerHTML="<h4>⚡ "+esc(t("devTitle"))+"</h4><ul>"+
+items.map(x=>"<li>"+esc(x)+"</li>").join("")+"</ul>";
+}
+
+/* ---------- 放射盘渲染 ---------- */
+function renderCompare(){
+const run=CMP.run, svgEl=document.getElementById("cmpmap");
+if(!run){ svgEl.innerHTML=""; return;}
+const M=buildCompare(run); CMP.model=M;
+renderCmpBar(run); renderCmpHead(run); renderCmpLegend(); renderCmpMeta();
+const W=780,H=700,cx=390,cy=352,A0=150,SWEEP=240;
+const R_IN=150, R_MID=218, R_OUT=286;
+const inner=[], mid=[], outer=[];
+M.planned.forEach(p=>{
+if(M.pp.has(p.seq)) return;
+inner.push({mid:"p"+p.seq, orbit:"in", step:p, skipped:M.skipped.has(p.seq)});
+});
+M.pairs.forEach(x=>{ mid.push({mid:"m"+x.p.seq, orbit:"mid", p:x.p, a:x.a});});
+M.actual.forEach(a=>{
+if(M.pa.has(a.seq)) return;
+outer.push({mid:"a"+a.seq, orbit:"out", step:a});
+});
+CMP.markers=inner.concat(mid,outer);
+const posOf=(arr,i,R)=>polar(cx,cy,R, A0+SWEEP*(arr.length===1?0.5:i/(arr.length-1)));
+const angOf=(arr,i)=>A0+SWEEP*(arr.length===1?0.5:i/(arr.length-1));
+const total=inner.length+mid.length+outer.length;
+const arcMode=total>ARC_THRESHOLD;
+let s='<defs><radialGradient id="cmphg" cx="35%" cy="30%">'+
+'<stop offset="0%" stop-color="#f6c789"/><stop offset="100%" stop-color="#dd8a3c"/></radialGradient></defs>';
+/* 中心：muse bot（根节点） */
+s+='<g class="cmknode" data-mid="hero" style="cursor:pointer">'+
+'<circle cx="'+cx+'" cy="'+cy+'" r="54" fill="url(#cmphg)" stroke="#fff" stroke-width="5"/>'+
+'<text x="'+cx+'" y="'+(cy-4)+'" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">muse bot</text>'+
+'<text x="'+cx+'" y="'+(cy+16)+'" text-anchor="middle" fill="#fff" font-size="10.5" opacity=".92">'+esc(t("heroSub"))+"</text></g>";
+/* 轨道环 */
+if(inner.length) s+='<path d="'+arcPath(cx,cy,R_IN,A0,A0+SWEEP)+'" fill="none" stroke="#9aa4b5" stroke-width="2.5" stroke-dasharray="9 7" opacity=".8"/>';
+if(mid.length) s+='<path d="'+arcPath(cx,cy,R_MID,A0,A0+SWEEP)+'" fill="none" stroke="#c9d2df" stroke-width="2" stroke-dasharray="2 6" opacity=".9"/>';
+if(M.actual.length) s+='<path d="'+arcPath(cx,cy,R_OUT,A0,A0+SWEEP)+'" fill="none" stroke="#2f9e6e" stroke-width="3" stroke-linecap="round" opacity=".85"/>';
+/* 轨道端点标注 */
+const capTx=(R,frac,txt,anchor)=>{
+const a=A0+SWEEP*frac, p=polar(cx,cy,R+16,a);
+const an=anchor||(Math.cos(a*Math.PI/180)>0.25?"start":(Math.cos(a*Math.PI/180)<-0.25?"end":"middle"));
+return '<text x="'+p[0].toFixed(1)+'" y="'+p[1].toFixed(1)+'" text-anchor="'+an+'" font-size="11" fill="#9aa4b5">'+esc(txt)+"</text>";
+};
+if(inner.length) s+=capTx(R_IN,0,t("cmpPlanned"))+capTx(R_IN,1,"");
+if(M.actual.length) s+=capTx(R_OUT,0,"")+capTx(R_OUT,1,t("cmpActual"));
+/* 根连线：hero → 各轨道首个标记 */
+const link0=(arr,R)=>{
+if(!arr.length) return "";
+const f=posOf(arr,0,R), a0=A0*Math.PI/180;
+const sx=cx+56*Math.cos(a0), sy=cy+56*Math.sin(a0);
+return '<line x1="'+sx.toFixed(1)+'" y1="'+sy.toFixed(1)+'" x2="'+f[0].toFixed(1)+'" y2="'+f[1].toFixed(1)+'" stroke="#c9d2df" stroke-width="2" opacity=".7"/>';
+};
+/* 节点绘制 */
+const nodeCore=(x,y,o)=>{
+/* o: {fill, stroke, dash, dim, halo, haloDash, haloColor, num} */
+let g='<g class="cmknode" data-mid="'+o.mid+'">';
+if(o.halo){
+g+='<circle cx="'+x+'" cy="'+y+'" r="17" fill="none" stroke="'+(o.haloColor||"#d9932c")+'" stroke-width="2" opacity=".6">'+
+'<animate attributeName="r" values="15;20;15" dur="2.2s" repeatCount="indefinite"/></circle>';
+}else if(o.haloDash){
+g+='<circle cx="'+x+'" cy="'+y+'" r="17" fill="none" stroke="'+o.haloDash+'" stroke-width="2" stroke-dasharray="5 4" opacity=".85"/>';
+}
+g+='<circle class="core" cx="'+x+'" cy="'+y+'" r="11" fill="'+o.fill+'" stroke="'+o.stroke+'" stroke-width="3"'+(o.dash?' stroke-dasharray="'+o.dash+'"':"")+(o.dim?' opacity=".45"':"")+']/>';
+g+='<text x="'+x+'" y="'+(y-20)+'" text-anchor="middle" font-size="12.5" font-weight="700" fill="'+(o.dim?"#b9c4d4":"#6d7889")+'">'+(o.dim?"–":o.num)+"</text>";
+if(o.bolt) g+='<text x="'+x+'" y="'+(y+5.5)+'" text-anchor="middle" font-size="11">⚡</text>';
+if(o.label){
+const lx=x+ (x>=cx? 30: -30), an=x>=cx?"start":"end";
+g+='<text x="'+lx+'" y="'+(y+4)+'" text-anchor="'+an+'" font-size="10.5" fill="#6d7889">'+esc(o.label)+"</text>";
+}
+return g+"</g>";
+};
+/* 内圈：计划独有 */
+if(inner.length) s+=link0(inner,R_IN);
+inner.forEach((m,i)=>{
+const p=posOf(inner,i,R_IN), x=p[0].toFixed(1), y=p[1].toFixed(1);
+s+=nodeCore(x,y,{mid:m.mid, fill:"#fff", stroke:"#9aa4b5", dash:"5 4",
+dim:m.skipped, num:"P"+m.step.seq, label:shortLbl(m.step.program,10),
+bolt:m.skipped?1:0});
+});
+/* 中圈：对齐（同心双编码），>15 时按阶段收成弧 */
+const drawMid=arr=>{
+arr.forEach((m,i)=>{
+const p=posOf(arr,i,R_MID), x=p[0].toFixed(1), y=p[1].toFixed(1);
+s+=nodeCore(x,y,{mid:m.mid, fill:"#2f9e6e", stroke:"#2f9e6e", haloDash:"#9aa4b5",
+num:m.p.seq, label:shortLbl((m.a&&m.a.program)||(m.p&&m.p.program),10)});
+});
+};
+if(arcMode){
+const phases=phasesOf(mid);
+phases.forEach((ph,pi)=>{
+const idxs=ph.markers.map(m=>mid.indexOf(m)).sort((a,b)=>a-b);
+const isExp=CMP.expandedPhase===pi;
+if(isExp){
+/* 展开态：该阶段标记逐个画在原角度 */
+ph.markers.forEach(m=>{
+const i=mid.indexOf(m);
+const p=posOf(mid,i,R_MID), x=p[0].toFixed(1), y=p[1].toFixed(1);
+s+=nodeCore(x,y,{mid:m.mid, fill:"#2f9e6e", stroke:"#2f9e6e", haloDash:"#9aa4b5",
+num:m.p.seq, label:shortLbl((m.a&&m.a.program)||(m.p&&m.p.program),10)});
+});
+const a0=angOf(mid,idxs[0])-4, a1=angOf(mid,idxs[idxs.length-1])+4;
+s+='<g class="stagearc" data-phase="'+pi+'" data-exp="1"><path class="arcband" d="'+arcPath(cx,cy,R_MID+26,a0,a1)+'" fill="none" stroke="#3f74d6" stroke-width="14" opacity=".35" stroke-linecap="round"/>'+
+'<text x="'+polar(cx,cy,R_MID+26,(a0+a1)/2)[0].toFixed(1)+'" y="'+polar(cx,cy,R_MID+26,(a0+a1)/2)[1].toFixed(1)+'" text-anchor="middle" font-size="10" fill="#2c4a7c">▾ '+esc(shortLbl(ph.program,8))+"</text></g>";
+}else{
+const a0=angOf(mid,idxs[0])-4, a1=angOf(mid,idxs[idxs.length-1])+4;
+const mp=polar(cx,cy,R_MID,(a0+a1)/2);
+s+='<g class="stagearc" data-phase="'+pi+'"><path class="arcband" d="'+arcPath(cx,cy,R_MID,a0,a1)+'" fill="none" stroke="#3f74d6" stroke-width="22" opacity=".28" stroke-linecap="round"/>'+
+'<text x="'+mp[0].toFixed(1)+'" y="'+(mp[1]+4).toFixed(1)+'" text-anchor="middle" font-size="11" font-weight="700" fill="#2c4a7c">'+esc(shortLbl(ph.program,8))+" ×"+ph.markers.length+"</text>"+
+'<title>'+esc(t("phExpand"))+"</title></g>";
+}
+});
+}else{
+if(mid.length) s+=link0(mid,R_MID);
+drawMid(mid);
+}
+/* 外圈：实际独有（计划外，⚡光环永不折叠） */
+if(!M.actual.length){
+s+='<g><rect x="'+(cx-190)+'" y="'+(cy+120)+'" width="380" height="64" rx="12" fill="#f7f9fc" stroke="#e3e8ef"/>'+
+'<text x="'+cx+'" y="'+(cy+147)+'" text-anchor="middle" font-size="12.5" fill="#9aa4b5">'+esc(t("emptyActual"))+"</text></g>";
+}else{
+outer.forEach((m,i)=>{
+const p=posOf(outer,i,R_OUT), x=p[0].toFixed(1), y=p[1].toFixed(1);
+if(i===0) s+=link0(outer,R_OUT);
+s+=nodeCore(x,y,{mid:m.mid, fill:"#2f9e6e", stroke:"#2f9e6e", halo:true, bolt:true,
+num:"A"+m.step.seq, label:shortLbl(m.step.program,10)});
+});
+}
+/* ⚡连线：被跳过的计划步 → 分叉点 */
+const findPos=mid2=>{
+let i=inner.findIndex(m=>m.mid==="p"+mid2);
+if(i>=0){ const p=posOf(inner,i,R_IN); return [p[0],p[1]];}
+return null;
+};
+const findPosA=aseq=>{
+let i=outer.findIndex(m=>m.mid==="a"+aseq);
+if(i>=0){ const p=posOf(outer,i,R_OUT); return [p[0],p[1]];}
+return null;
+};
+M.links.forEach(L=>{
+const p0=findPos(L.p), p1=findPosA(L.a);
+if(!p0||!p1) return;
+const mx=(p0[0]+p1[0])/2, my=(p0[1]+p1[1])/2-30;
+s+='<path d="M '+p0[0].toFixed(1)+" "+p0[1].toFixed(1)+" Q "+mx.toFixed(1)+" "+my.toFixed(1)+" "+p1[0].toFixed(1)+" "+p1[1].toFixed(1)+
+'" fill="none" stroke="#d9932c" stroke-width="2.5" stroke-dasharray="6 5"/>'+
+'<text x="'+mx.toFixed(1)+'" y="'+(my-8).toFixed(1)+'" text-anchor="middle" font-size="14">⚡</text>';
+});
+svgEl.setAttribute("viewBox","0 0 "+W+" "+H);
+svgEl.innerHTML=s;
+/* 交互 */
+svgEl.querySelectorAll(".cmknode").forEach(g=>{
+g.addEventListener("click",()=>{
+const id=g.dataset.mid;
+if(id==="hero"){ showRunOverview(); return;}
+const m=inner.concat(mid,outer).find(x=>x.mid===id);
+if(m) showCmpDetail(m);
+history.replaceState(null,"","?run="+encodeURIComponent(CMP.file)+"&node="+id+"#match");
+});
+});
+svgEl.querySelectorAll(".stagearc").forEach(g=>{
+g.addEventListener("click",()=>{
+const pi=+g.dataset.phase;
+CMP.expandedPhase=(CMP.expandedPhase===pi)?null:pi;
+renderCompare();
+});
+});
+/* 深链接?node= */
+const qs=new URLSearchParams(location.search);
+const nd=qs.get("node");
+if(nd){
+const m=inner.concat(mid,outer).find(x=>x.mid===nd);
+if(m){
+const elm=svgEl.querySelector('[data-mid="'+nd+'"]');
+if(elm) elm.classList.add("sel");
+showCmpDetail(m);
+}
+}
+}
+
+/* ---------- 详情侧栏 ---------- */
+function kvRow(k,v){
+return v?'<div class="kv"><div class="k">'+esc(k)+'</div><div class="v">'+esc(v)+"</div></div>":"";
+}
+function devNoteFor(run,kind,seq){
+const d=run.deviation, bag=[], out=[];
+if(Array.isArray(d)){ for(const x of d) bag.push(x); }
+else if(d){
+if(d.summary) bag.push(d.summary);
+(d.nodes_added||[]).forEach(x=>bag.push(x));
+(d.nodes_removed||[]).forEach(x=>bag.push(x));
+if(d.note) bag.push(d.note);
+}
+const pat=kind==="p"
+?new RegExp("(?:planned|计划)[^\\d]{0,8}seq\\s*"+seq+"\\b|计划步\\s*"+seq+"\\b","i")
+:new RegExp("(?:actual|实际)[^\\d]{0,8}seq\\s*"+seq+"\\b","i");
+bag.forEach(x=>{ if(x&&pat.test(x)) out.push(x);});
+return out;
+}
+function stepRows(s){
+return kvRow(t("dExecutor"),s.program)+
+kvRow(t("dEnv"),s.container_name||s.container)+
+kvRow(t("dVia"),s.link)+
+kvRow(t("dCredential"),s.credential)+
+kvRow(t("dAction"),s.action)+
+kvRow(t("dOutput"),s.output)+
+kvRow(t("dAt"),s.at);
+}
+function showRunOverview(){
+const run=CMP.run, M=CMP.model, box=document.getElementById("cmpdetail");
+hideCmpDetail();
+box.innerHTML='<button class="close" id="cmpdx">✕</button>'+
+"<h3>muse bot <span class='kbadge' style='background:#dd8a3c'>"+esc(t("heroSub"))+"</span></h3>"+
+kvRow(t("runNo")+" #",run.match_run)+kvRow(t("dAction"),run.title)+
+kvRow(t("plannedCnt"),M.planned.length+" "+t("phSteps"))+
+kvRow(t("actualCnt"),M.actual.length+" "+t("phSteps"))+
+kvRow(t("legendDev"),M.unplanned.length?t("legendDev")+" ×"+M.unplanned.length:"—");
+box.classList.add("show");
+document.getElementById("cmpdx").addEventListener("click",hideCmpDetail);
+}
+function showCmpDetail(m){
+const run=CMP.run, M=CMP.model, box=document.getElementById("cmpdetail");
+hideCmpDetail();
+document.querySelectorAll("#cmpmap .cmknode").forEach(e=>e.classList.toggle("sel",e.dataset.mid===m.mid));
+CMP.sel=m.mid;
+let h='<button class="close" id="cmpdx">✕</button>';
+if(m.orbit==="mid"){
+const notes=devNoteFor(run,"p",m.p.seq).concat(devNoteFor(run,"a",m.a.seq));
+h+="<h3>"+esc(t("actualN"))+m.a.seq+" · "+esc(t("dAligned"))+
+" <span class='kbadge' style='background:#2f9e6e'>"+esc(t("legendAligned"))+"</span></h3>"+
+stepRows(m.a)+
+kvRow(t("dMapsPlan"),t("plannedN")+m.p.seq+" · "+shortLbl(m.p.action,60))+
+(notes.length?kvRow(t("dDevNote"),notes.join(" / ")):"");
+}else if(m.orbit==="in"){
+const s=m.step, notes=devNoteFor(run,"p",s.seq);
+h+="<h3>"+esc(t("plannedN"))+s.seq+
+(m.skipped?" <span class='kbadge' style='background:#9aa4b5'>"+esc(t("dSkipped"))+"</span>":"")+"</h3>"+
+stepRows(s)+
+(notes.length?kvRow(t("dDevNote"),notes.join(" / ")):"");
+}else{
+const s=m.step, notes=devNoteFor(run,"a",s.seq);
+h+="<h3>⚡ "+esc(t("actualN"))+s.seq+
+" <span class='kbadge' style='background:#d9932c'>"+esc(t("dUnplanned"))+"</span></h3>"+
+stepRows(s)+
+(notes.length?kvRow(t("dDevNote"),notes.join(" / ")):"");
+}
+box.innerHTML=h;
+box.classList.add("show");
+document.getElementById("cmpdx").addEventListener("click",hideCmpDetail);
+}
+
 function renderRunList(){
-  const box=document.getElementById("runlist");
-  const runs=(DB.runsIndex&&DB.runsIndex.runs)||[];
-  if(!runs.length){ box.innerHTML=`<div class="empty">${esc(t("noRuns"))}</div>`; return; }
-  box.innerHTML=runs.map(m=>{
-    const r=DB.runs[m.file];
-    const st=r?r.status:m.status;
-    return `<div class="runitem" data-file="${esc(m.file)}">
-      <p class="rt">#${esc(r?r.match_run:m.match_run)} ${esc(r?r.title:m.title)}
-        <span class="stbadge st-${st}">${esc(t(st)||st)}</span></p>
-      <p class="rm">${esc(m.started_at||"")}${r&&r.planned_chain?` · ${r.planned_chain.length} steps`:""}</p>
-    </div>`;
-  }).join("");
-  box.querySelectorAll(".runitem").forEach(elm=>{
-    elm.addEventListener("click", ()=>openRun(elm.dataset.file));
-  });
-  if(runs.length) openRun(runs[runs.length-1].file);
+const box=document.getElementById("runlist");
+const runs=(DB.runsIndex&&DB.runsIndex.runs)||[];
+if(!runs.length){ box.innerHTML='<div class="empty">'+esc(t("noRuns"))+"</div>"; return;}
+box.innerHTML=runs.map(m=>{
+const r=DB.runs[m.file];
+const st=r?r.status:m.status;
+return '<div class="runitem" data-file="'+esc(m.file)+'">'+
+'<p class="rt">#'+esc(r?r.match_run:m.match_run)+" "+esc(r?r.title:m.title)+
+' <span class="stbadge st-'+st+'">'+esc(t(st)||st)+"</span></p>"+
+'<p class="rm">'+esc(m.started_at||"")+(r&&r.planned_chain?" · "+r.planned_chain.length+" steps":"")+"</p></div>";
+}).join("");
+box.querySelectorAll(".runitem").forEach(elm=>{
+elm.addEventListener("click", ()=>openRun(elm.dataset.file));
+});
+if(runs.length) openRun(runs[runs.length-1].file);
 }
 
 /* ================= stats ================= */
@@ -881,36 +1173,28 @@ function switchTab(which){
   document.getElementById("tab-match").classList.toggle("on",!mesh);
   document.getElementById("view-mesh").style.display=mesh?"":"none";
   document.getElementById("view-match").style.display=mesh?"none":"";
-  hideDetail();
+  hideDetail(); hideCmpDetail();
   if(mesh){ renderMesh("map",{}); }
-  else { renderReplay(); }
+  else { renderCompare(); }
 }
 document.getElementById("tab-mesh").addEventListener("click",()=>{switchTab("mesh");history.replaceState(null,"","#");});
 document.getElementById("tab-match").addEventListener("click",()=>{switchTab("match");history.replaceState(null,"","#match");});
-/* 深链接：#match 直达对战记录页签（便于分享与验收截图） */
-if(location.hash==="#match") switchTab("match");
+/* 深链接见 init() 末尾（需等数据加载完成） */
 document.getElementById("langbtn").addEventListener("click",()=>{
   LANG=LANG==="zh"?"en":"zh"; localStorage.setItem("arsenal-lang",LANG);
   applyI18n(); renderStats(); renderMesh("map",{}); renderRunList();
-  if(Replay.run && document.getElementById("view-match").style.display!=="none") renderReplay();
+  if(CompareState.run && document.getElementById("view-match").style.display!=="none") renderCompare();
 });
 document.getElementById("verpill").addEventListener("click",openDrawer);
 document.getElementById("histbtn").addEventListener("click",openDrawer);
 document.getElementById("drawerclose").addEventListener("click",closeDrawer);
 document.getElementById("scrim").addEventListener("click",closeDrawer);
 document.getElementById("backlatest").addEventListener("click",()=>viewVersion(DB.versions.latest));
-document.querySelectorAll("#modeseg button").forEach(b=>{
-  b.addEventListener("click",()=>{
-    Replay.mode=b.dataset.mode;
-    document.querySelectorAll("#modeseg button").forEach(x=>x.classList.toggle("on",x===b));
-    renderReplay();
-  });
-});
 window.addEventListener("resize",()=>{
   clearTimeout(window._rz);
   window._rz=setTimeout(()=>{
     if(document.getElementById("view-mesh").style.display!=="none") renderMesh("map",{});
-    else renderReplay();
+    else renderCompare();
   },250);
 });
 (async function init(){
@@ -923,6 +1207,16 @@ window.addEventListener("resize",()=>{
   MapState.reg=DB.registry; MapState.versionLabel=DB.versions.latest;
   document.getElementById("verlabel").textContent="v"+DB.versions.latest;
   renderStats(); renderMesh("map",{}); renderRunList();
+  /* 深链接：#match 直达对战记录页签；?run=<file>&?node=<pN|aN|mN> 直达节点（便于分享与验收） */
+  try{
+    const qs=new URLSearchParams(location.search);
+    if(location.hash==="#match"||qs.has("run")||qs.has("node")){
+      switchTab("match");
+      const rf=qs.get("run");
+      const key=rf?(DB.runs[rf]?rf:(DB.runs["runs/"+rf]?"runs/"+rf:null)):null;
+      if(key) openRun(key);
+    }
+  }catch(e){}
 })();
 </script>
 </body>

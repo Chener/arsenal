@@ -12,14 +12,14 @@
    "file": "runs/002-x-slop-tagger-v5.json",
    "match_run": "002",
    "started_at": null,
-   "status": "reserved",
+   "status": "completed",
    "planned": false,
-   "title": "X Slop Tagger v5（预留位，执行器进行中）"
+   "title": "X Slop Tagger v5（已完成，用户真实环境验收通过）"
   }
  ],
  "_sync": {
-  "synced_at": "2026-09-20T14:55:41.553318+08:00",
-  "mesh_version": "0.1.0",
+  "synced_at": "2026-09-20T16:26:01.356744+08:00",
+  "mesh_version": "0.3.0",
   "source": "Chener/arsenal-match"
  }
 }

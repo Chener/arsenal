@@ -1,15 +1,20 @@
 {
  "chain": [],
  "decisions": [],
- "ended_at": null,
- "final_output": "",
- "lessons": [],
+ "ended_at": "2026-09-20T16:18:00+08:00",
+ "final_output": "v5 0.5.1 在用户真实环境验收通过：真实 Chrome 重载扩展 → 打开\"自动打标\"总开关 → 真实 X 首页帖子出现印章/判定。媒体豁免已删除（有文本即评），测试矩阵：静态 82/82、无 key E2E 23/23、仿真 JEV 17/17、真实 JEV 16/17（1 失败为环境噪音）、14 次真实 JEV 全 HTTP 200、模型 jev-1.13.0。",
+ "lessons": [
+  "修好二字只许在用户真实条件下说出口：真实接口 + 真实浏览器 + 真实 key 复现通过才算数；执行器写 live 目录必须原子替换（备份→staging→原子替换→sha256 核对），绝不把半成品直接写入用户会随时重载的 live 目录。",
+  "重写 UI 时必须做\"旧能力清单\"对照：v5 重写 popup 丢了总开关，因为没人对照旧版 popup 的能力清单。重写=先列旧能力清单，逐项打勾。",
+  "测试失败要如实归因到环境还是逻辑：ERR_BLOCKED_BY_CLIENT 这类拦截器噪音应标注为环境噪音而非逻辑失败，避免为凑\"全绿\"掩盖真实信号；反过来，真实环境的失败（如无开关）一个都不能放过。",
+  "差值回喂：本 run 的两轮返工（媒体豁免、popup 开关）应沉淀为 v6 需求的显式验收项——\"有文本即评\"已进标准，\"popup 总开关存在且默认开\"应成为后续版本的开工检查项。"
+ ],
  "match_run": "002",
- "note": "planned 已落盘（用户 2026-09-20 14:27 询问 match mode 后补记）；actual_chain 与 deviation 待执行器回报 + 独立验收后填写。",
- "started_at": null,
- "status": "running",
+ "note": "2026-09-20 16:18 用户在真实 X 首页亲口确认 v5 生效（\"X slop OK\"），run 正式关闭。仓库仍私有，转公开待后续审计+翻 public。",
+ "started_at": "2026-09-20T13:10:00+08:00",
+ "status": "completed",
  "task": "X Slop Tagger v5 迭代：作用域限定 feed、三点菜单显示百分比、阈值默认 0.7、名单持久化、L1/L2/L3 大白话、批量预加载、纠错闭环。",
- "title": "X Slop Tagger v5（预留位，执行器进行中）",
+ "title": "X Slop Tagger v5（已完成，用户真实环境验收通过）",
  "planned_chain": [
   {
    "seq": 1,
@@ -98,9 +103,101 @@
  ],
  "planned_by": "muse bot",
  "planned_at": "2026-09-20T13:19:20+08:00",
+ "actual_chain": [
+  {
+   "seq": 1,
+   "at": "2026-09-20T13:10:00+08:00",
+   "program": "user (Wu)",
+   "container": "T0",
+   "container_name": "chat (main)",
+   "link": "chat (main)",
+   "credential": null,
+   "war_room": null,
+   "action": "拍板 X Slop Tagger v5 迭代：12 条需求（阈值印章/三点菜单精确百分比/默认阈值0.7/名单持久化合并写入/设置页重整+L1L2L3大白话/十帖一批预处理/纠错三振待确认永不自动生效/SW代理保留/key不进代码仓库/全JS node --check/真实JEV测试）。v5 完成后开源、去 X 分享。",
+   "output": "v5 意图确立，12 条验收标准锁定（与计划一致）。"
+  },
+  {
+   "seq": 2,
+   "at": "2026-09-20T13:19:20+08:00",
+   "program": "muse bot",
+   "container": "T2",
+   "container_name": "cloud computer",
+   "link": "subagent spawn",
+   "credential": null,
+   "war_room": null,
+   "action": "JEV 派工前仲裁（调度纪律），随后派 v5 执行器：工作区 ~/workspace/x-slop-tagger/v5/（版本号升 0.5.0），禁写 Mac live 目录（执行器写半成品曾导致用户重载撞车，红线）；完工标准=真实 Chromium + 真实 JEV 全行为验证（v4 假完工教训）。",
+   "output": "执行器启动，全程异步，主对话不阻塞（与计划一致）。"
+  },
+  {
+   "seq": 3,
+   "at": "2026-09-20T15:26:00+08:00",
+   "program": "v5 executor + muse bot",
+   "container": "T2",
+   "container_name": "cloud computer",
+   "link": "independent verification",
+   "credential": "TypeSafe JEV key（Secure Vault custom.typesafe，经 skill 调用，不进代码/日志/仓库）",
+   "war_room": null,
+   "action": "v5 0.5.0 实现完成（content.js 1280行/options.js 447行/background.js SW 代理保留/popup）；muse bot 独立验证发现媒体豁免缺陷：content.js:1042 与 :1088 两处 hasMedia 跳过逻辑使带图/视频帖子自动跳过不评价，另有 skippedMedia 计数器及 README/options 文案配套，E2E 对图文/视频帖零覆盖——违反\"有文本即评\"硬要求。返工 commit ef192b02：删除 hasMedia()/skippedMedia，无文字才跳过，自己帖子/信任名单保留，自动微调默认关闭。测试矩阵：静态 82/82、无 key E2E 23/23、仿真 JEV 17/17、真实 JEV 16/17（唯一失败：fixture 媒体被测试拦截器 ERR_BLOCKED_BY_CLIENT，环境噪音非逻辑问题）、14 次真实 JEV 调用全 HTTP 200、模型 jev-1.13.0。",
+   "output": "返工一轮后 v5 0.5.1 落盘服务端（commit ef192b02），测试残留已清理，无真实 key 落盘。"
+  },
+  {
+   "seq": 4,
+   "at": "2026-09-20T16:00:00+08:00",
+   "program": "muse bot",
+   "container": "T0",
+   "container_name": "Mac (m5air)",
+   "link": "Tailscale SSH",
+   "credential": null,
+   "war_room": null,
+   "action": "部署 v5 0.5.1 到用户 Mac live 扩展目录（铁律三步）：备份 live 目录 → staging 经 scp 传 Mac、9 文件 sha256 与服务端 commit 逐个对上 → 两次 mv 原子替换；替换后 live 目录 sha256 全对。随后请用户 chrome://extensions 重载。",
+   "output": "部署完成，LIVE_HASHES_MATCH；等待用户真实环境验证。"
+  },
+  {
+   "seq": 5,
+   "at": "2026-09-20T16:05:00+08:00",
+   "program": "user (Wu)",
+   "container": "T0",
+   "container_name": "real Chrome",
+   "link": "user report",
+   "credential": null,
+   "war_room": null,
+   "action": "用户重载后报告回归：\"这个版本插件好像没有 enable button，我的首页没生效。\"——真实环境首次暴露问题，fake/无头测试阶段未发现。",
+   "output": "回归确认：v5 在用户真实环境下不可用，触发定位+修复循环。"
+  },
+  {
+   "seq": 6,
+   "at": "2026-09-20T16:08:00+08:00",
+   "program": "muse bot + fix executor",
+   "container": "T2/T0",
+   "container_name": "cloud computer + Mac (m5air)",
+   "link": "independent verification + Tailscale SSH",
+   "credential": null,
+   "war_room": null,
+   "action": "定位根因：v5 重写 popup 时丢了总开关 UI，但 content.js 仍在读 chrome.storage.local.enabled（enabled!==false 才工作，false 即全停）——旧状态为 false 时用户想开都开不了。修复 commit e3ec3a58：只动 popup.html/popup.js，加回旧版同款 switch（id=\"enabled\"），默认 enabled!==false（默认开），change 时写回 storage，node --check 通过。重新部署到 Mac live：备份→staging→原子替换→sha256 逐文件核对；muse bot 独立复验：服务端 blob sha256 与 live 文件逐个对上（popup.html/popup.js 均 match），popup 含开关 UI 与读写逻辑。",
+   "output": "回归修复+重部署完成，独立复验通过；待用户真实环境最终确认。"
+  },
+  {
+   "seq": 7,
+   "at": "2026-09-20T16:18:00+08:00",
+   "program": "user (Wu)",
+   "container": "T0",
+   "container_name": "real Chrome + real X",
+   "link": "user confirmation",
+   "credential": null,
+   "war_room": null,
+   "action": "用户在真实 Chrome 重载扩展、打开\"自动打标\"总开关，在真实 X 首页确认帖子印章/判定出现，亲口确认 \"X slop OK\"。",
+   "output": "用户真实环境验收通过，run 正式关闭。仓库仍私有，转公开待后续审计+翻 public。"
+  }
+ ],
+ "deviation": [
+  "计划是直线（实现→E2E→验收→部署→翻公开），实际多出两轮返工：① 独立验证阶段发现媒体豁免缺陷（hasMedia/skippedMedia），返工 commit ef192b02；② 部署后用户真实环境暴露 popup 总开关回归（v5 重写 popup 丢 UI，content.js 仍读 enabled），定位→修复 commit e3ec3a58→重部署。两轮返工都是计划外。",
+  "真实 JEV 16/17：唯一失败是 fixture 媒体被测试拦截器 ERR_BLOCKED_BY_CLIENT，属测试环境噪音，非判定逻辑问题，不构成部署阻断——计划中\"零失败\"预期让位于如实归因。",
+  "计划步 7（审计通过后翻 public）未执行：验收范围收窄到\"用户真实环境可用\"即关闭 run；开源分享是后续任务，仓库仍私有。",
+  "计划假设\"无头/仿真环境验证充分即等于可用\"被证伪：popup 开关回归只在用户真实 Chrome 里暴露。用户真实环境（真实浏览器+真实 X 首页+用户亲手操作）是唯一的验收标准，任何环境的\"修好了\"在用户确认前都只是候选状态——这是 v4 问号事件教训在本 run 的延续，也是本 run 最重要的 lesson。"
+ ],
  "_sync": {
-  "synced_at": "2026-09-20T14:55:41.553318+08:00",
-  "mesh_version": "0.1.0",
+  "synced_at": "2026-09-20T16:26:01.356744+08:00",
+  "mesh_version": "0.3.0",
   "source": "Chener/arsenal-match"
  }
 }
