@@ -206,7 +206,7 @@
  },
  {
   "date": "2026-09-19",
-  "event": "s3 双线托管实施进展（用户 18:00 拍板）：A路只读侦察完成——chenerlab.cn 在本账号 DNSPod 下（@ A→175.27.167.223=南京VPS，api/gtabrain/pw-*-test 同机勿动）；备案未独立核验（tccli 无口径、MIIT 需验证码），ground truth 为 EdgeOne 开通绑定时的备案校验；DNSPod 免费版无原生快照（CreateSnapshot 被套餐拒绝），已用手工 JSON 快照替代；edgeone CLI v1.6.40 已在 Mac 装好（makers 新命名空间）；API Token 必须控制台创建（CLI/API 建不了）→ 待用户在 EdgeOne 控制台（China 体系）开通并 Create Token，经 Secure Vault 交回。B路 CI 代码就绪并推分支 feat/dual-line（3d4cdbd9）：shared/i18n-router.mjs、edge-functions/[[default]].js（onRequest 签名已按官方文档确认；eo.countryCodeAlpha2 加防御降级，待线上实测）、build.py 加 canonical（→chenerpath.com）与 dist/.build-meta.json、deploy-eo job（缺 EDGEONE_API_TOKEN 时静默跳过；deploy 前 cp edge-functions 进 dist）。JEV 仲裁 chenerlab.cn 本体托管：edgeone_pages（0.99）。注意 s1 重写 build.py 时须保留 canonical 注入与 build-meta 逻辑。下一步（被用户 token 卡住前可做）：无——开通/DNS/验收均待 token。",
+  "event": "s3 双线托管实施进展（用户 18:00 拍板）：A路只读侦察完成——chenerlab.cn 在本账号 DNSPod 下（@ A→南京 VPS，api/gtabrain/pw-*-test 同机勿动）；备案未独立核验（tccli 无口径、MIIT 需验证码），ground truth 为 EdgeOne 开通绑定时的备案校验；DNSPod 免费版无原生快照（CreateSnapshot 被套餐拒绝），已用手工 JSON 快照替代；edgeone CLI v1.6.40 已在 Mac 装好（makers 新命名空间）；API Token 必须控制台创建（CLI/API 建不了）→ 待用户在 EdgeOne 控制台（China 体系）开通并 Create Token，经 Secure Vault 交回。B路 CI 代码就绪并推分支 feat/dual-line（3d4cdbd9）：shared/i18n-router.mjs、edge-functions/[[default]].js（onRequest 签名已按官方文档确认；eo.countryCodeAlpha2 加防御降级，待线上实测）、build.py 加 canonical（→chenerpath.com）与 dist/.build-meta.json、deploy-eo job（缺 EDGEONE_API_TOKEN 时静默跳过；deploy 前 cp edge-functions 进 dist）。JEV 仲裁 chenerlab.cn 本体托管：edgeone_pages（0.99）。注意 s1 重写 build.py 时须保留 canonical 注入与 build-meta 逻辑。下一步（被用户 token 卡住前可做）：无——开通/DNS/验收均待 token。",
   "executor": "s3-coordinator"
  },
  {
@@ -216,7 +216,7 @@
  },
  {
   "date": "2026-09-19",
-  "event": "chenerlab.cn 历史清理：DNS 删除 api/gtabrain/pw-a-test/pw-b-test 四条 A 记录（RecordId 2315286954/2315933185/2352801868/2352801902，均指向 175.27.167.223），删除前后快照存 hidden_files/dual-line/（与今晨 recon 快照比对无漂移）；剩余 NS×2 + @ A + cpa-us A 未动。南京 VPS 只读盘点：api→node /srv/apps/agentos-cloud(:8788)；gtabrain 子域名实为误配（无 vhost，真服务在 chenerlab.cn/gtabrain :3000）；pw-a/b-test→docker bitwarden-lite-eval/vaultwarden-eval(:18080/18081)。待用户确认后删 VPS 文件/容器/证书。chenerpath.com 仓库确认为 private，符合默认私有要求。",
+  "event": "chenerlab.cn 历史清理：DNS 删除 api/gtabrain/pw-a-test/pw-b-test 四条 A 记录（RecordId 2315286954/2315933185/2352801868/2352801902，均指向南京 VPS），删除前后快照存 hidden_files/dual-line/（与今晨 recon 快照比对无漂移）；剩余 NS×2 + @ A + cpa-us A 未动。南京 VPS 只读盘点：api→node /srv/apps/agentos-cloud(:8788)；gtabrain 子域名实为误配（无 vhost，真服务在 chenerlab.cn/gtabrain :3000）；pw-a/b-test→docker bitwarden-lite-eval/vaultwarden-eval(:18080/18081)。待用户确认后删 VPS 文件/容器/证书。chenerpath.com 仓库确认为 private，符合默认私有要求。",
   "executor": "s3-coordinator"
  },
  {
@@ -297,5 +297,10 @@
  {
   "date": "2026-09-20",
   "event": "Mesh registry v0.2.0→v0.3.0（标准 v1.0 生效后首次补录，用户批准）：+program:github-skill、+program:cloudflare-skill，各挂 runs_on/auth_with/connects_via；59 节点/48 边；§3.2 四份清单反查完成（skills 5 个、ssh 5 台、cron 任务、vault 条目经 skill 声明交叉核对），无其他遗漏需登记。经 Git Data API 推送并服务端核验。"
+ },
+ {
+  "date": "2026-09-20",
+  "event": "公开仓库清理+全史审计（用户拍板保持 public）：mesh-registry.json 及 history/0.1.0–0.3.0 三份快照删除 ip/public_ip 字段（9 处/份）并改写 3 类 note 中的 IP 字面量为文字描述；topology.json 清除固定出口 IP 字样；dispatch-log 历史条目中的南京 VPS 公网 IP 改写为文字。清理后全仓库 grep 零 IP 残留，README「不含 IP」声明恢复为真。全历史 74 个 commit 逐 patch 扫描（ghp_/AKIA/私钥头/secret 赋值/长 hex 等模式），零密钥泄漏。历史 commit 中的旧 IP 为历史残留、低风险（Tailnet IP 外网不可达），不做历史改写。SSH 用户名与账号邮箱为自有运维标识，保留。",
+  "executor": "muse-bot"
  }
 ]

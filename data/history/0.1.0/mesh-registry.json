@@ -8,7 +8,6 @@
    "status": "active",
    "attrs": {
     "tier": "T0",
-    "ip": "100.110.221.65",
     "note": "本地文件、国内网络、快速小任务；多个 T2 的中转宿主；Mac mini 到货后迁移"
    }
   },
@@ -29,7 +28,6 @@
    "status": "active",
    "attrs": {
     "tier": "T2",
-    "ip": "100.93.46.88",
     "note": "muse bot 本体所在；调度中枢，只做分解/派发/验收/记账，不装执行型工具"
    }
   },
@@ -40,7 +38,6 @@
    "status": "active",
    "attrs": {
     "tier": "T1",
-    "ip": "100.90.4.15",
     "note": "国内视角探测节点；未来境内建站候选"
    }
   },
@@ -51,9 +48,7 @@
    "status": "active",
    "attrs": {
     "tier": "T1",
-    "ip": "100.97.107.27",
-    "public_ip": "104.207.150.84",
-    "note": "固定出口宿主：tinyproxy 127.0.0.1:8888 绑定 104.207.150.84；Tailscale SSH 保持关闭"
+    "note": "固定出口宿主：tinyproxy 仅监听本地回环并强制 IPv4 出口；Tailscale SSH 保持关闭"
    }
   },
   {
@@ -63,7 +58,6 @@
    "status": "active",
    "attrs": {
     "tier": "T0",
-    "ip": "100.71.178.0",
     "note": "家庭存储 + 轻量执行节点；SSH 用户 ChenerX2，无 docker.sock 权限"
    }
   },
@@ -74,7 +68,6 @@
    "status": "active",
    "attrs": {
     "tier": "T2",
-    "ip": "100.100.210.1",
     "note": "Grok Bot 云电脑；容器/Pod 无 systemd；本机看门狗 net-watchdog.sh"
    }
   },
@@ -85,7 +78,6 @@
    "status": "active",
    "attrs": {
     "tier": "T0",
-    "ip": "100.113.216.46",
     "note": "用户本人手机；已进网，2026-09-19 用户决定暂缓使用"
    }
   },
@@ -337,7 +329,7 @@
    "name": "FlClash 代理",
    "status": "active",
    "attrs": {
-    "note": "Mac 本地 127.0.0.1:7890；SSH 非交互环境须手动 export，否则国外 API 被区域 차단"
+    "note": "Mac 本地回环代理；SSH 非交互环境须手动 export，否则国外 API 被区域 차단"
    }
   },
   {
@@ -346,7 +338,6 @@
    "name": "Vultr 固定出口",
    "status": "active",
    "attrs": {
-    "ip": "104.207.150.84",
     "note": "账号敏感服务专用（Cursor/Jules/Anthropic/OpenAI 控制面），与 Mac CLI 同源防风控"
    }
   },
@@ -754,7 +745,7 @@
    "from": "container:vultr-us-01",
    "to": "network:vultr-fixed-egress",
    "type": "serves",
-   "note": "tinyproxy 仅监听 127.0.0.1:8888，Bind 强制 IPv4 出口"
+   "note": "tinyproxy 仅监听本地回环，Bind 强制 IPv4 出口"
   },
   {
    "from": "container:tencent-nj-01",
