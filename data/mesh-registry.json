@@ -1,0 +1,766 @@
+{
+ "mesh_version": "0.1.0",
+ "nodes": [
+  {
+   "id": "container:m5air",
+   "type": "container",
+   "name": "MacBook Air",
+   "status": "active",
+   "attrs": {
+    "tier": "T0",
+    "ip": "100.110.221.65",
+    "note": "本地文件、国内网络、快速小任务；多个 T2 的中转宿主；Mac mini 到货后迁移"
+   }
+  },
+  {
+   "id": "container:mac-mini",
+   "type": "container",
+   "name": "Mac mini",
+   "status": "planned",
+   "attrs": {
+    "tier": "T0",
+    "note": "预计 2026-09-23 到货；到货后成为 7x24 常驻工作空间 + FirstMate(war room) 宿主"
+   }
+  },
+  {
+   "id": "container:muse-cloud",
+   "type": "container",
+   "name": "muse 云电脑",
+   "status": "active",
+   "attrs": {
+    "tier": "T2",
+    "ip": "100.93.46.88",
+    "note": "muse bot 本体所在；调度中枢，只做分解/派发/验收/记账，不装执行型工具"
+   }
+  },
+  {
+   "id": "container:tencent-nj-01",
+   "type": "container",
+   "name": "腾讯云南京 VPS",
+   "status": "active",
+   "attrs": {
+    "tier": "T1",
+    "ip": "100.90.4.15",
+    "note": "国内视角探测节点；未来境内建站候选"
+   }
+  },
+  {
+   "id": "container:vultr-us-01",
+   "type": "container",
+   "name": "Vultr 硅谷 VPS",
+   "status": "active",
+   "attrs": {
+    "tier": "T1",
+    "ip": "100.97.107.27",
+    "public_ip": "104.207.150.84",
+    "note": "固定出口宿主：tinyproxy 127.0.0.1:8888 绑定 104.207.150.84；Tailscale SSH 保持关闭"
+   }
+  },
+  {
+   "id": "container:ugreen-nas",
+   "type": "container",
+   "name": "绿联 NAS",
+   "status": "active",
+   "attrs": {
+    "tier": "T0",
+    "ip": "100.71.178.0",
+    "note": "家庭存储 + 轻量执行节点；SSH 用户 ChenerX2，无 docker.sock 权限"
+   }
+  },
+  {
+   "id": "container:grok-box",
+   "type": "container",
+   "name": "grok-box",
+   "status": "active",
+   "attrs": {
+    "tier": "T2",
+    "ip": "100.100.210.1",
+    "note": "Grok Bot 云电脑；容器/Pod 无 systemd；本机看门狗 net-watchdog.sh"
+   }
+  },
+  {
+   "id": "container:iphone-12",
+   "type": "container",
+   "name": "iPhone 12",
+   "status": "active",
+   "attrs": {
+    "tier": "T0",
+    "ip": "100.113.216.46",
+    "note": "用户本人手机；已进网，2026-09-19 用户决定暂缓使用"
+   }
+  },
+  {
+   "id": "container:typesafe-infra",
+   "type": "container",
+   "name": "TypeSafe API 基础设施",
+   "status": "active",
+   "attrs": {
+    "tier": "T2",
+    "note": "jev-1.13.0；content script 带 Authorization 跨域会被 CORS 预检拦（v4 真凶）"
+   }
+  },
+  {
+   "id": "container:github-infra",
+   "type": "container",
+   "name": "GitHub",
+   "status": "active",
+   "attrs": {
+    "tier": "T2",
+    "note": "代码仓库 + Actions；muse bot 经 gh-api 直连"
+   }
+  },
+  {
+   "id": "container:cloudflare-infra",
+   "type": "container",
+   "name": "Cloudflare",
+   "status": "active",
+   "attrs": {
+    "tier": "T2",
+    "note": "Pages + Workers + Durable Object；Python 默认 UA 会被 403"
+   }
+  },
+  {
+   "id": "container:cursor-infra",
+   "type": "container",
+   "name": "Cursor Cloud Agents 基础设施",
+   "status": "active",
+   "attrs": {
+    "tier": "T2",
+    "note": "cloud agent 在供应商基础设施内执行，用供应商 IP"
+   }
+  },
+  {
+   "id": "container:google-infra",
+   "type": "container",
+   "name": "Google API 基础设施",
+   "status": "active",
+   "attrs": {
+    "tier": "T2",
+    "note": "Jules API + Gemini API"
+   }
+  },
+  {
+   "id": "container:tencent-edgeone",
+   "type": "container",
+   "name": "腾讯云 EdgeOne",
+   "status": "active",
+   "attrs": {
+    "tier": "T2",
+    "note": "chenerlab.cn 国内加速与证书绑定"
+   }
+  },
+  {
+   "id": "program:muse-bot",
+   "type": "program",
+   "name": "muse bot",
+   "status": "active",
+   "attrs": {
+    "note": "用户意图唯一入口、验收结果唯一出口；调度四件事：听需求/拆任务/派工/验收回报"
+   }
+  },
+  {
+   "id": "program:firstmate",
+   "type": "program",
+   "name": "FirstMate",
+   "status": "active",
+   "attrs": {
+    "role": "advisory",
+    "note": "war room 的 program 载体；现跑 m5air，mini 到货后 7x24 advisory board"
+   }
+  },
+  {
+   "id": "program:x-slop-tagger",
+   "type": "program",
+   "name": "X Slop Tagger",
+   "status": "active",
+   "attrs": {
+    "note": "Chrome 扩展；v4 起 API 经 background service worker 代理（CORS 红线）；live 目录 /Users/chener/.config/chrome-ext/x-slop-tagger/"
+   }
+  },
+  {
+   "id": "program:chenerpath-site",
+   "type": "program",
+   "name": "chenerpath.com 主站",
+   "status": "active",
+   "attrs": {
+    "note": "终端风；Cloudflare Pages 托管；境内 302 到 chenerlab.cn（EdgeOne）"
+   }
+  },
+  {
+   "id": "program:muse-invite",
+   "type": "program",
+   "name": "muse-invite",
+   "status": "active",
+   "attrs": {
+    "note": "muse.chenerpath.com；Pages 前端 + Worker muse-invite-v2 + 单例 DO InviteState"
+   }
+  },
+  {
+   "id": "program:arsenal-pages",
+   "type": "program",
+   "name": "arsenal 页面",
+   "status": "active",
+   "attrs": {
+    "note": "arsenal.chenerpath.com；军火库可视化，data/*.json 渲染"
+   }
+  },
+  {
+   "id": "program:arsenal-match",
+   "type": "program",
+   "name": "arsenal-match 账本",
+   "status": "active",
+   "attrs": {
+    "note": "match runs 存档仓库（Chener/arsenal-match，私有）；每条 run = 一次真实执行快照"
+   }
+  },
+  {
+   "id": "program:codex-mac",
+   "type": "program",
+   "name": "Codex（Mac CLI）",
+   "status": "active",
+   "attrs": {
+    "note": "T2 服务经 T0 宿主调用；auth_mode=chatgpt；codex exec 非交互"
+   }
+  },
+  {
+   "id": "program:claude-code-mac",
+   "type": "program",
+   "name": "Claude Code（Mac CLI）",
+   "status": "degraded",
+   "attrs": {
+    "note": "2026-09-19 验证登录态失效，需用户在 Mac 上重新 claude /login"
+   }
+  },
+  {
+   "id": "program:kimi-cli",
+   "type": "program",
+   "name": "Kimi CLI",
+   "status": "active",
+   "attrs": {
+    "note": "Mac ~/.kimi-code/bin/kimi；Kimi Code Plan ¥699；Kimi Cloud 待用户建实例"
+   }
+  },
+  {
+   "id": "program:agy-mac",
+   "type": "program",
+   "name": "Antigravity CLI",
+   "status": "degraded",
+   "attrs": {
+    "note": "5 账号：4 通+1 待地区验证；2026-09-19 起 3 个 CLI 登录态掉线，hoh 号地区限制"
+   }
+  },
+  {
+   "id": "program:qoder-mac",
+   "type": "program",
+   "name": "Qoder CLI",
+   "status": "active",
+   "attrs": {
+    "note": "Mac 本地；Qwen3.8-Flash 免费窗口 2026-09-18–09-30"
+   }
+  },
+  {
+   "id": "program:cursor-cloud-agent",
+   "type": "program",
+   "name": "Cursor Cloud Agent",
+   "status": "active",
+   "attrs": {
+    "billing": "subscription",
+    "note": "仓库级开发；控制面调用须走 Vultr 固定出口（与 Mac CLI 同源）"
+   }
+  },
+  {
+   "id": "program:jules-api",
+   "type": "program",
+   "name": "Google Jules API",
+   "status": "planned",
+   "attrs": {
+    "note": "待接通；5 账号合计 500 tasks/天；控制面走 Vultr 固定出口"
+   }
+  },
+  {
+   "id": "program:typesafe-jev",
+   "type": "program",
+   "name": "TypeSafe JEV",
+   "status": "active",
+   "attrs": {
+    "note": "调度仲裁（noul/choice/score）；派工前先调，muse bot 独立复核"
+   }
+  },
+  {
+   "id": "program:gemini-api",
+   "type": "program",
+   "name": "Gemini API",
+   "status": "active",
+   "attrs": {
+    "note": "文本走 API key；生图默认走 Mac 网页版订阅路线（API 免费档 image 配额为 0）"
+   }
+  },
+  {
+   "id": "program:mac-computer-use",
+   "type": "program",
+   "name": "Mac Computer Use",
+   "status": "active",
+   "attrs": {
+    "note": "T0+agent；驱动 Mac 图形桌面；定位是开锁匠：只搞通最底层"
+   }
+  },
+  {
+   "id": "program:gmail-connector",
+   "type": "program",
+   "name": "Gmail 官方连接器",
+   "status": "active",
+   "attrs": {
+    "note": "muse bot 唯一邮件通道；发信需用户确认原文"
+   }
+  },
+  {
+   "id": "program:offload-agent",
+   "type": "program",
+   "name": "offload-agent",
+   "status": "active",
+   "attrs": {
+    "note": "grok-box 上 ~/bin/offload-agent；Cursor CLI headless，烧 Cursor Ultra 额度"
+   }
+  },
+  {
+   "id": "network:tailscale-mesh",
+   "type": "network",
+   "name": "Tailscale 组网",
+   "status": "active",
+   "attrs": {
+    "note": "云电脑经 hatch-egress-proxy:3130 隧道进 tailnet；直连公网 SSH 被策略拦"
+   }
+  },
+  {
+   "id": "network:flclash-proxy",
+   "type": "network",
+   "name": "FlClash 代理",
+   "status": "active",
+   "attrs": {
+    "note": "Mac 本地 127.0.0.1:7890；SSH 非交互环境须手动 export，否则国外 API 被区域 차단"
+   }
+  },
+  {
+   "id": "network:vultr-fixed-egress",
+   "type": "network",
+   "name": "Vultr 固定出口",
+   "status": "active",
+   "attrs": {
+    "ip": "104.207.150.84",
+    "note": "账号敏感服务专用（Cursor/Jules/Anthropic/OpenAI 控制面），与 Mac CLI 同源防风控"
+   }
+  },
+  {
+   "id": "network:cloud-egress-direct",
+   "type": "network",
+   "name": "云电脑直连出口",
+   "status": "active",
+   "attrs": {
+    "note": "国外服务直连：GitHub、X、TypeSafe 等；国内访问这些要翻墙所以反走云电脑"
+   }
+  },
+  {
+   "id": "network:cn-domestic-view",
+   "type": "network",
+   "name": "国内视角",
+   "status": "active",
+   "attrs": {
+    "note": "经 tencent-nj-01 的国内体验探测；国际体验走云电脑或境外出口"
+   }
+  },
+  {
+   "id": "credential:custom.typesafe",
+   "type": "credential",
+   "name": "custom.typesafe",
+   "status": "active",
+   "attrs": {
+    "where": "Secure Vault（云电脑）",
+    "note": "TypeSafe JEV API key；API-key-only，无订阅概念"
+   }
+  },
+  {
+   "id": "credential:custom.github",
+   "type": "credential",
+   "name": "custom.github",
+   "status": "active",
+   "attrs": {
+    "where": "Secure Vault（云电脑）",
+    "note": "Chener 账号 PAT（全部权限，操作自我约束）；gh-api 直连"
+   }
+  },
+  {
+   "id": "credential:custom.cloudflare",
+   "type": "credential",
+   "name": "custom.cloudflare",
+   "status": "degraded",
+   "attrs": {
+    "where": "Secure Vault",
+    "note": "之前录入损坏 401，待经安全卡片重新录入；当前可用 token 只在 Mac"
+   }
+  },
+  {
+   "id": "credential:custom.gemini",
+   "type": "credential",
+   "name": "custom.gemini",
+   "status": "active",
+   "attrs": {
+    "where": "Secure Vault（云电脑）",
+    "note": "AI Studio key；文本调用走 API，生图走订阅"
+   }
+  },
+  {
+   "id": "credential:cloudflare-token-mac",
+   "type": "credential",
+   "name": "Cloudflare token（Mac）",
+   "status": "active",
+   "attrs": {
+    "where": "Mac ~/.config/muse-bot/cloudflare_token (0600)",
+    "note": "当前可用版本；经 Mac SSH 调用 wrangler/API"
+   }
+  },
+  {
+   "id": "credential:tccli-mac",
+   "type": "credential",
+   "name": "腾讯云密钥（Mac）",
+   "status": "active",
+   "attrs": {
+    "where": "Mac ~/.tccli/default.credential (0600)",
+    "note": "muse-bot CAM 子用户；用户要求密钥只留 Mac，经 Mac 跑 tccli"
+   }
+  },
+  {
+   "id": "credential:ssh-mac",
+   "type": "credential",
+   "name": "id_tailscale_mac",
+   "status": "active",
+   "attrs": {
+    "where": "云电脑 ~/.ssh/",
+    "note": "m5air Tailscale SSH 专用密钥"
+   }
+  },
+  {
+   "id": "credential:ssh-tencent",
+   "type": "credential",
+   "name": "id_tailscale_tencent",
+   "status": "active",
+   "attrs": {
+    "where": "云电脑 ~/.ssh/",
+    "note": "tencent-nj-01 Tailscale SSH 专用密钥"
+   }
+  },
+  {
+   "id": "credential:ssh-vultr",
+   "type": "credential",
+   "name": "id_tailscale_vultr",
+   "status": "active",
+   "attrs": {
+    "where": "云电脑 ~/.ssh/",
+    "note": "vultr-us-01 Tailscale SSH 专用密钥"
+   }
+  },
+  {
+   "id": "credential:ssh-nas",
+   "type": "credential",
+   "name": "id_nas_ugreen",
+   "status": "active",
+   "attrs": {
+    "where": "云电脑 ~/.ssh/",
+    "note": "ugreen-nas SSH 专用密钥（用户 ChenerX2）"
+   }
+  },
+  {
+   "id": "credential:gmail-oauth",
+   "type": "credential",
+   "name": "Gmail 官方连接器授权",
+   "status": "active",
+   "attrs": {
+    "where": "MuseBox 连接器",
+    "note": "chenhui.wu08@gmail.com；OAuth 机制绑定，只登记不搬运"
+   }
+  },
+  {
+   "id": "credential:codex-chatgpt-oauth",
+   "type": "credential",
+   "name": "Codex ChatGPT 登录态",
+   "status": "active",
+   "attrs": {
+    "where": "Mac 本地",
+    "note": "auth_mode=chatgpt；登录态不出 Mac"
+   }
+  },
+  {
+   "id": "credential:claude-oauth-mac",
+   "type": "credential",
+   "name": "Claude Code OAuth",
+   "status": "degraded",
+   "attrs": {
+    "where": "Mac 本地",
+    "note": "2026-09-19 起 403，需用户重新 claude /login"
+   }
+  },
+  {
+   "id": "credential:kimi-oauth-mac",
+   "type": "credential",
+   "name": "Kimi CLI OAuth",
+   "status": "active",
+   "attrs": {
+    "where": "Mac 本地",
+    "note": "managed:kimi-code；国内站绑定"
+   }
+  },
+  {
+   "id": "credential:agy-oauth-mac",
+   "type": "credential",
+   "name": "Antigravity OAuth",
+   "status": "degraded",
+   "attrs": {
+    "where": "Mac 本地",
+    "note": "5 账号盘点中；3 个 CLI 登录态已掉线"
+   }
+  },
+  {
+   "id": "credential:typesafe-key-xst",
+   "type": "credential",
+   "name": "X Slop Tagger 内嵌 key",
+   "status": "active",
+   "attrs": {
+    "where": "Mac 本地扩展存储",
+    "note": "108 字符 live key；只在 Mac 本地验证使用，未离机"
+   }
+  },
+  {
+   "id": "credential:cursor-api-key",
+   "type": "credential",
+   "name": "Cursor Cloud Agent API key",
+   "status": "active",
+   "attrs": {
+    "where": "Secure Vault（云电脑）",
+    "note": "2026-09-18 已入库；具体条目名待核实，按 custom.* 约定引用"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "from": "program:muse-bot",
+   "to": "container:muse-cloud",
+   "type": "runs_on"
+  },
+  {
+   "from": "program:muse-bot",
+   "to": "network:tailscale-mesh",
+   "type": "connects_via",
+   "note": "经 hatch-egress-proxy:3130 隧道到达各 tailnet 节点"
+  },
+  {
+   "from": "program:muse-bot",
+   "to": "network:cloud-egress-direct",
+   "type": "connects_via",
+   "note": "国外服务（GitHub/X/TypeSafe）直连"
+  },
+  {
+   "from": "program:muse-bot",
+   "to": "network:cn-domestic-view",
+   "type": "connects_via",
+   "note": "国内体验探测经 tencent-nj-01"
+  },
+  {
+   "from": "program:firstmate",
+   "to": "container:m5air",
+   "type": "runs_on"
+  },
+  {
+   "from": "program:firstmate",
+   "to": "container:mac-mini",
+   "type": "migrates_to",
+   "note": "2026-09-23 到货后迁移，7x24 advisory board（war room 常驻）"
+  },
+  {
+   "from": "program:codex-mac",
+   "to": "container:m5air",
+   "type": "runs_on",
+   "note": "T2 服务经 T0 宿主调用；muse bot 经 Tailscale SSH 调 codex exec"
+  },
+  {
+   "from": "program:codex-mac",
+   "to": "credential:codex-chatgpt-oauth",
+   "type": "auth_with",
+   "note": "登录态不出 Mac"
+  },
+  {
+   "from": "program:claude-code-mac",
+   "to": "container:m5air",
+   "type": "runs_on"
+  },
+  {
+   "from": "program:claude-code-mac",
+   "to": "credential:claude-oauth-mac",
+   "type": "auth_with"
+  },
+  {
+   "from": "program:kimi-cli",
+   "to": "container:m5air",
+   "type": "runs_on"
+  },
+  {
+   "from": "program:kimi-cli",
+   "to": "credential:kimi-oauth-mac",
+   "type": "auth_with"
+  },
+  {
+   "from": "program:agy-mac",
+   "to": "container:m5air",
+   "type": "runs_on"
+  },
+  {
+   "from": "program:agy-mac",
+   "to": "credential:agy-oauth-mac",
+   "type": "auth_with"
+  },
+  {
+   "from": "program:qoder-mac",
+   "to": "container:m5air",
+   "type": "runs_on"
+  },
+  {
+   "from": "program:mac-computer-use",
+   "to": "container:m5air",
+   "type": "runs_on",
+   "note": "桌面模拟只当开锁匠：建凭证/拿登录态后立刻回 AI 原生通道"
+  },
+  {
+   "from": "program:x-slop-tagger",
+   "to": "container:m5air",
+   "type": "runs_on",
+   "note": "用户 Chrome 扩展；live 目录 Mac 本地"
+  },
+  {
+   "from": "program:x-slop-tagger",
+   "to": "credential:typesafe-key-xst",
+   "type": "auth_with",
+   "note": "v4 起经 background service worker 代理（CORS 红线）"
+  },
+  {
+   "from": "program:cursor-cloud-agent",
+   "to": "container:cursor-infra",
+   "type": "runs_on"
+  },
+  {
+   "from": "program:cursor-cloud-agent",
+   "to": "network:vultr-fixed-egress",
+   "type": "connects_via",
+   "note": "控制面调用须固定出口，与 Mac CLI 同源"
+  },
+  {
+   "from": "program:cursor-cloud-agent",
+   "to": "credential:cursor-api-key",
+   "type": "auth_with"
+  },
+  {
+   "from": "program:jules-api",
+   "to": "container:google-infra",
+   "type": "runs_on"
+  },
+  {
+   "from": "program:jules-api",
+   "to": "network:vultr-fixed-egress",
+   "type": "connects_via",
+   "note": "控制面同 Cursor 走固定出口"
+  },
+  {
+   "from": "program:typesafe-jev",
+   "to": "container:typesafe-infra",
+   "type": "runs_on"
+  },
+  {
+   "from": "program:typesafe-jev",
+   "to": "credential:custom.typesafe",
+   "type": "auth_with"
+  },
+  {
+   "from": "program:gemini-api",
+   "to": "container:google-infra",
+   "type": "runs_on"
+  },
+  {
+   "from": "program:gemini-api",
+   "to": "credential:custom.gemini",
+   "type": "auth_with"
+  },
+  {
+   "from": "program:gmail-connector",
+   "to": "container:muse-cloud",
+   "type": "runs_on"
+  },
+  {
+   "from": "program:gmail-connector",
+   "to": "credential:gmail-oauth",
+   "type": "auth_with"
+  },
+  {
+   "from": "program:chenerpath-site",
+   "to": "container:cloudflare-infra",
+   "type": "runs_on",
+   "note": "Cloudflare Pages 项目 chenerpath"
+  },
+  {
+   "from": "program:chenerpath-site",
+   "to": "container:tencent-edgeone",
+   "type": "routes_to",
+   "note": "境内线路 302 到 chenerlab.cn（保留 path/query）"
+  },
+  {
+   "from": "program:muse-invite",
+   "to": "container:cloudflare-infra",
+   "type": "runs_on",
+   "note": "Pages 前端 + Worker muse-invite-v2 + 单例 DO InviteState"
+  },
+  {
+   "from": "program:muse-invite",
+   "to": "credential:cloudflare-token-mac",
+   "type": "auth_with",
+   "note": "部署经 Mac wrangler（vault 401 未补录前）"
+  },
+  {
+   "from": "program:arsenal-pages",
+   "to": "container:cloudflare-infra",
+   "type": "runs_on",
+   "note": "arsenal.chenerpath.com"
+  },
+  {
+   "from": "program:arsenal-match",
+   "to": "container:github-infra",
+   "type": "runs_on",
+   "note": "Chener/arsenal-match 私有仓库"
+  },
+  {
+   "from": "program:arsenal-match",
+   "to": "credential:custom.github",
+   "type": "auth_with",
+   "note": "muse bot 经 gh-api 直连读写"
+  },
+  {
+   "from": "program:offload-agent",
+   "to": "container:grok-box",
+   "type": "runs_on",
+   "note": "~/bin/offload-agent；Cursor CLI headless"
+  },
+  {
+   "from": "container:m5air",
+   "to": "network:flclash-proxy",
+   "type": "connects_via",
+   "note": "SSH 非交互须 export 代理变量，否则国外 API 被区域 차단"
+  },
+  {
+   "from": "container:vultr-us-01",
+   "to": "network:vultr-fixed-egress",
+   "type": "serves",
+   "note": "tinyproxy 仅监听 127.0.0.1:8888，Bind 强制 IPv4 出口"
+  },
+  {
+   "from": "container:tencent-nj-01",
+   "to": "network:cn-domestic-view",
+   "type": "serves",
+   "note": "国内视角探测节点"
+  }
+ ]
+}
