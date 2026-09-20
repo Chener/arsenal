@@ -566,6 +566,43 @@
    "attrs": {
     "note": "cloudflare skill 调用能力；当前实际用 Mac 本地 token（credential:cloudflare-token-mac），Vault custom.cloudflare 401 待补录、补录后切回"
    }
+  },
+  {
+   "id": "program:jarvis-core",
+   "type": "program",
+   "name": "Jarvis Core v0.1",
+   "status": "active",
+   "attrs": {
+    "note": "数字贾维斯确定性执行核心：意图→任务图→校验器→审批门→执行器→审计日志；AI只写计划不做动作；代码在云电脑 ~/workspace/jarvis/（纯 Python 标准库）",
+    "version": "0.1.0"
+   }
+  },
+  {
+   "id": "program:jarvis-node-http-probe",
+   "type": "program",
+   "name": "Jarvis 节点：http_probe",
+   "status": "active",
+   "attrs": {
+    "note": "HTTP GET 探测：只读/绿线/幂等；2026-09-20 实测 chenerpath.com 返回 200"
+   }
+  },
+  {
+   "id": "program:jarvis-node-github-api",
+   "type": "program",
+   "name": "Jarvis 节点：github_api",
+   "status": "active",
+   "attrs": {
+    "note": "GitHub REST 只读：实现层硬编码 GET；未认证 60次/时/IP；私有仓库需 token（待用户决策）"
+   }
+  },
+  {
+   "id": "program:jarvis-node-cron-register",
+   "type": "program",
+   "name": "Jarvis 节点：cron_register",
+   "status": "active",
+   "attrs": {
+    "note": "定时提醒注册：写本地定义文件（黄线）；不写系统 crontab（待用户决策）"
+   }
   }
  ],
  "edges": [
@@ -831,6 +868,33 @@
    "from": "program:cloudflare-skill",
    "to": "network:cloud-egress-direct",
    "type": "connects_via"
+  },
+  {
+   "from": "program:muse-bot",
+   "to": "program:jarvis-core",
+   "type": "drives",
+   "note": "意图入口：muse bot 把用户一句话变成任务图喂给 Jarvis"
+  },
+  {
+   "from": "program:jarvis-core",
+   "to": "program:jarvis-node-http-probe",
+   "type": "orchestrates"
+  },
+  {
+   "from": "program:jarvis-core",
+   "to": "program:jarvis-node-github-api",
+   "type": "orchestrates"
+  },
+  {
+   "from": "program:jarvis-core",
+   "to": "program:jarvis-node-cron-register",
+   "type": "orchestrates"
+  },
+  {
+   "from": "program:jarvis-core",
+   "to": "container:muse-cloud",
+   "type": "runs_on",
+   "note": "v0.1 跑在云电脑 ~/workspace/jarvis/"
   }
  ]
 }
