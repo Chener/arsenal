@@ -255,7 +255,18 @@ en:{
   external:"external step", running:"running", completed:"completed",
   close:"Close", innerProgs:"Inner programs",
 }};
-let LANG = localStorage.getItem("arsenal-lang") || "zh";
+/* 默认语言：手动选择优先（localStorage），否则按国内/国际自动判定。
+   对标主站 functions/_middleware.ts：cookie 手动 > cf.country（CN→zh）。
+   纯静态站无边缘中间件，客户端用时区等价判定中国大陆访客。 */
+function detectLang(){
+  try{
+    const tz = (Intl.DateTimeFormat().resolvedOptions().timeZone || "");
+    if (/^Asia\/(Shanghai|Chongqing|Harbin|Urumqi|Kashgar)/i.test(tz)) return "zh";
+  }catch(e){}
+  const nav = String(navigator.language || "").toLowerCase();
+  return nav.indexOf("zh") === 0 ? "zh" : "en";
+}
+let LANG = localStorage.getItem("arsenal-lang") || detectLang();
 const t = k => (I18N[LANG] && I18N[LANG][k]) || I18N.zh[k] || k;
 function applyI18n(){
   document.querySelectorAll("[data-i]").forEach(el=>{ el.textContent = t(el.dataset.i); });
