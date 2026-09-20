@@ -869,8 +869,10 @@ function switchTab(which){
   if(mesh){ renderMesh("map",{}); }
   else { renderReplay(); }
 }
-document.getElementById("tab-mesh").addEventListener("click",()=>switchTab("mesh"));
-document.getElementById("tab-match").addEventListener("click",()=>switchTab("match"));
+document.getElementById("tab-mesh").addEventListener("click",()=>{switchTab("mesh");history.replaceState(null,"","#");});
+document.getElementById("tab-match").addEventListener("click",()=>{switchTab("match");history.replaceState(null,"","#match");});
+/* 深链接：#match 直达对战记录页签（便于分享与验收截图） */
+if(location.hash==="#match") switchTab("match");
 document.getElementById("langbtn").addEventListener("click",()=>{
   LANG=LANG==="zh"?"en":"zh"; localStorage.setItem("arsenal-lang",LANG);
   applyI18n(); renderStats(); renderMesh("map",{}); renderRunList();
