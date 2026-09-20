@@ -1,0 +1,12 @@
+{
+ "version": "0.1.0",
+ "updated_at": "2026-09-20T13:55:00+08:00",
+ "changelog": [
+  {
+   "version": "0.1.0",
+   "at": "2026-09-20T13:55:00+08:00",
+   "by": "muse bot",
+   "changes": "首版：从军火库现有数据（runtimes/topology/projects/connections）与 memory 还原四类节点（容器14/程序19/网络5/密钥17）与 40 条边；凭证只记名称不记值；mac-mini/FirstMate 迁移、jules-api 等记为 planned"
+  }
+ ]
+}

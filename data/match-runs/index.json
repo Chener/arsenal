@@ -1,0 +1,25 @@
+{
+ "runs": [
+  {
+   "file": "runs/001-x-slop-tagger-v4.json",
+   "match_run": "001",
+   "started_at": "2026-09-19T23:42:00+08:00",
+   "status": "completed",
+   "planned": true,
+   "title": "X Slop Tagger v4 真凶追猎：CORS 预检 400 → 0.4.1 service worker 修复"
+  },
+  {
+   "file": "runs/002-x-slop-tagger-v5.json",
+   "match_run": "002",
+   "started_at": null,
+   "status": "reserved",
+   "planned": false,
+   "title": "X Slop Tagger v5（预留位，执行器进行中）"
+  }
+ ],
+ "_sync": {
+  "synced_at": "2026-09-20T14:55:41.553318+08:00",
+  "mesh_version": "0.1.0",
+  "source": "Chener/arsenal-match"
+ }
+}

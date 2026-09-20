@@ -1,0 +1,255 @@
+{
+ "chain": [
+  {
+   "action": "用户在真实 Chrome 里看到 v4 满屏黑底黑问号，要求：必须有一部分测试走真实 EV/JEV 服务、尽量操作他的实际 Chrome、今晚找到真故障并修好。此前两次\"修好了\"都是 fake server + Chrome for Testing 的假完工。",
+   "at": "2026-09-19T23:42:00+08:00",
+   "container": "T0",
+   "container_name": "Mac (m5air)",
+   "credential": null,
+   "link": "chat (main)",
+   "output": "验收纪律升级：没有在真实条件下复现并复测，就不许说修好。",
+   "program": "user (Wu)",
+   "seq": 1,
+   "war_room": null
+  },
+  {
+   "action": "派\"真凶猎人\"协调器：复现黑问号 → 追踪产生链路 → 排查 schema v2 迁移/ host_permissions / popup 报错 / 异步失败被吞 → 真实 Chromium/CDP → 真实 JEV 端到端 → 检查 Mac 扩展 profile 与存储。",
+   "at": "2026-09-19T23:45:00+08:00",
+   "container": "T2",
+   "container_name": "cloud computer",
+   "credential": null,
+   "link": "subagent spawn",
+   "output": "协调器开始执行，全程异步。",
+   "program": "muse bot",
+   "seq": 2,
+   "war_room": null
+  },
+  {
+   "action": "真实 Chromium（Mac、与用户同款 153 内核）+ 真实扩展代码 + 真实 live key（108 字符，从 live profile 读出、Mac 本地验证 HTTP 200 有效）→ 新帖子 pill 显示\"?\"，复现成功。",
+   "at": "2026-09-19T23:55:00+08:00",
+   "container": "T0",
+   "container_name": "Mac (m5air)",
+   "credential": "live JEV key（Mac Chrome profile 内读出，本地验证有效，未离机）",
+   "link": "Tailscale SSH",
+   "output": "黑问号在真实条件下复现。",
+   "program": "真凶猎人 (executor)",
+   "seq": 3,
+   "war_room": null
+  },
+  {
+   "action": "CDP Network 域抓包：REQ OPTIONS https://api.typesafe.ai/v1/systemone → RESP 400，随后 TypeError: Failed to fetch。curl 直接打预检同样 400 Disallowed CORS origin（对 chrome-extension:// 源）。已排除：key 无效、Mac→API 网络、API 拒收请求体、注入/DOM。",
+   "at": "2026-09-20T00:00:00+08:00",
+   "container": "T0",
+   "container_name": "Mac (m5air)",
+   "credential": "live JEV key（Mac-local，同上）",
+   "link": "Tailscale SSH + CDP",
+   "output": "真因锁定：v4 把 JEV 调用放在 content script 里直接 fetch 并带 Authorization 头，触发 CORS 预检；TypeSafe 对 chrome-extension:// 源的预检返回 400。MV3 架构错误——host_permissions 免不掉 content script 的预检，所有判定 100% 死在预检上。",
+   "program": "真凶猎人 (executor)",
+   "seq": 4,
+   "war_room": null
+  },
+  {
+   "action": "工作区 ~/workspace/x-slop-tagger/v4/ 升到 0.4.1：新增 background.js（service worker 做 API 代理，SW 发起的请求不受预检约束）；content.js 的 judgeWithJev 与纠错 classify 改走 chrome.runtime.sendMessage 经 SW；setUnknown 显示具体错误码中文说明；options.js 测试连接同样改走 SW；manifest.json 加 background.service_worker。node --check 全过；代码中已无直接 fetch(。",
+   "at": "2026-09-20T00:01:00+08:00",
+   "container": "T2",
+   "container_name": "cloud computer",
+   "credential": null,
+   "link": "local files",
+   "output": "0.4.1 修复完成（工作区副本，尚未部署 live）。",
+   "program": "真凶猎人 (executor)",
+   "seq": 5,
+   "war_room": null
+  },
+  {
+   "action": "CfT Chrome（真实 Chromium 153）+ 0.4.1 + 真实 live key + 真实 JEV API：诱饵帖 Slop 95% 红印章、转发抽奖帖 Slop 97% 红印章、技术干货帖 Not slop 4%/5%/7%；零\"?\"、零 JS 报错。",
+   "at": "2026-09-20T00:02:00+08:00",
+   "container": "T0",
+   "container_name": "Mac (m5air)",
+   "credential": "live JEV key（Mac-local，同上）",
+   "link": "Tailscale SSH",
+   "output": "\"?\"彻底消失，判定与印章链路全通，真实条件验证通过。",
+   "program": "真凶猎人 (executor)",
+   "seq": 6,
+   "war_room": null
+  },
+  {
+   "action": "协调器完工回报经 handoff 只送达一条 stub（\"最终报告已在上一条交付\"），实质报告未送达；从 agent session 日志中提取出完整真因与修复证据，继续推进。",
+   "at": "2026-09-20T00:03:00+08:00",
+   "container": "T2",
+   "container_name": "cloud computer",
+   "credential": null,
+   "link": "agent session log",
+   "output": "真因与修复证据找回，无需重做。",
+   "program": "muse bot",
+   "seq": 7,
+   "war_room": null
+  },
+  {
+   "action": "备份 Mac live 目录 → /tmp/xst-live-backup-20260920-041；scp 4 个文件（background.js / content.js / options.js / manifest.json）到 /Users/chener/.config/chrome-ext/x-slop-tagger/；md5 与工作区 verified 副本逐一对上；Mac 上 node --check 四个 JS 全过。",
+   "at": "2026-09-20T00:04:00+08:00",
+   "container": "T0",
+   "container_name": "Mac (m5air)",
+   "credential": "id_tailscale_mac（Tailscale SSH key，仅名称）",
+   "link": "Tailscale SSH via hatch-egress-proxy:3130",
+   "output": "0.4.1 已部署 live，原子替换完成（备份保留）。",
+   "program": "muse bot",
+   "seq": 8,
+   "war_room": null
+  },
+  {
+   "action": "军火库 data/dispatch-log.json 追加 CORS 真凶与 0.4.1 修复条目，经 gh-api contents API 推送（commit 1716dfa），本地克隆 git fetch + reset --hard 对齐。",
+   "at": "2026-09-20T00:05:00+08:00",
+   "container": "T2",
+   "container_name": "cloud computer → GitHub",
+   "credential": "custom.github（Secure Vault，仅名称）",
+   "link": "GitHub REST API",
+   "output": "调度结论与架构红线已同步军火库。",
+   "program": "muse bot",
+   "seq": 9,
+   "war_room": null
+  }
+ ],
+ "decisions": [
+  {
+   "at": "2026-09-19T23:42:00+08:00",
+   "decided_by": "user (Wu)，muse bot 执行",
+   "decision": "采纳用户条件：本次只认真实接口 + 真实浏览器 + 真实 key 的复现与复测；fake fixture 结果作废。",
+   "jev": null,
+   "options": [
+    "接受用户条件，按真实条件重做",
+    "继续用 fake server + Chrome for Testing 报完工"
+   ],
+   "question": "v4 验收按什么标准才算修好？",
+   "rationale": "此前两次\"修好了\"都是模拟环境报的假完工，用户已明确不接受；只有真实条件能暴露 CORS 预检这类真凶。"
+  },
+  {
+   "at": "2026-09-20T00:01:00+08:00",
+   "decided_by": "真凶猎人 (executor)",
+   "decision": "service worker 代理：content script 与 options 页一律经 chrome.runtime.sendMessage 把 JEV 请求交给 background SW 发起。",
+   "jev": null,
+   "options": [
+    "content script 直调 JEV（v4 原架构）",
+    "background service worker 做 API 代理"
+   ],
+   "question": "JEV 请求应该从哪里发起？",
+   "rationale": "证据链证明预检是死因；SW 发起的请求不受 CORS 预检约束，是 MV3 标准做法。"
+  }
+ ],
+ "ended_at": "2026-09-20T00:05:00+08:00",
+ "final_output": "X Slop Tagger 0.4.1 部署到 Mac live 扩展目录并验证通过；待用户在 chrome://extensions 点一次重载（unpacked 扩展改文件后必须手动重载，SSH 侧无法代点）。",
+ "lessons": [
+  "MV3 content script 带自定义头的跨域 fetch 会被 CORS 预检拦，第三方 API 一律走 service worker 代理——以后所有扩展类任务的架构红线。",
+  "fake server 不做 CORS 检查，所以 fake 环境永远测不出这类真凶；验收必须用真实接口 + 真实浏览器 + 真实 key。",
+  "子代理的最终报告若未随 handoff 送达，先从其 session 日志还原，不要当成没产出直接重做。",
+  "live 目录部署：先备份、md5 逐文件校验、原子替换；SSH 侧点不了 chrome://extensions 的重载按钮，要如实告诉用户只剩这一次点击。"
+ ],
+ "match_run": "001",
+ "started_at": "2026-09-19T23:42:00+08:00",
+ "status": "completed",
+ "task": "X Slop Tagger v4 在用户真实 Chrome 里满屏黑底黑问号——找到真故障并在真实条件下修复验证。",
+ "title": "X Slop Tagger v4 真凶追猎：CORS 预检 400 → 0.4.1 service worker 修复",
+ "planned_chain": [
+  {
+   "seq": 1,
+   "at": "2026-09-19T23:42:00+08:00",
+   "program": "user (Wu)",
+   "container": "T0",
+   "container_name": "Mac (m5air)",
+   "link": "chat (main)",
+   "credential": null,
+   "war_room": null,
+   "action": "用户在真实 Chrome 里看到 v4 满屏黑底黑问号，要求：必须有一部分测试走真实 EV/JEV 服务、尽量操作他的实际 Chrome、今晚找到真故障并修好。此前两次\"修好了\"都是 fake server + Chrome for Testing 的假完工。",
+   "output": "验收纪律升级：没有在真实条件下复现并复测，就不许说修好。"
+  },
+  {
+   "seq": 2,
+   "at": "2026-09-19T23:45:00+08:00",
+   "program": "muse bot",
+   "container": "T2",
+   "container_name": "cloud computer",
+   "link": "subagent spawn",
+   "credential": null,
+   "war_room": null,
+   "action": "派\"真凶猎人\"协调器：复现黑问号 → 追踪产生链路 → 排查 schema v2 迁移 / host_permissions / popup 报错 / 异步失败被吞 → 真实 Chromium/CDP → 真实 JEV 端到端 → 检查 Mac 扩展 profile 与存储。",
+   "output": "协调器开始执行，全程异步。"
+  },
+  {
+   "seq": 3,
+   "at": "2026-09-19T23:50:00+08:00",
+   "program": "真凶猎人 (executor)",
+   "container": "T0",
+   "container_name": "Mac (m5air)",
+   "link": "Tailscale SSH",
+   "credential": "live JEV key（Mac-local）",
+   "war_room": null,
+   "action": "真实 Chromium（与用户同款 153 内核）+ 真实扩展代码 + 真实 live key → 复现黑问号。",
+   "output": "（计划）黑问号在真实条件下复现。"
+  },
+  {
+   "seq": 4,
+   "at": "2026-09-19T23:55:00+08:00",
+   "program": "真凶猎人 (executor)",
+   "container": "T0",
+   "container_name": "Mac (m5air)",
+   "link": "Tailscale SSH",
+   "credential": null,
+   "war_room": null,
+   "action": "按排查清单追踪：schema v2 迁移、host_permissions、popup 报错、异步失败被吞 → 定位故障点 → 写修复。",
+   "output": "（计划）定位到代码级故障并修复。"
+  },
+  {
+   "seq": 5,
+   "at": "2026-09-20T00:00:00+08:00",
+   "program": "真凶猎人 (executor)",
+   "container": "T0",
+   "container_name": "Mac (m5air)",
+   "link": "Tailscale SSH",
+   "credential": "live JEV key（Mac-local）",
+   "war_room": null,
+   "action": "真实 Chromium + 修复版 + 真实 live key + 真实 JEV API，复测判定与印章链路。",
+   "output": "（计划）\"?\"消失，真实条件验证通过。"
+  },
+  {
+   "seq": 6,
+   "at": "2026-09-20T00:05:00+08:00",
+   "program": "muse bot",
+   "container": "T0",
+   "container_name": "Mac (m5air)",
+   "link": "Tailscale SSH via hatch-egress-proxy:3130",
+   "credential": "id_tailscale_mac",
+   "war_room": null,
+   "action": "备份 Mac live 目录；scp 修复文件到 live 目录；md5 校验；node --check。",
+   "output": "（计划）修复版部署 live，原子替换完成。"
+  },
+  {
+   "seq": 7,
+   "at": "2026-09-20T00:10:00+08:00",
+   "program": "muse bot",
+   "container": "T2",
+   "container_name": "cloud computer → GitHub",
+   "link": "GitHub REST API",
+   "credential": "custom.github",
+   "war_room": null,
+   "action": "军火库 dispatch-log 同步真因与修复。",
+   "output": "（计划）调度结论已同步军火库。"
+  }
+ ],
+ "planned_by": "muse bot",
+ "planned_at": "2026-09-19T23:45:00+08:00",
+ "deviation": {
+  "summary": "计划是按常规排查清单（schema v2 / host_permissions / popup 报错 / 异步失败被吞）追踪一个代码级故障；实际在 CDP 抓包时撞见 CORS 预检 400，真凶从\"代码 bug\"升级为\"MV3 架构错误\"，整个 run 的重心从\"修复问号\"偏移为\"猎杀真因\"。",
+  "nodes_added": [
+   "actual seq4 CDP 预检抓包：OPTIONS https://api.typesafe.ai/v1/systemone → 400，锁定 CORS 真因（计划外的决定性节点，本 run 的转折点）",
+   "actual seq7 handoff stub 丢失后从 agent session 日志还原完整报告（计划外的抢救节点）"
+  ],
+  "nodes_removed": [
+   "planned seq4 的常规排查清单被真因短路：预检 400 一出来，schema v2 / host_permissions 等排查项直接作废，未逐项执行"
+  ],
+  "note": "planned_chain 按派工 brief 还原，planned_at 为约数。差值本身就是本 run 最有价值的经验：架构级真凶不会出现在常规排查清单里，抓包先行。"
+ },
+ "_sync": {
+  "synced_at": "2026-09-20T14:55:41.553318+08:00",
+  "mesh_version": "0.1.0",
+  "source": "Chener/arsenal-match"
+ }
+}
