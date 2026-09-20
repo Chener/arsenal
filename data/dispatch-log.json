@@ -382,5 +382,10 @@
   "date": "2026-09-20",
   "event": "Kimi K3 第二轮独立验收通过（有条件）+ 合并上线：亲手复核 diff（data/ 零改动）、真 390px 手机零溢出、深链全过；用户裁决 Match 用纵向时间线（接受与放射盘偏差）；Git Data API 推 3 文件（992f0899），Pages built。⚠️ arsenal.chenerpath.com HTTPS 证书仍未生效（CN=*.github.io），证书签发授权仍卡 authorization_created",
   "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-20",
+  "event": "Jarvis v0.1 落地：确定性执行核心（意图→任务图→校验→审批门→执行→审计）+ 3 个真实节点（http_probe/github_api/cron_register），19 测试全过，demo 链路跑通；红线意图拒绝 exit 3",
+  "executor": "muse bot"
  }
 ]
