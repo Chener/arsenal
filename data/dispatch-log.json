@@ -284,5 +284,10 @@
   "date": "2026-09-20",
   "event": "X Slop Tagger v4 真凶：MV3 content script 带 Authorization 头直调第三方 API，CORS 预检被 TypeSafe 拒（400 Disallowed CORS origin），全部判定死在预检上致满屏黑\"?\"。修复 0.4.1：新增 background service worker 做 API 代理（MV3 标准做法，不受预检约束），content/options 改走 chrome.runtime.sendMessage。真实 Chromium153+真实key+真实JEV 复测：Slop 95%/97% 红印章，零\"?\"。架构红线：MV3 content script 跨域 fetch 一律走 SW 代理。",
   "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-20",
+  "event": "Arsenal Mesh 前端双语默认语言+Match 回放双缺口修复+移动端徽标裁切修复（b292152/da55012/d9114309/7e7cb7a8，经 Git Data API 推送，Pages built）。①默认语言对标主站 functions/_middleware.ts（手动 lang 优先，否则 cf.country 判定国内/国际）：纯静态站无边缘中间件，客户端用 Intl 时区等价判定（Asia/Shanghai 等→中文），兜底 navigator.language；手动切换写 localStorage，优先级最高；中英词典 18 键对齐。②修复 Match 双缺口：actual 链兼容旧 chain 字段（actual_chain||chain||planned_chain，Run #001 真实执行链 9 步此前被 planned 覆盖）；对比模式同屏绘制 planned 虚线(ghost)+actual 绿色实线+被短路节点+⚡ deviation 标记（CDP 实测：6 段 ghost + 8 段 actual + 2 chips）。③#match 深链接直达对战记录页签。④修手机端 run 卡片状态徽标被右边缘裁切（标题行改 flex 换行）。PC/手机双视角真实 Chrome 截屏验收通过（mesh 总览、match 列表、both 对比），截图存 your_files/arsenal-*.png。",
+  "executor": "muse bot"
  }
 ]
