@@ -606,9 +606,14 @@ function openRun(file){
   document.querySelectorAll(".runitem").forEach(e=>e.classList.toggle("sel", e.dataset.file===file));
   renderReplay();
 }
+/* 真实链兼容：actual_chain（新）|| chain（旧字段，Run #001 的真实执行链）|| planned_chain */
+function actualSteps(){
+  const run=Replay.run, ac=run.actual_chain, ch=run.chain;
+  return ((ac&&ac.length?ac:null)||(ch&&ch.length?ch:null)||run.planned_chain)||[];
+}
 function chainSteps(){
   const run=Replay.run;
-  return (Replay.mode==="actual"&&run.actual_chain&&run.actual_chain.length?run.actual_chain:run.planned_chain)||[];
+  return (Replay.mode==="actual"? actualSteps() : run.planned_chain)||[];
 }
 function renderReplay(){
   const run=Replay.run; if(!run) return;
@@ -659,8 +664,18 @@ function renderReplay(){
       routePts.forEach(p=>badge(p, p.i+1, "#3f74d6", false));
     }
     if(mode==="actual"||mode==="both"){
-      const aPts=routePts.filter(p=>!isSkipped(steps[p.i]));
-      if(mode==="actual"){ drawPath(aPts,"actual"); aPts.forEach(p=>badge(p,p.i+1,"#2f9e6e",false)); }
+      // 对比模式：actual 绿色实线按真实链独立解析绘制，与 planned 虚线同屏
+      let aPts;
+      if(mode==="both"){
+        const aSteps=actualSteps();
+        const aRes=aSteps.map(s=>resolveStep(DB.registry,s));
+        aPts=[];
+        aRes.forEach((r,i)=>{ if(r.node&&nodePos[r.node]) aPts.push({i, id:r.node, x:nodePos[r.node].x, y:nodePos[r.node].y}); });
+        drawPath(aPts,"actual");
+      }else{
+        aPts=routePts.filter(p=>!isSkipped(steps[p.i]));
+        drawPath(aPts,"actual"); aPts.forEach(p=>badge(p,p.i+1,"#2f9e6e",false));
+      }
       routePts.forEach(p=>{ if(isSkipped(steps[p.i])) badge(p, p.i+1, "#fff", true); });
       const added=(run.deviation&&run.deviation.nodes_added)||[];
       added.forEach((txt,idx)=>{
