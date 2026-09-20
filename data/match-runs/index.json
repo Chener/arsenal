@@ -15,11 +15,19 @@
    "status": "completed",
    "planned": false,
    "title": "X Slop Tagger v5（已完成，用户真实环境验收通过）"
+  },
+  {
+   "file": "runs/003-kimi-r2-frontend-rebuild.json",
+   "match_run": "003",
+   "started_at": "2026-09-20T19:44:17+08:00",
+   "status": "completed",
+   "planned": true,
+   "title": "Kimi K3 Arsenal 前端重构 R2：合并上线（用户接受 Match 时间线偏差）"
   }
  ],
  "_sync": {
-  "synced_at": "2026-09-20T16:26:01.356744+08:00",
+  "synced_at": "2026-09-20T21:52:00+08:00",
   "mesh_version": "0.3.0",
-  "source": "Chener/arsenal-match"
+  "source": "muse bot"
  }
 }

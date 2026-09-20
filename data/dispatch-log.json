@@ -302,5 +302,14 @@
   "date": "2026-09-20",
   "event": "公开仓库清理+全史审计（用户拍板保持 public）：mesh-registry.json 及 history/0.1.0–0.3.0 三份快照删除 ip/public_ip 字段（9 处/份）并改写 3 类 note 中的 IP 字面量为文字描述；topology.json 清除固定出口 IP 字样；dispatch-log 历史条目中的南京 VPS 公网 IP 改写为文字。清理后全仓库 grep 零 IP 残留，README「不含 IP」声明恢复为真。全历史 74 个 commit 逐 patch 扫描（ghp_/AKIA/私钥头/secret 赋值/长 hex 等模式），零密钥泄漏。历史 commit 中的旧 IP 为历史残留、低风险（Tailnet IP 外网不可达），不做历史改写。SSH 用户名与账号邮箱为自有运维标识，保留。",
   "executor": "muse-bot"
+ },
+ {
+  "date": "2026-09-20",
+  "event": "Kimi K3 Arsenal 前端重构 R2 合并上线（用户 21:38 裁决接受 Match 时间线偏差）：Git Data API 推 3 文件（index.html/app.css/app.js），新 commit 992f089；compare 核验 data/ 零改动；Pages 构建 built。正式域名 arsenal.chenerpath.com QA（证书绕过）：4 视图切换/深链 #match/#ops/中英切换/console 零错误通过；手机端无头 Chrome 500px 无横向溢出（390px/真机/Safari/微信均未验证，明确标注）。Match Run 003 已记录 planned/actual/deviation，链无结构化证据已诚实标注。",
+  "executor": "muse bot"
+ },
+ {
+  "date": "2026-09-20",
+  "event": "⚠ 阻塞：arsenal.chenerpath.com 的 GitHub Pages 自定义域名证书仍未签发（服务端证书 CN=*.github.io，与 authorization_created 卡点同一问题，非本次推送引入），真实浏览器访问报证书错误。后续：证书生效后做真实证书条件冒烟验收；EdgeOne 付费路线保持暂停（用户决定先不花钱）。"
  }
 ]

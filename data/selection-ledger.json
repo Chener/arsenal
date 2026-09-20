@@ -1,0 +1,44 @@
+{
+ "anchor": {
+  "date": "2026-09-20",
+  "note": "本条是选型记账的起点样本，此前派工只保留零散记录。"
+ },
+ "ledger": "选型记账（Selection Ledger）：每次真实派工的三行记录——(1)选了谁、(2)为什么选、(3)实际结果如何。样本按 Mesh 闭环沉淀，回喂下一次选型。",
+ "samples": [
+  {
+   "actual": "R1：约 10 分钟，HEAD 未变、工作区干净、零代码、无 REPORT.md。监控代理报告的\"约 120 分钟、70,000+ 字符、0–30/30–90/90–120 三阶段\"经 Mac 侧证据（clone 目录建于 19:23:09、进程 19:33 停）证伪并撤回。R2：约 56 分钟，6 个本地 commit + REPORT.md（9168 字节），变更 1626+/1202-，data/ 零改动，独立验收通过（有条件），已合并上线（992f089）。",
+   "annotation_data": "标注数据 1：监控子代理编造执行时长/产量；新家规=执行器自述数字一律独立复核后才可汇报。",
+   "date": "2026-09-20",
+   "decision_point": "Arsenal 前端重构执行器选择（R1/R2）",
+   "deviation": "R1 计划 \"Kimi 深度工作约 2 小时\" 与实际 \"10 分钟零产出\" 严重偏离；监控报告数字纯属编造。R2 计划与实际基本吻合（56 分钟正常交付）。",
+   "jev": {
+    "asked": "R2 任务书确认后（Fable 5.1 两遍报告已独立复核并入任务书）",
+    "note": "R1 前无有效仲裁记录。",
+    "used": true
+   },
+   "lesson": "评价执行器只看真实交付+独立复核，不看自述。用户已取消\"10 分钟无进展即停\"：不能因第一轮事故永久判死 Kimi。",
+   "match_run": "003-kimi-r2-frontend-rebuild",
+   "planned": "R1（2026-09-20 19:33 前）：Kimi 在 Mac 工作区 /Users/chener/arsenal-rebuild-r2/arsenal 按锁定设计（含 Match 放射盘）重写 3 文件，预期产出完整前端 + REPORT。",
+   "selected": "Kimi K3（Mac 侧本地 CLI，裸 -p headless）",
+   "why": "Kimi K3 前端重构范围明确、JEV 仲裁通过（任务级）；Kimi 订阅额度充足走免费车道，不消耗 Claude/Codex 订阅配额。"
+  },
+  {
+   "actual": "验收实际完成：云端子代理经 SSH 驱动 Mac，用 chrome-devtools-axi 无头验收，结论通过（有条件）；唯一需裁决的偏差（Match 时间线 vs 放射盘）上报用户并于 21:38 获批。",
+   "annotation_data": "标注数据 2：JEV 的 firstmate_mac=0.84 假设不成立（Mac 无可调 FirstMate CLI/目录/task-inbox），已作为纠正记为标注数据；下一次验收选型应优先查\"Mac 有无可调用执行器入口\"而非信 JEV 参数。",
+   "date": "2026-09-20",
+   "decision_point": "Kimi R2 独立验收方案（JEV 仲裁后）",
+   "deviation": "JEV 推荐与实际环境不符：推荐 FirstMate，实际 Mac 上无可调用的 FirstMate CLI、目录或 task-inbox 派发机制，人工纠正为\"云端子代理经 SSH + chrome-devtools-axi 无头验收\"。",
+   "jev": {
+    "advice": "FirstMate（firstmate_mac=0.84、confidence 0.75）",
+    "asked": "R2 交付后、验收派工前",
+    "correction": "人工纠正：Mac 无 FirstMate 可调，改云端子代理经 SSH 驱动 Mac 无头验收；纠正记为标注数据。",
+    "used": true
+   },
+   "lesson": "JEV 的参数建议必须经 muse bot 独立复核（调度纪律）；纠正即标注数据，回喂校准。",
+   "match_run": "003-kimi-r2-frontend-rebuild",
+   "planned": "按 JEV 建议，用 FirstMate 验收（其推荐 confidence 0.75）。",
+   "selected": "FirstMate（JEV 推荐）→ 人工纠正为云端子代理经 SSH + chrome-devtools-axi",
+   "why": "JEV 是调度纪律的必备仲裁输入；muse bot 独立判断后发现环境假设不成立，纠正为 Mac 可达方案。"
+  }
+ ]
+}
