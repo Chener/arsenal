@@ -293,5 +293,9 @@
  {
   "date": "2026-09-20",
   "event": "Mesh registry v0.1.0→v0.2.0（用户批准节点增补提案）：+program:tccli-mac、+program:chrome-mac，各挂 runs_on→container:m5air；57 节点/42 边；写 changelog、建 data/history/0.2.0 快照、versions.json 置 latest。muse bot 直做，经 Git Data API 推送。"
+ },
+ {
+  "date": "2026-09-20",
+  "event": "Mesh registry v0.2.0→v0.3.0（标准 v1.0 生效后首次补录，用户批准）：+program:github-skill、+program:cloudflare-skill，各挂 runs_on/auth_with/connects_via；59 节点/48 边；§3.2 四份清单反查完成（skills 5 个、ssh 5 台、cron 任务、vault 条目经 skill 声明交叉核对），无其他遗漏需登记。经 Git Data API 推送并服务端核验。"
  }
 ]
