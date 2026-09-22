@@ -492,5 +492,60 @@
     "date": "2026-09-21",
     "event": "Feed 按用户要求定制为 AI 主题（新模型发布/AI 编程工具与 Agent/框架与基础设施/实验室定价政策变化）",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-22",
+    "event": "Mesh 显化方向转向「任务开箱」：用户搁置静态拓扑/迷雾地图路线，拍板一次任务拆七个可点阶段（意图→理解→拆分→选型→执行链→验收→沉淀），调度/执行/数据黑箱可开、模型黑箱只记输入输出；mesh-2 按新模型重画构建完成（run-001 为首只开箱对象），待用户验收",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-22",
+    "event": "Mesh 节点原子化规则（用户亲口定，多轮纠正）：节点只有三类——人、容器、程序；前端/后端只描述 T2 服务；API/连接器/SSH 一律是「路」；定时触发器是程序@容器；subagent 是 muse-bot 内部派生；muse-bot→FirstMate 驱动方式=「指令翻译」",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-22",
+    "event": "拓扑路清单纪律确立：每条「路」必须指向脚本/配置/真实调用证据，指不到的标「未验证」；Vultr 固定出口实查纠正为 ssh -L 转发 + tinyproxy HTTP 代理（不是 SOCKS，旧 SOCKS5 方案已废弃）",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-22",
+    "event": "用户拍板：Mesh 项目回到 Mac mini 上部署，用 FirstMate 在上面跑；Mac mini 定位=FirstMate 24 小时运行载体（预计 2026-09-23 到货，到货后先做 tailnet 接入）",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-22",
+    "event": "Kun Chen「不审批、可擦除重建」找到原文出处：其 2026-07-29 X 帖称用 nix-darwin + home-manager 让整机可立即复现、出事就 wipe 重建；实查 firstmate 仓库对 nix-darwin 零命中，属个人实践而非官方配套；用户评估用于 Mac mini，尚未拍板采用",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-22",
+    "event": "FirstMate 远程 second mate / Herdr 机制实查：远端会话由其 GUI 登录会话的 LaunchAgent 维持，SSH 断开后远端仍继续工作；三层心智模型校准=Tailscale 寻址、SSH 传输、Herdr 会话层",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-22",
+    "event": "Kimi CLI 自定义自动更新 LaunchAgent 已退役（用户批准，plist 移至 LaunchAgents.retired 备份、可恢复）；Mac Air 只读痕迹审计完成，多项长期未更新的自启项列为清理候选，待逐项确认",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-22",
+    "event": "用户首次明确表达深度疲惫（自 2026-04 全力投入 AI 以来第一次）：此后节奏放缓，不主动推新活、不催进度，他想动时再动",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-22",
+    "event": "个人系统维护原则定稿（用户认可）：不追求绝对整洁，底线是「不忍受看不见」——保持一张「现在有什么在跑」的可见性清单；需要用户决策时压缩成带证据的选择题；装东西时先问「不用了怎么退」",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-22",
+    "event": "Mac mini 部署蓝图已交付（用户尚未确认）：只建 ~/mesh-runtime/ 固定目录，凭证走三层模型，LaunchAgents 只重建 com.meshruntime.* 三类；Mac Air 只迁配置/登录态/仓库/运行状态，不整体迁移",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-22",
+    "event": "Mesh 维护边界判断：只维护「收益大于维护成本时可达到的最细层」（慢层），从真实实践中积累而非脑中空想；具体积累机制尚未由用户拍板",
+    "executor": "muse bot"
   }
 ]
