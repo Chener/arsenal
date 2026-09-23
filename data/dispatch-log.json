@@ -547,5 +547,75 @@
     "date": "2026-09-22",
     "event": "Mesh 维护边界判断：只维护「收益大于维护成本时可达到的最细层」（慢层），从真实实践中积累而非脑中空想；具体积累机制尚未由用户拍板",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-23",
+    "event": "agy CLI 二进制确认被移除（移除者/时间未知），~/.agy-homes/ 下 acct-b/c/d/e 四个账号数据目录仍在；另三号 CLI 登录态已掉线，第 5 号 Pro 地区验证待用户本人操作",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-23",
+    "event": "云电脑出口代理 04:31–04:36 tailnet 链路故障（m5air 与 tencent-nj-01 同错），随后恢复；04:26→08:26 的 Mac down→up 是探针假阳性，Mac 本体未重启",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-23",
+    "event": "grok-box 全天失联（08:36 起 probe exit 1，本机看门狗未自愈）；20:13 用户要求的 grok-box 收件箱自动化因失联未建成，已设一次性重试 cron；用户已被告知需在 Grok Bot 侧看宿主机",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-23",
+    "event": "个趣乐 30 秒品牌动画启动（用户拍板）：生产路线=Mac Air 本地 Claude Code + Opus 5.5，资料经 FirstMate 飞书 crew 只读拉取",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-23",
+    "event": "飞书 lark-cli 用户身份恢复：用户完成 device-code 新授权，lark-cli auth status 显示 tokenStatus=valid，临时凭证文件已删除",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-23",
+    "event": "FirstMate→muse bot 实时推送试通：Mac 端 fm-dod-lib.sh 补丁（3 类 done+1 类 paused 追加 JSON 到 push-notify.log，可 git checkout 回退）+云端 firstmate-push-sweep 每分钟 cron；合成事件 58 秒端到端；outbox-watch 改为 5 分钟、仍作文件兜底",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-23",
+    "event": "个趣乐吉祥物 v2 交付（3 角色 IP），用户选定 A「拣仔」（街头买手）为《包装安全无小事》主角；生图链核验：FirstMate worker（Claude harness，fable 做 art direction）→codex exec ephemeral→Codex 内置 image_gen→后端 gpt-image-2（ChatGPT 订阅），prompt 随 ephemeral scratch 销毁不可恢复",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-23",
+    "event": "Opus 5.5 可用：Anthropic 官方发布（约降价 40%），Mac 实测 claude -p --model claude-opus-5-5 约 13 秒返回 ok；免费额度重置需在 10-22 前手动领取",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-23",
+    "event": "30 秒《包装安全无小事》成片 17:47 交付（gequrile-prod-001，1920×1080/30fps/30.000s 独立核验通过）；18:01 用户审片结论「还行，不过不能用」，测试片使命完成（验证 Opus 5.5 纯代码动画管线），不作为正式作品；后续 IP 宇宙系列走无旁白纯视觉叙事，Mac TTS 旁白弃用",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-23",
+    "event": "个趣乐传播方向被用户纠正：否决《100 个名额》硬广切入，飞书取材扩大为 2026-05-01 起全量内容；派 gequrile-feishu-003（FirstMate）做价值观采矿，18:06 回执归档（398KB/2228 行），报告明确区分原始素材与艺术拓展并标注来源",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-23",
+    "event": "《开袋刺客》第 1 集获批并派 gequrile-prod-002（firstmate-mac，JEV confidence 0.89）进入成片制作；第 2 集《选择困难症晚期》剧本完成并派工（firstmate-mac，JEV 0.98），两集一起制作、成片后独立核验再交用户审片；规格=9:16 竖屏 30 秒无旁白，只做片不发布",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-23",
+    "event": "Mesh 方向更新（用户确认）：用户只管给意图、验收结果，muse bot 负责持续记录每次变更（变成了啥/为什么变/怎么退回）；砍掉全量测绘与分类学辩论，保留每单三行选型账本作验证抓手",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-23",
+    "event": "Mac mini 到货并开始全新安装设置：用户采用从零开始策略（只装实际需要的、只拉活跃 GitHub 项目到本地，逐个理解后再装），此后装东西经 muse bot 并记账、可回滚",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-23",
+    "event": "sweep.sh 假阴性 bug 修复：SSH 失败不再误报 NO_NEW（改为 SSH_FAIL exit 1），offset 只在真正读到新行时推进，避免静默漏检",
+    "executor": "muse bot"
   }
 ]
