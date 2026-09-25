@@ -618,81 +618,99 @@
     "event": "sweep.sh 假阴性 bug 修复：SSH 失败不再误报 NO_NEW（改为 SSH_FAIL exit 1），offset 只在真正读到新行时推进，避免静默漏检",
     "executor": "muse bot"
   },
-{
-  "date": "2026-09-23",
-  "event": "通宵赶工派发（用户 22:57 要求 09-24 06:00 前再做 3-5 集）：个趣乐 IP 宇宙第 3–7 集《三秒定律》《珍珠大逃亡》《泡面盖起义》《袋底碎渣》《巧克力泥石流》brief 传上 Mac 并确认进队列；Mac Air 并行上限 2 集、load 高则排队",
-  "executor": "muse bot"
-},
-
-{
-  "date": "2026-09-23",
-  "event": "实查纠正（22:48）：第 1、2 集此前实际没开工——brief 只落了盘、派工记录在断连中丢失，Mac 队列为空。教训：brief 进 Mac 不等于派工成功，必须亲手确认任务进队列",
-  "executor": "muse bot"
-},
-
-{
-  "date": "2026-09-24",
-  "event": "个趣乐 7 集通宵实况（07:32 汇报）：4 集交付并经独立核验（1080×1920/30fps/900帧/30秒整，H.264+AAC），成片已从 Mac 取回待用户审片；第 5–7 集卡住——两个 Opus 5.5 worker 交付后未退出、僵尸进程占满 Mac 两个并发槽位一整夜，08:38 亲手 kill 清理；教训：派工后盯槽位占用，交付后须确认进程退出",
-  "executor": "muse bot"
-},
-
-{
-  "date": "2026-09-24",
-  "event": "用户取消 gequrile-prod-006/007/008（08:48，三集取消前从未实际开工，无残留），只做 test-pup-rescue-001《气球小猫大营救》自由创意测试集——无用户描述/harness 约束的对照测试（用户对已交付 4 集「整体不满意」，怀疑约束限制了创意）；09:27 FirstMate 正式开工",
-  "executor": "muse bot"
-},
-
-{
-  "date": "2026-09-24",
-  "event": "分工调整（用户拍板）：作废「muse bot 是唯一派工口」——Mac 本地开发/制作走 FirstMate 有锁主对话（用户直接操作、上下文最全），muse bot 日常转 scout 只读查看用户没明白的状态并讲明白；跨设备/跨服务仍走 muse bot；scout 发现问题先说明、用户点头才动手",
-  "executor": "muse bot"
-},
-
-{
-  "date": "2026-09-24",
-  "event": "muse bot→FirstMate note 机制废弃（实证）：10 小时无人消费、僵尸 worker 占槽位一整夜、note 乱序导致已取消的 006/007 被复活；现任务传递只剩两条路——用户自己在主对话粘贴 prompt，或 muse bot scp 文件到 Mac 后用户发一句话指过去",
-  "executor": "muse bot"
-},
-
-{
-  "date": "2026-09-24",
-  "event": "用户决定：不在 FirstMate 外部加看门狗式工程化补丁（虽想把派活路径做可靠，但叫停立即开工、未经批准不得私自建造）；不动 FirstMate 本体、不向作者要求硬契约、不改接口；内部问题以「看得见、需要时对账」为主",
-  "executor": "muse bot"
-},
-
-{
-  "date": "2026-09-24",
-  "event": "grok-box 仍失联（14:35 probe exit 1，看门狗未自愈）；X 搜索改走 Mac Air grok build CLI 一次跑通（10 篇精华筛选）：教训是非交互 SSH 须显式带 FlClash 本地代理环境变量，否则直连被墙且 reqwest 重试叠成约 11 分钟才报错",
-  "executor": "muse bot"
-},
-
-{
-  "date": "2026-09-24",
-  "event": "vibe coding 外部指引需求链（用户主动索取）：经 Mac Air grok build 三轮搜出英文 10 篇 + 中文约 30 篇精华（第二轮按用户 10 条困惑定向检索，第三轮覆盖战略/心态困惑）；「vibe coding 中文精华阅读清单」静态网页已交付（标注 Grok 筛选、未经逐篇核验），Mac 上 Claude Opus 5.5 crew worker 教学视频任务（vibe-coding-mental-model-001）实查已开工",
-  "executor": "muse bot"
-},
-
-{
-  "date": "2026-09-24",
-  "event": "Mac Air SSH 链路间歇性抖动（15:39–15:56：多次 proxy broken pipe/握手超时后恢复）；同链路腾讯云南京 VPS 正常，故障集中在 Mac Air 链路/端点，用户 Tailscale 页面显示在线，根因未定位",
-  "executor": "muse bot"
-},
-
-{
-  "date": "2026-09-24",
-  "event": "Typeless 白名单申请告一段落：客服（Freya）两封回复后已转交技术团队调查（无承诺无时间表），用户明确「反馈到这就可以了」，typeless goal 已关闭、后续不再主动跟踪",
-  "executor": "muse bot"
-},
-
-{
-  "date": "2026-09-24",
-  "event": "用户为个趣乐 IP 宇宙定美学对标（宫崎骏/瑞克和莫蒂/哆啦A梦风格）与系列新方向：展示每个 SKU 从原材料到出品的全生产过程、穿插营养科普，定位缓解普通人食品安全焦虑；《气球小猫大营救》三个风格各做 5 秒对照测试、小菜园工作台/subgloss 上架困惑的检索均属本次需求链",
-  "executor": "muse bot"
-},
-
-{
-  "date": "2026-09-24",
-  "event": "用户心态更新（09-22 疲惫记录之后更完整的自述）：自 2026-04 起投入 AI 的热情还在（认为是普通人最大机会），但近几天心态崩——普通人难做深度技术（无历史积累、技术迭代快、难分清噪音信号），认为技术不是最大杠杆，核心是真实应用场景；节奏纪律延续：不主动推新活、不催进度",
-  "executor": "muse bot"
-}
+  {
+    "date": "2026-09-23",
+    "event": "通宵赶工派发（用户 22:57 要求 09-24 06:00 前再做 3-5 集）：个趣乐 IP 宇宙第 3–7 集《三秒定律》《珍珠大逃亡》《泡面盖起义》《袋底碎渣》《巧克力泥石流》brief 传上 Mac 并确认进队列；Mac Air 并行上限 2 集、load 高则排队",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-23",
+    "event": "实查纠正（22:48）：第 1、2 集此前实际没开工——brief 只落了盘、派工记录在断连中丢失，Mac 队列为空。教训：brief 进 Mac 不等于派工成功，必须亲手确认任务进队列",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-24",
+    "event": "个趣乐 7 集通宵实况（07:32 汇报）：4 集交付并经独立核验（1080×1920/30fps/900帧/30秒整，H.264+AAC），成片已从 Mac 取回待用户审片；第 5–7 集卡住——两个 Opus 5.5 worker 交付后未退出、僵尸进程占满 Mac 两个并发槽位一整夜，08:38 亲手 kill 清理；教训：派工后盯槽位占用，交付后须确认进程退出",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-24",
+    "event": "用户取消 gequrile-prod-006/007/008（08:48，三集取消前从未实际开工，无残留），只做 test-pup-rescue-001《气球小猫大营救》自由创意测试集——无用户描述/harness 约束的对照测试（用户对已交付 4 集「整体不满意」，怀疑约束限制了创意）；09:27 FirstMate 正式开工",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-24",
+    "event": "分工调整（用户拍板）：作废「muse bot 是唯一派工口」——Mac 本地开发/制作走 FirstMate 有锁主对话（用户直接操作、上下文最全），muse bot 日常转 scout 只读查看用户没明白的状态并讲明白；跨设备/跨服务仍走 muse bot；scout 发现问题先说明、用户点头才动手",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-24",
+    "event": "muse bot→FirstMate note 机制废弃（实证）：10 小时无人消费、僵尸 worker 占槽位一整夜、note 乱序导致已取消的 006/007 被复活；现任务传递只剩两条路——用户自己在主对话粘贴 prompt，或 muse bot scp 文件到 Mac 后用户发一句话指过去",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-24",
+    "event": "用户决定：不在 FirstMate 外部加看门狗式工程化补丁（虽想把派活路径做可靠，但叫停立即开工、未经批准不得私自建造）；不动 FirstMate 本体、不向作者要求硬契约、不改接口；内部问题以「看得见、需要时对账」为主",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-24",
+    "event": "grok-box 仍失联（14:35 probe exit 1，看门狗未自愈）；X 搜索改走 Mac Air grok build CLI 一次跑通（10 篇精华筛选）：教训是非交互 SSH 须显式带 FlClash 本地代理环境变量，否则直连被墙且 reqwest 重试叠成约 11 分钟才报错",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-24",
+    "event": "vibe coding 外部指引需求链（用户主动索取）：经 Mac Air grok build 三轮搜出英文 10 篇 + 中文约 30 篇精华（第二轮按用户 10 条困惑定向检索，第三轮覆盖战略/心态困惑）；「vibe coding 中文精华阅读清单」静态网页已交付（标注 Grok 筛选、未经逐篇核验），Mac 上 Claude Opus 5.5 crew worker 教学视频任务（vibe-coding-mental-model-001）实查已开工",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-24",
+    "event": "Mac Air SSH 链路间歇性抖动（15:39–15:56：多次 proxy broken pipe/握手超时后恢复）；同链路腾讯云南京 VPS 正常，故障集中在 Mac Air 链路/端点，用户 Tailscale 页面显示在线，根因未定位",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-24",
+    "event": "Typeless 白名单申请告一段落：客服（Freya）两封回复后已转交技术团队调查（无承诺无时间表），用户明确「反馈到这就可以了」，typeless goal 已关闭、后续不再主动跟踪",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-24",
+    "event": "用户为个趣乐 IP 宇宙定美学对标（宫崎骏/瑞克和莫蒂/哆啦A梦风格）与系列新方向：展示每个 SKU 从原材料到出品的全生产过程、穿插营养科普，定位缓解普通人食品安全焦虑；《气球小猫大营救》三个风格各做 5 秒对照测试、小菜园工作台/subgloss 上架困惑的检索均属本次需求链",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-24",
+    "event": "用户心态更新（09-22 疲惫记录之后更完整的自述）：自 2026-04 起投入 AI 的热情还在（认为是普通人最大机会），但近几天心态崩——普通人难做深度技术（无历史积累、技术迭代快、难分清噪音信号），认为技术不是最大杠杆，核心是真实应用场景；节奏纪律延续：不主动推新活、不催进度",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-24",
+    "event": "Mac mini 首次开机设置排错（21:20-22:12）：Type-C 线直连两机做 Thunderbolt 网桥与屏幕共享方案讨论、外接显示器黑屏排查、蓝牙键盘在首次开机时搜不到、USB-A 键鼠需转接头",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-25",
+    "event": "Mac mini 完成初始化设置并经 Tailscale 入网（tailscale status 实查确认 chenhuimac-mini 上线）；设备名后统一改为 m5-pro-mini，实查硬件 Apple M5 Pro、macOS 27.0",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-25",
+    "event": "Mac mini SSH 免密打通：用户在 mini 执行公钥注入两行命令后，muse 经 Tailscale 实测免密登录成功（权限 700/600 核验）；云端 SSH 配置新增 macmini 别名",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-25",
+    "event": "FlClash 迁移材料在 Air 备妥（mini-setup 目录）：0.8.98 arm64 安装包与官方 SHA256 校验一致、订阅链接经 Air 代理实测可用、Air 在用 profile id 已记下；文件尚未 AirDrop 到 mini",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-25",
+    "event": "Typeless 本地白名单实验得负结论：app_whitelist 由服务器远程下发、本地写入 app-storage.json 会被启动同步覆盖，本地 hack 此路不通；等官方把 Muse 加白",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-25",
+    "event": "用户立长期规则两条：mini 上经 muse bot 的操作走「做→验证→记」三件套（验证前不记不报成）；解释命令/参数/缩写必附英文全称",
+    "executor": "muse bot"
+  }
 ]
