@@ -712,5 +712,15 @@
     "date": "2026-09-25",
     "event": "用户立长期规则两条：mini 上经 muse bot 的操作走「做→验证→记」三件套（验证前不记不报成）；解释命令/参数/缩写必附英文全称",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-26",
+    "event": "用户报告通用控制（Universal Control）在 iPad mini 上可用、iPad Air 上走不通，待排查",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-26",
+    "event": "MacBook Air 实查：macOS 26.5.1（Mac17,3）、系统盘约 101 GiB 可用，softwareupdate 暂无 macOS 27，升级待定",
+    "executor": "muse bot"
   }
 ]
