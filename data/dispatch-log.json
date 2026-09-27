@@ -722,5 +722,15 @@
     "date": "2026-09-26",
     "event": "MacBook Air 实查：macOS 26.5.1（Mac17,3）、系统盘约 101 GiB 可用，softwareupdate 暂无 macOS 27，升级待定",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-27",
+    "event": "CodexBar 0.60.3→0.67.0：用户授权升级（GitHub release zip，签名校验通过，同 Team Y5PE65HELJ）；0.67.0 的凭证过期提醒改为按账号 opt-in，弹窗应减少",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-27",
+    "event": "客户 X8 的 Google Anti-Gravity 账号登录反复跳登录态：用户上报，muse bot 初步诊断为同一 Chrome profile 同时登录 3 个 Google 账号做 offline-scope OAuth 授权所致，尚未解决",
+    "executor": "muse bot"
   }
 ]
