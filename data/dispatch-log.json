@@ -732,5 +732,40 @@
     "date": "2026-09-27",
     "event": "客户 X8 的 Google Anti-Gravity 账号登录反复跳登录态：用户上报，muse bot 初步诊断为同一 Chrome profile 同时登录 3 个 Google 账号做 offline-scope OAuth 授权所致，尚未解决",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-27",
+    "event": "Mac mini 远程访问口径确立：Tailscale 为主通道，网易 UU 远程只做图形界面，明确不使用 RustDesk",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-27",
+    "event": "FlClash 0.8.98 在 Mac mini 安装并启动：配置与 MacBook Air 一字不差（config.yaml 两端 SHA-256 校验一致）",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-27",
+    "event": "Tailscale 数据面抖动实证：16.5 MB 整包多次断开，改 190 KB 小包一次成功；此后向 mini 传大文件先拆小包/分阶段，卡住超 5 分钟即换路",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-28",
+    "event": "FlClash 在 mini 最终启用：用户完成图形界面总开关与系统代理授权，127.0.0.1:7890 已监听、GEOIP/GEOSITE/ASN 数据库已下载；pmset sleep 已从 1 改为 0",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-28",
+    "event": "Mac mini 只读盘点完成（干净台账起点）：/Applications 仅 FlClash、Tailscale、网易 UU 三个用户应用；无 Homebrew/Node/Chrome/AI CLI；git/python3 为系统自带；无用户 crontab/LaunchAgent",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-28",
+    "event": "mini 台账新规矩（用户长期立规）：~/mini/ 为机器台账唯一入口，一次只做一步、做扎实；Nix Darwin/Home Manager/chezmoi/Brewfile 方案仅讨论、尚未拍板",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-28",
+    "event": "Firstmate on mini 方案分析完成（只分析未安装）：按 Kun Chen 最新公开做法，候选形态为 Air 保留主 Firstmate、mini 放一个远端 secondmate，用户尚未拍板",
+    "executor": "muse bot"
   }
 ]
