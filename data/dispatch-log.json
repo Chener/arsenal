@@ -767,5 +767,35 @@
     "date": "2026-09-28",
     "event": "Firstmate on mini 方案分析完成（只分析未安装）：按 Kun Chen 最新公开做法，候选形态为 Air 保留主 Firstmate、mini 放一个远端 secondmate，用户尚未拍板",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-29",
+    "event": "Air 的 GitHub 机器身份打通：Air 生成专用 Ed25519 密钥 ~/.ssh/id_github_m5air（权限 600），私有仓 intent-journal 添加读写 deploy key（title m5air-git，verified），~/.ssh/config 配置 Host github.com（IdentitiesOnly）；muse 经 SSH 可直接对该仓执行 git 拉取/推送，不再依赖用户钥匙串；回滚方式=删除该 deploy key",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-29",
+    "event": "私有仓 Chener/intent-journal 建仓并克隆到 Air ~/intent-journal：muse 经 GitHub API 建仓（HTTP 201，private:true），经 Contents API 写入 README.md 与 models/intent-goal-ipof.md（v1.4，中文正文、英文路径）；Air 上 SSH clone 实查 README 与模型文件落地、分支 main 与 origin/main 同步、工作区 clean",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-29",
+    "event": "Mac Air 远程操作能力口径修正：仅 SSH 命令行为已验证主路径；AppleScript 经 SSH 操作现有 Chrome 实测卡住（macOS 会话隔离），shortcuts run 与 Computer Use 尚未实测；在真实测试前，未验证的能力不再报成“可用”",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-29",
+    "event": "用户新立长期执行规矩：muse 能直接完成的操作直接完成，只有“不确定是否该做”时才找用户确认，不再把可自动化的命令交回用户手动执行",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-29",
+    "event": "心智模型“意图→目标→IPOF”v1.4 定稿（用户终审三条补充）+ 记录格式 v1 三次手动验证完成；用户亲口确认长期工作方式：一次只做一件事并做扎实，派工/建议收敛到单步、他点头一步再给下一步；处理按输入清晰度选型（清晰可分→firstmate、模糊→对话澄清、一次性小活→直接 AI）",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-29",
+    "event": "Mac Air Markdown 编辑器换装：妙言 MiaoYan V4.5.0（universal 二进制，正式签名）下载安装在用；Markwrite v1.2.1 与 Joplin v3.7.21（误装 Intel 版）均按用户要求卸载，MarkEdit 残留（/Applications、Containers、Application Scripts、Downloads 安装包）彻底清除；教训：Apple Silicon 应选文件名含 arm64 的包，不凭 mac 通用名判断架构",
+    "executor": "muse bot"
   }
 ]
