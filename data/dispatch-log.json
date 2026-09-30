@@ -797,5 +797,20 @@
     "date": "2026-09-29",
     "event": "Mac Air Markdown 编辑器换装：妙言 MiaoYan V4.5.0（universal 二进制，正式签名）下载安装在用；Markwrite v1.2.1 与 Joplin v3.7.21（误装 Intel 版）均按用户要求卸载，MarkEdit 残留（/Applications、Containers、Application Scripts、Downloads 安装包）彻底清除；教训：Apple Silicon 应选文件名含 arm64 的包，不凭 mac 通用名判断架构",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-30",
+    "event": "OpenAI Pro 200 额度调整（今晨官方邮件）：2026-10-30 起，“ChatGPT 工作”与 Codex 使用额度从 Plus 的 20 倍降至 10 倍，GPT-6 Pro 聊天上限从每周 200 条降至 100 条；订阅价格不变，原额度保留至 10-29（含）。OpenAI 一次性赠送 62,500 点使用额度（标称价值 2,500 美元），2026-12-31 到期；Pro 现含 Dot（其对话与直接完成的工作不占额度）；另推出 Pro 500（Plus 的 25 倍额度、Ultrafast、Token 速度最高 8 倍）",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-30",
+    "event": "Mac Air acme.sh 证书续期 cron（chenerlab.cn，0:52/6:52/12:52/18:52）故障与修复：9-24 起连续报错（9-24 curl error 28 连接超时、9-26/27 error 35 SSL 握手失败；判断为凌晨 Mac 休眠、FlClash 代理未起所致），9-28 起恢复正常；当前证书有效期至 2026-12-18；用户问询用途后决定保留该任务（chenerlab.cn 在用期间的 HTTPS 保险）",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-09-30",
+    "event": "妙言笔记库迁入 iCloud 云盘：~/Documents/MiaoYan（7 个文件、36K）移至 ~/Library/Mobile Documents/com~apple~CloudDocs/MiaoYan；com.tw93.miaoyan 的 lastSelectedPath 已改到新路径，妙言已重开；bird 后台上传中；回滚=把文件夹搬回原位并改回 lastSelectedPath",
+    "executor": "muse bot"
   }
 ]
