@@ -817,5 +817,10 @@
   "date": "2026-10-01",
   "event": "收到 Anthropic 邮件称 Claude 账号因可疑信号违反 Usage Policy 被停用（案件参考号 TS-01a0f49b-86bc-7430-b18c-01177cf145e2，可经 claude.ai 申诉）；记账时尚未独立登录验证、尚未申诉",
   "executor": "muse bot"
+ },
+ {
+  "date": "2026-10-02",
+  "event": "Claude 账号停用申诉准备：用户要求 muse bot 先拟申诉材料包（申诉信草稿、社区此类停用的一般处理方式、Apple 退款路径）；用户立操作红线：点头前不做任何实质性动作（不提交申诉、不联系 Anthropic 支持、不碰 Apple 退款/取消订阅）；截至 10-02 申诉尚未提交",
+  "executor": "muse bot"
  }
 ]
