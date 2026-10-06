@@ -842,5 +842,30 @@
     "date": "2026-10-05",
     "event": "Windows 10 桌面 AI agent 选型：用户提出想装国产桌面 AI 智能体做系统级操作（想用它上面的 AI 装 Tailscale），muse bot 推荐腾讯 WorkBuddy（桌面本地 agent；Ask/Plan/Craft 三模式、微信扫码登录），拟用 Plan 模式做管理员权限静默安装 MSI；用户尚未下载/安装、待确认",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-06",
+    "event": "Windows PC SSH 打通：muse bot 经 Tailscale 隧道与专用密钥实际登录成功（SSH 别名 winpc 加入配置），远程执行 whoami/hostname/ver 验证通过；该机正式纳入日常远程执行范围（与 Mac/mini 同待遇）；WinRM 仍未验证",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-06",
+    "event": "Windows PC 开机启动项梳理完成：muse bot 经 SSH 远程关闭 QQ（QQNT）与企业微信（WXWork）开机启动，复查确认；公共启动项 Tailscale 保留自启以确保远程控制链路",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-06",
+    "event": "Gmail 连接器接入第二账号 chenhuitf2@gmail.com（Apple 扣费邮箱）：muse bot 现可直接搜索 Claude Max 内购扣费收据与退款结果邮件；实查最近一笔成功扣费为 9/4 的 $249.99（即本次退款目标），无 10/4 续费收据",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-06",
+    "event": "Claude Max 退款监控启动：用户已在 iPhone 提交 Apple 内购退款申请，Apple 当日确认收到（24-48h 出结果）；muse bot 启动每 12 小时检查退款结果邮箱的定时监控；申诉邮件路线按用户决定停止（官方渠道为 claude.ai 登录后申诉表单）",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-06",
+    "event": "Windows 11 硬件兼容性实查完成：经 SSH 下发 PowerShell 确认为 i5-12600KF、TPM 2.0 已就绪，满足 Win11 与 Steam 游戏需求；唯一待配点是安全启动当前未开启",
+    "executor": "muse bot"
   }
 ]
