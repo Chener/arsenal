@@ -867,5 +867,55 @@
     "date": "2026-10-06",
     "event": "Windows 11 硬件兼容性实查完成：经 SSH 下发 PowerShell 确认为 i5-12600KF、TPM 2.0 已就绪，满足 Win11 与 Steam 游戏需求；唯一待配点是安全启动当前未开启",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-07",
+    "event": "1Password 拍板为密码/密钥唯一事实源，取代此前 Bitwarden 建议：Mac/Windows/鸿蒙/终端/AI agent 全场景覆盖；分层原则=Secure Vault 只存 1Password service account token 这把钥匙，密码本体不复制第二份",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-07",
+    "event": "科学上网专线旁聊立项：繁琐零散系统配置与 FirstMate 工程开发分流，前者独立旁聊处理、不必维护长期工程项目；科学上网方案系统整理向家庭路由器统一配置方向研究",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-07",
+    "event": "grok-box SSH 失联：云电脑与 Mac Air 探测均失败，判为 grok-box 宿主机侧问题，本机看门狗每 5 分钟尝试自愈；Grok Bot X 收藏查询任务尚未投递",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-07",
+    "event": "绿联 NAS 连接恢复：Tailscale 容器已停 13 天未恢复，改走 MacBook Air 局域网中转 SSH 完成只读排查（实查单块 7.3T 无冗余，已用 1.1T）；ChenerX2 已获 docker 组权限",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-07",
+    "event": "NAS 家庭账户方案确定：ChenerX2 保留管理账号，3–4 位家庭成员各用个人账户经绿联云 App 备份照片视频文档；账号尚未新建",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-07",
+    "event": "Apple Claude Max 退款：首轮被驳回（此购买项目不符合退款条件），用户已提交复核并收到 Apple 受理回执（24–48h 出结果）；申诉材料包已追加驳回记录与复核稿",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-07",
+    "event": "iCloud 国区统一与云盘清空重置：Air+mini 统一用国区账号 chenhui.508@gmail.com；双机本地 CloudDocs 容器 Desktop/Documents/MiaoYan 全删，妙言数据已备份；待用户清空云端最近删除并进入 24h 无复发观察",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-07",
+    "event": "Typeless 白名单跟进：原工单内已发跟进邮件询问白名单时间表（SENT），盯梢恢复为每天 09:47 只读检查回复",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-07",
+    "event": "MacBook Air 应用清理：CodexBar 卸载干净无残留（发现 2 个 codex-worker LaunchAgent 属 unified-brain 项目予以保留）；妙言备份 20 个文件后卸载重装 V4.5.0，已验证启动正常",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-07",
+    "event": "Vibe coding 教学视频暂停：用户明确决定先放着、不主动推进，状态已记入 tracked item",
+    "executor": "muse bot"
   }
 ]
