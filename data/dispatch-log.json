@@ -917,5 +917,60 @@
     "date": "2026-10-07",
     "event": "Vibe coding 教学视频暂停：用户明确决定先放着、不主动推进，状态已记入 tracked item",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-07",
+    "event": "绿联 NAS Tailscale 直连恢复：重启 tailscale 容器并设 unless-stopped 自动拉起，云电脑经 tailnet 直连 SSH 成功，不再经 Mac Air 中转",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-07",
+    "event": "NAS 现有东芝 8TB 盘（TOSHIBA HDWG780UZSVA）SMART 核验完成：总体健康 PASSED，通电 1463 小时、通电 5 次，重映射/待映射/离线不可修复扇区均为 0",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-07",
+    "event": "NAS 第二块 8TB 机械硬盘已下单：到货先验 SMART 再与现有盘组 RAID1；SSD 缓存暂缓",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-07",
+    "event": "NAS 首个家庭普通用户 guagua（呱呱）已创建，工具验证个人目录 /volume1/@home/guagua 存在；用户决定老婆继续本地账号登录，后续其他家人再走邀请制",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-07",
+    "event": "UGREENlink 家庭成员远程访问官方流程查清：App 输入 UGREENlink ID + NAS 本地账号密码，先 P2P（优先 IPv6/NAT 打洞）失败转绿联中转，全程 TLS",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-07",
+    "event": "IPOF 日常 Input 机制旁聊立项：碎片化想法与特殊日程统一入口设计空间，鸿蒙手机为首要硬件入口",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-08",
+    "event": "滴答清单国内版拍板为统一 Input 入口：想法+日程全部进收集箱，日程按带日期条目处理、不依赖提醒；国内版官方 MCP 已核验（mcp.dida365.com，设置→账户与安全创建 API 口令），会员门槛待账号实测",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-08",
+    "event": "Apple Claude Max 退款复核决定通知到达（10-08 09:42）：邮件未写明批准/拒绝结论，需用户登录 reportaproblem.apple.com 查看；apple-refund-watch 使命完成",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-08",
+    "event": "Typeless 客服 Freya 回信（10-08 09:43）：团队已安排排查根本原因、确定方案还需时间，无具体时间表；盯梢继续",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-08",
+    "event": "ChatGPT Pro $200/月 Apple 代扣出现账单问题（Apple 10-07 20:05 通知）：订阅可能无法续期，需用户去 iPhone 设置→付款与配送更新付款方式；该额度同时承载 Mac 上 Codex",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-08",
+    "event": "iCloud 24h 无复发检查通过（10-08 10:55）：Air/mini 双机 CloudDocs 容器干净无复活，国区账号 5GB 免费档收尾完成",
+    "executor": "muse bot"
   }
 ]
