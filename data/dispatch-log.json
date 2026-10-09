@@ -972,5 +972,40 @@
     "date": "2026-10-08",
     "event": "iCloud 24h 无复发检查通过（10-08 10:55）：Air/mini 双机 CloudDocs 容器干净无复活，国区账号 5GB 免费档收尾完成",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-09",
+    "event": "飞书机器人定时任务精简：南京园研全能助手（tencent-nj-01）只保留团队周报 4 timer + 展会周报 1 timer，项目/绩效/事件机器人/体重管理共 13 个 timer 全部 disable --now（unit 文件未删，可恢复）",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-09",
+    "event": "飞书剩余 5 定时任务迁移方向拍板：按 Python 逻辑迁 GitHub Actions 保效果一致；飞书原生自动化仅做隔离沙盒探索（原生重构等价重做、不做等价迁移）",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-09",
+    "event": "南京 VPS（tencent-nj-01）2026-10-10 到期不续约：飞书 5 任务→GitHub Actions、量化归档拷走、bitwarden 评估容器与 8 个小应用删除；chenerlab.cn 不受影响",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-09",
+    "event": "南京 VPS 退役实施：8 个小应用目录删除、4 个服务停用禁用、Bitwarden 评估容器清理；量化归档 83MB 生成并传至云电脑中转，NAS 传输进行中",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-09",
+    "event": "GitHub Actions 迁移落地：私有仓 Chener/xcy-duty-jobs 建成，迁移代码推送（56 文件/364KB），3 个 Actions Secrets 设置，smoke test run 37905051074 通过；展会 workflow 触发测试因缺当天快照按策略安全失败；新增周日 09:00 快照生产定时任务",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-09",
+    "event": "Kimi 邀请有奖申诉收线：Moonshot 5 分钟模板拒信（处理仅针对活动参与资格），用户接受结果不再二次申诉；Kimi 账号与会员不受影响",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-09",
+    "event": "grok-box SSH 通路恢复：按需探测 exit 0（约 88.5 秒、偏慢但通），可派工；Grok Bot 本体仍只有手动挡（App 一句话执行）无直驱",
+    "executor": "muse bot"
   }
 ]
