@@ -1007,5 +1007,35 @@
     "date": "2026-10-09",
     "event": "grok-box SSH 通路恢复：按需探测 exit 0（约 88.5 秒、偏慢但通），可派工；Grok Bot 本体仍只有手动挡（App 一句话执行）无直驱",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-10",
+    "event": "Grok Bot 云电脑 Tailscale 通路恢复：Grok Bot 重装 Tailscale 1.104.1 并入网，新节点上线；旧 grok-box 节点（100.100.210.1）用户在管理端手动删除",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-10",
+    "event": "Grok Bot webhook 派工通道打通并全链路验通：skill 落地、bearer token 入保险柜；首单（Kun Chen X 搜索）POST→Bot X 检索执行→~/task-outbox/ 结果取回成功，第二单贪吃蛇小游戏交付完成",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-10",
+    "event": "Grok Bot 驱动纪律更新：派工永远走 webhook（不依赖 SSH 隧道），SSH 仅取结果/调试；任务箱+App 口令触发手动挡废弃；X 搜索任务调用 Grok Bot 本体原生能力，不绕 Cursor agent",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-10",
+    "event": "Grok Bot 隧道双层保活落地：盒内 ts-watchdog.sh（60s 检查 tailscaled/sshd）+ 云电脑侧 grokbot-tunnel-heal 每 5 分钟 cron，经 webhook 幂等自愈；30 分钟修不好才升级用户",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-10",
+    "event": "NAS RAID1 重建完成：两块东芝 8TB 组成 RAID1，md1 [2/2][UU] 健康，7.2TB 可用；重建期间 IO 占满解释了此前的相册备份缓慢",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-10",
+    "event": "坚果云整理落地：整个“我的坚果云”（349 文件/2.3G）经 tar 管道迁移入 NAS 归档，坚果云只留妙言 MD 工作区；用户在网页端清空 4 项历史内容",
+    "executor": "muse bot"
   }
 ]
