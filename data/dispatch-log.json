@@ -1037,5 +1037,45 @@
     "date": "2026-10-10",
     "event": "坚果云整理落地：整个“我的坚果云”（349 文件/2.3G）经 tar 管道迁移入 NAS 归档，坚果云只留妙言 MD 工作区；用户在网页端清空 4 项历史内容",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-10",
+    "event": "坚果云—妙言上传链路修复闭环：用户重新登录后 MiaoYan/ 下 6 个文件已确认上云，替换此前“同步一直未启动”状态；网页端回落 Mac 的下载方向仍待验收",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-11",
+    "event": "展会周报 GitHub Actions 迁移后首次正式运行故障：10:30 定时触发未跑，两次手动触发先后卡在口碑年份校验与归档校验；用户已要求修好，修好仍未闭环",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-11",
+    "event": "Grok Bot 隧道约 15 分钟一断循环持续：盒内 ts-watchdog 已改为纯进程守护（不再按 Online/health 状态重启 tailscaled），但断流周期未变、根因仍未定位；webhook 派工通道不受影响、业务派工照常",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-11",
+    "event": "NAS TimeMachine 共享回收站闭环：已清空 #recycle 释放约 326G，用户在 NAS“回收站”应用中停用该共享的回收站；配额保持 1TB，此后旧备份淘汰直接释放空间",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-11",
+    "event": "新 Win11 主机 i5win11 成为可执行节点：Tailscale auth key 无头入网，OpenSSH Server 装上、SSH 经 Tailscale 正式打通；电源方案改永不睡眠/休眠并实证验证，Steam 经 winget 静默安装成功；FlClash 安装包已下载到云电脑，传输待 Win11 连通恢复",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-11",
+    "event": "退役台账更新：旧 Win10 主机 desktop-fq4ks7c 与 T1 腾讯云南京 VPS（tencent-nj-01）已删机，旧 SSH 配置作废",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-11",
+    "event": "NAS Tailscale 重建为新节点 ugreen-nas-1，版本升至 1.102.5；旧 ugreen-nas 节点已离线，待用户在控制台删除",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-11",
+    "event": "ChatGPT Pro 账单一次性安全网落地：chatgpt-billing-safety-net-1022 将于 2026-10-22 09:00 查两 Gmail 账号的 Apple 账单邮件，仍失败或无恢复迹象才提醒用户一次",
+    "executor": "muse bot"
   }
 ]
