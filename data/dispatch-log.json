@@ -1077,5 +1077,45 @@
     "date": "2026-10-11",
     "event": "ChatGPT Pro 账单一次性安全网落地：chatgpt-billing-safety-net-1022 将于 2026-10-22 09:00 查两 Gmail 账号的 Apple 账单邮件，仍失败或无恢复迹象才提醒用户一次",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-11",
+    "event": "NAS Tailscale 节点名改回 ugreen-nas：set --hostname 不改变已注册名，最终删容器重建生成干净节点名，新节点经 Mac Air 验证 SSH 可达；SSH 配置已同步；旧 ugreen-nas-1 残留仍待用户在控制台清理",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-11",
+    "event": "Grok Bot 命名统一：旧 Grokbox 已从 Tailscale 删除，SSH 别名由 grok-box 改为 grokbot 并同步脚本与 SKILL；SuperGrok Heavy 用户确认自动续约保留（附赠 Cursor 订阅是 Grok Bot 额度的来源）",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-12",
+    "event": "Grok Bot 隧道根因实锤：xAI 宿主平台约每 15 分钟冻结 VM 一轮（冻约 10 分钟），醒来后 DERP 全断约 10 分钟自恢复，盒内无法修复；自愈策略已降噪——断 30 分钟走 webhook 自愈、60 分钟未恢复才上报用户；业务派工走 webhook 主通道不受影响",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-12",
+    "event": "Grok Bot 派工专线确立：旁聊定为经 muse 向 Grok Bot 派活取结果的专线；首单 X 舆情分析（近一个月 AI 实质性突破）完成交付 21KB/243 行 Markdown",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-12",
+    "event": "滴答清单 Dida365 接入：Secure Vault 建连接、dida365 skill 落地（bin/dida 与落盘/标完成脚本）；用户拍板批量归档走 REST API（MCP 留对话随手查、CLI 留用户手动）；首轮 49 条闪念落盘坚果云并标完成，建立增量水位线",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-12",
+    "event": "飞书纪要拉取链路打通：tenant token 搜索 Minutes 始终 0 篇，改走 Mac 上 lark-cli 的用户身份链路，实测找到 9 篇妙记；后续增量拉取复用该链路",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-12",
+    "event": "工作处理站落地：坚果云「工作处理站/」成为 IPO 工作区（01Input/滴答闪念、飞书纪要、手动添加；02Process；03Output；_log），坚果云—妙言同步修复闭环；当前手动触发（用户说“跑一轮”），自动定时暂不启用",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-12",
+    "event": "展会周报 Actions 修复进展：根因为 job.py 第 131-132 行归档回读精确匹配检查（归档体量越过回读上限）；用户拍板删两行并提 PR #1，已合入；合入后 4 次 workflow 均秒失败，诊断中（API 401 拿不到日志，待用户回贴报错）；仍未闭环",
+    "executor": "muse bot"
   }
 ]
