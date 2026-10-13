@@ -1117,5 +1117,55 @@
     "date": "2026-10-12",
     "event": "展会周报 Actions 修复进展：根因为 job.py 第 131-132 行归档回读精确匹配检查（归档体量越过回读上限）；用户拍板删两行并提 PR #1，已合入；合入后 4 次 workflow 均秒失败，诊断中（API 401 拿不到日志，待用户回贴报错）；仍未闭环",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-12",
+    "event": "禾力退出谈判对外确认版定稿：亏损约 482 万（公式算出 4,820,862 头尾对得上，经用户与 AI 双核对），对内版同步建立；涉谈判文档默认对内/对外双版本模式确立",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-13",
+    "event": "用户亲手定稿终止合作方案两份简化版（B 方案延续 / 降本优先）：MD + A4 打印版 PDF 入库 03Output/终止合作方案/；02Process/ 过程版移入 _已完结/",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-13",
+    "event": "坚果云 WebDAV 直连打通：云电脑经 dav.jianguoyun.com 直接读写工作处理站文件，不再依赖 Mac Air 开机；nutstore skill 落地（bin/nutstore.py ls/get/put）；凭证 600 权限存 skill 目录（Secure Vault 不支持 WebDAV Basic Auth）",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-13",
+    "event": "工作处理站收尾三件套确立：输出归档 → 输入归档（_已处理/）→ 写 _log；规则持久化进 AGENTS.md；任务收尾脚本 complete-task.py 已建但未冒烟测试",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-13",
+    "event": "PDF 格式规范 v1.0 建立（A4 页边距、字号、行距、页脚页码统一）；工作处理站系统说明.md 同步更新为 2026-10-13 版",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-13",
+    "event": "GitHub App \"Cursor\" 权限扩增请求邮件两封验明为真（发件 noreply@github.com、官方审核链接，非钓鱼）；已建议用户忽略或亲自审核权限 diff，决策待用户定夺",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-13",
+    "event": "Grok Bot webhook 自愈曾被平台全局限流拒绝（HTTP 400 \"Automation run rate limit exceeded\"），后恢复正常；自愈链按 failures=6/12 降噪阈值继续自动工作",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-13",
+    "event": "云电脑 Tailscale 出口 18:58–20:39 断线（Mac/NAS/Win11/VPS 全不可达）后恢复；曾误判为 Grok Bot 盒子侧故障，已向用户认错纠正；当晚远程操作与 Windows 线暂停后恢复",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-13",
+    "event": "用户新派工：让 Grok Bot 核实 X 上免费 Cursor 黑客松活动（免费一个月 20 美元账号）的真实性、官方链接与领取条件；派发时盒子隧道断线，核实结果尚未返回",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-13",
+    "event": "工作处理站第二轮合成闭环：51 条滴答闪念主题梳理、新零售运营思路 AI 初稿（3 篇业务纪要 + 3 篇面试 + 孙波 10 页方案综合）成稿；已用输入全部归入 _已处理/，处理日志入 _log/",
+    "executor": "muse bot"
   }
 ]
