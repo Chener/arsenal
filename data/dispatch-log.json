@@ -1167,5 +1167,40 @@
     "date": "2026-10-13",
     "event": "工作处理站第二轮合成闭环：51 条滴答闪念主题梳理、新零售运营思路 AI 初稿（3 篇业务纪要 + 3 篇面试 + 孙波 10 页方案综合）成稿；已用输入全部归入 _已处理/，处理日志入 _log/",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-14",
+    "event": "团队周报 GitHub schedule 迟到实证：08:30 定时触发迟到约 4.5 小时才跑，与 11:30 手动兜底撞车致飞书群提醒重复；nag 的 13:30 定时同样延迟未触发",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-14",
+    "event": "周报触发机制切换落地：取消 GitHub schedule，改由 5 个 muse 定时任务经 API 触发（remind 周三 08:30、nag 周三 13:30、final 周三 23:59、展会周日 10:30、月报每月 1 日 08:00），触发后等 2 分钟确认 run、重试一次、失败上报；PR #3 删 5 个 workflow 的 schedule 块只留 workflow_dispatch 已合入；final 验证卡改到周四 00:10",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-14",
+    "event": "展会周报根因定位并修复：recommendation_evidence 日期须严格等于快照 as_of 致误杀（证据 10-11、快照 10-12）；PR #2 改为刷新日前 7 天内有效、拒绝未来日期，已合入并本地验证通过",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-14",
+    "event": "Grok Bot 餐饮新零售案例研究交付：webhook 派工，415 行 22 案例覆盖中美欧日东南亚，提炼 7 条可复用规律",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-14",
+    "event": "MLH 黑客松免费 Cursor Pro 独立核实为真：MLH Global Hack Week（10-09–15）挑战奖励为 Cursor Pro 兑换码，无需学生身份、无需绑卡；只能用户本人经官方渠道领取",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-14",
+    "event": "飞书搜索解析 bug 修复：解析代码把返回结构 data.items 写成 data.minutes，致 11 篇解析成 0 篇并一度误判接口故障；修复后高磊面试纪要已拉取",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-14",
+    "event": "工作处理站 _已处理/ 语义收紧：仅“看到但未形成处理产出”不算处理过，不移入 _已处理/，仍留原地待攒批处理",
+    "executor": "muse bot"
   }
 ]
