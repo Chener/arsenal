@@ -1202,5 +1202,15 @@
     "date": "2026-10-14",
     "event": "工作处理站 _已处理/ 语义收紧：仅“看到但未形成处理产出”不算处理过，不移入 _已处理/，仍留原地待攒批处理",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-15",
+    "event": "团队周报 final 新触发机制首次实战失败：workflow_dispatch 触发成功，但「运行 final」一步在写后回读校验失败，飞书终稿未发出；根因查实为迟到 schedule 覆盖 state 指向空话题、写入后立即回读的瞬时不一致，三人周报被误记「未提交」，已向用户说明，补救重跑待用户批准",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-15",
+    "event": "云电脑 VM 更换致 9 个脚本硬编码 dynamic_credentials.py 路径失效，grokbot-fire webhook 自愈触发三次崩溃；已改多路径兜底并验证恢复",
+    "executor": "muse bot"
   }
 ]
