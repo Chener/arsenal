@@ -1212,5 +1212,30 @@
     "date": "2026-10-15",
     "event": "云电脑 VM 更换致 9 个脚本硬编码 dynamic_credentials.py 路径失效，grokbot-fire webhook 自愈触发三次崩溃；已改多路径兜底并验证恢复",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-16",
+    "event": "Grok Bot 隧道 10-15 23:03 起长断约 2.5 小时，00:58 webhook 自愈补发再遭平台限流（HTTP 400 rate limit）未能进盒子；多次达 60 分钟阈值上报用户请其去 App 查盒子，01:33 恢复后下午自愈通道回 200；全天冻/醒抖动仍是 xAI 宿主机周期性冻结已知模式",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-16",
+    "event": "坚果云 WebDAV 实测支持 MOVE（返回 201）/DELETE，nutstore.py 已加 move/delete 命令（move 带 3 次重试、MOVE 后目录实查确认），工作处理站输入归档从此不依赖 Mac 中转",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-16",
+    "event": "工作处理站增量拉取闭环：滴答收集箱 47 条中筛出 6 条闪念成 MD 进 01Input 并远端标完成（水位线 47→41 生效）、飞书补齐 2 篇 10-13 漏项（8uj3d6 行政乌龙、1df376 55 分钟完整面试）、新零售综合版原位增量更新 12749 bytes（回下载 cmp 一致）",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-16",
+    "event": "飞书纪要拉取机制确立两条：去重只认 token（标题自动生成会撞车——10-12 与 10-13 同名「小菜园新零售岗位面试」实为两场）、搜索会返回已删除项（索引延迟，token 黑名单进水位线文件跳过）；用户报告的已删纪要仍被拉回、改标题疑拉重已查实为上述两机制所致",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-16",
+    "event": "MLH 免费 Cursor Pro 领取窗口于北京时间 01:00 截止，未见用户确认已领取，后续不再催办",
+    "executor": "muse bot"
   }
 ]
