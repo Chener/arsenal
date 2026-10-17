@@ -1237,5 +1237,10 @@
     "date": "2026-10-16",
     "event": "MLH 免费 Cursor Pro 领取窗口于北京时间 01:00 截止，未见用户确认已领取，后续不再催办",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-17",
+    "event": "飞书智能纪要拉取路径推倒重来：官方 minutes/v1 API 无纪要列表接口、无生成完成事件，token 只能从链接末 24 字符取——旧“每天全量拉取→待筛选”方案前提不成立、已认错作废；新推荐路径=minutes/v1 API + 用户贴链接投递（链接即选择），租户待定（南京园研/个人），定后在已有应用加 minutes:minutes:readonly 权限重发 + 一次 OAuth 授权",
+    "executor": "muse bot"
   }
 ]
