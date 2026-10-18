@@ -1242,5 +1242,15 @@
     "date": "2026-10-17",
     "event": "飞书智能纪要拉取路径推倒重来：官方 minutes/v1 API 无纪要列表接口、无生成完成事件，token 只能从链接末 24 字符取——旧“每天全量拉取→待筛选”方案前提不成立、已认错作废；新推荐路径=minutes/v1 API + 用户贴链接投递（链接即选择），租户待定（南京园研/个人），定后在已有应用加 minutes:minutes:readonly 权限重发 + 一次 OAuth 授权",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-18",
+    "event": "展会周报触发权迁移落地并首次生产实战成功：10-14 用户拍板删 GitHub schedule、改 muse cron 接管（到点调 API 触发→确认 run 已起→失败重试），10-18 上午验证通过——09:00 快照正常产出（expo-20261018-v1，as_of=2026-10-18，4 场展会，FHC 主办方成立年份纠错 1998→1992、糖酒会闭幕剔除）、10:30 workflow_dispatch 一次触发成功、run 已完成；成了按承诺不打扰",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-18",
+    "event": "Win11 PC（i5win11）科学上网环境基本部署完成：用户下午开机并要求验证，Tailscale 连通正常；FlClash 安装包改走 PC 直连 GitHub 镜像站断点续传完成（SHA256 与原件一致）并已解压安装；配置从 Mac mini（非原计划的 Air）同步；查出跨版本 database.sqlite schema 漂移是“暂无配置文件”的根因，旧库已备份改名；仅剩用户双击桌面快捷方式启动 GUI 并导入 profile yaml 这最后一步",
+    "executor": "muse bot"
   }
 ]
