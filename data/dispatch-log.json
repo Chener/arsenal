@@ -1252,5 +1252,15 @@
     "date": "2026-10-18",
     "event": "Win11 PC（i5win11）科学上网环境基本部署完成：用户下午开机并要求验证，Tailscale 连通正常；FlClash 安装包改走 PC 直连 GitHub 镜像站断点续传完成（SHA256 与原件一致）并已解压安装；配置从 Mac mini（非原计划的 Air）同步；查出跨版本 database.sqlite schema 漂移是“暂无配置文件”的根因，旧库已备份改名；仅剩用户双击桌面快捷方式启动 GUI 并导入 profile yaml 这最后一步",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-18",
+    "event": "Grok Bot 隧道长断约 100 分钟（09:08–10:38），webhook 自愈 3 次未能恢复、exit 2 达 60 分钟阈值上报用户去 Grokbot App 查盒子；横向验证 vultr-us-01/nas 均可达，判定盒子侧故障；后恢复，仍是 xAI 宿主平台冻/醒老模式",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-19",
+    "event": "DeepSeek API 定价变更：Search/Fetch（网页搜索与抓取）自 2026-11-01 00:00（北京时间）起按次收费（5 元/1000 次成功请求），此前服务端工具调用的 Search/Fetch 未计费；已向用户低调 FYI，未催决定",
+    "executor": "muse bot"
   }
 ]
