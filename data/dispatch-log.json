@@ -1262,5 +1262,20 @@
     "date": "2026-10-19",
     "event": "DeepSeek API 定价变更：Search/Fetch（网页搜索与抓取）自 2026-11-01 00:00（北京时间）起按次收费（5 元/1000 次成功请求），此前服务端工具调用的 Search/Fetch 未计费；已向用户低调 FYI，未催决定",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-20",
+    "event": "Grok Bot 隧道早 06:48 断线约 60 分钟（webhook 自愈多次无效），触发 exit 2 上报用户去 Grokbot App 查盒子；随后自行恢复，仍是 xAI 宿主冻/醒老模式",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-20",
+    "event": "多 AI 讨论降幻觉选型落地：实查 GitHub 后首选 Quorum（Detrol/quorum-cli，本机 agent CLI 走已有订阅、无需 API key）；网页免费档需 BYOK 与订阅优先路线冲突，改走 Mac MCP 插件版零新增费用路线，待用户拍板",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-20",
+    "event": "私有仓 Chener/llm-atoms 定时 workflow「Catalog and pricing review」自上线起 7 连挂（最新 run 挂在 Open-or-update-human-review-proposal 步骤、疑权限），已告知用户三选一等决定",
+    "executor": "muse bot"
   }
 ]
