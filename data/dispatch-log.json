@@ -1277,5 +1277,30 @@
     "date": "2026-10-20",
     "event": "私有仓 Chener/llm-atoms 定时 workflow「Catalog and pricing review」自上线起 7 连挂（最新 run 挂在 Open-or-update-human-review-proposal 步骤、疑权限），已告知用户三选一等决定",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-20",
+    "event": "Mac Air WorkBuddy 完整卸载经 SSH 实查验证通过（Application Support/Preferences/Caches/Logs 残留全清，未动 CodeBuddy）；同日 09:28 的「完整重装 v5.8.3」自述无独立佐证，按验证纪律纠正为「待复验」并如实告知用户",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-20",
+    "event": "Mac Air 上 Kimi Mac App 能力边界核定：经 SSH 实查只能查运行状态、打开或关闭，无法操作 GUI（打字/点发送/读回答）——macOS 会话隔离所致",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-20",
+    "event": "Mac Air SSH 隧道中午 11:13 起中断（出站代理 403/Broken pipe）持续至夜间，WorkBuddy 复验、ColaOS 安装、Win11 FlClash 验证、Time Machine 检查全部受阻待办",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-21",
+    "event": "Mac Air SSH 恢复后闭环两项：WorkBuddy 重装复验通过（/Applications/WorkBuddy.app，v5.8.3），「待复验」解除；ColaOS 1.5.0（build 417）下载安装验证完成（DMG VALID、codesign 通过），首次打开需用户本人注册登录",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-21",
+    "event": "Time Machine 复查：Mac Air 上 20:00 备份未跑成，NAS SMB 挂载失败 error 65（No route to host，Mac 与 NAS 不在同一局域网）；已汇报用户，选项为确认家庭 Wi-Fi 或改 Time Machine 目标为 Tailscale",
+    "executor": "muse bot"
   }
 ]
