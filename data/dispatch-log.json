@@ -1302,5 +1302,30 @@
     "date": "2026-10-21",
     "event": "Time Machine 复查：Mac Air 上 20:00 备份未跑成，NAS SMB 挂载失败 error 65（No route to host，Mac 与 NAS 不在同一局域网）；已汇报用户，选项为确认家庭 Wi-Fi 或改 Time Machine 目标为 Tailscale",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-21",
+    "event": "团队周报 final（10-21 23:59 触发）run 39630639998 约 22 秒失败——卡在「运行 final」步骤，飞书群未收到本周终稿；cron 接管触发机制的第二次实战（触发链本身是通的），已上报用户等决策",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-22",
+    "event": "Grok Bot 盒子隧道持续断线：自 10-21 约 20:30 起累计约 15 小时，webhook 自愈多次补发未恢复；横向验证 Vultr/绿联 NAS 可达、判定盒子侧故障，多次请用户去 Grokbot App 查盒子；04:07 主 agent 向用户纠正「恢复过」系误读 exit 0 静默轮次",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-22",
+    "event": "ChatGPT Pro 账单宽限期检查：两 Gmail 账号查无 Apple 扣费恢复/订阅正常邮件，宽限期约 10-23 到期、过期则订阅取消且 Mac Codex 额度断；提醒已送达用户",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-22",
+    "event": "工作处理站积压提醒送达：3 个文件超 7 天未进 _已处理/（商贸财报说明0808.md 约 12 天，滴答闪念与飞书纪要各约 8 天）",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-22",
+    "event": "待办对账：旧待办「验证通过后停 VPS timer → VPS 停用」作废（南京 VPS 早于 10-11 已删除，前提不存在）",
+    "executor": "muse bot"
   }
 ]
