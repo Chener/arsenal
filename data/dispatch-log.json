@@ -1372,5 +1372,15 @@
     "date": "2026-10-25",
     "event": "Win11 PC（i5win11）FlClash 配置纠错完成：用户先导入的是节点片段文件，正确主用 three-mode 配置已复制到桌面待其导入、导入后仍需远程验代理；同日 FlClash 开机自启已启用、QQ 开机自启已关闭",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-27",
+    "event": "三项付费订阅取消（用户确认）：GitHub Pro 经浏览器降级已实证（页面显示 Downgrade pending，2026-11-23 起转 GitHub Free、到 11-22 前仍保留 Pro）；SuperGrok Heavy 与 Cloudflare 付费套餐由用户手动取消；推翻 10-11 SuperGrok 保留自动续约的决定，Grok Bot 额度来源与附赠 Cursor 订阅随之变化",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-27",
+    "event": "ChatGPT Pro 付款问题新邮件提醒已送达用户：10-26 新邮件称付款方式有问题、否则订阅到期（未给新到期日）；10-27 复查邮箱无付款成功或订阅恢复邮件；该额度承载 Mac 上 Codex，取消会影响 Codex；待用户确认是否已处理，未新建常驻盯梢",
+    "executor": "muse bot"
   }
 ]
