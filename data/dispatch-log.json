@@ -1402,5 +1402,10 @@
     "date": "2026-10-30",
     "event": "Cloudflare Observability 计价变更新邮件已送达用户：2026-12-01 起改按量计价，有 Workers Paid 的账号自动获得 Paid Observability（每周期含 50 GB 摄入、10 GB-月存储，超出按量计费），无 Paid 账号留免费档不收费；用户 Workers 订阅定于 2026-11-18 取消，若如期完成到 12 月 1 日应落免费档，但邮件未明写 Paid Observability 是否同步消失、不能保证百分之百无账单；结论为现在什么都不用做、不要为此重新订阅，11 月 18 日降级生效后再核查有无残留 Paid Observability",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-10-31",
+    "event": "用户选定 Mac mini 首个非编程试用功能：每天《新闻联播》转为对自己有用的信息和趋势提醒；当时尚未固定为自动化，先以当日一期做样例，待用户定下筛选方向后再固定为每天任务",
+    "executor": "muse bot"
   }
 ]
