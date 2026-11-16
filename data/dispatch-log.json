@@ -1467,5 +1467,10 @@
     "date": "2026-11-14",
     "event": "用户 2026-11-14 13:38 直接下令提前停用飞书团队周报自动化：周三链 4 个（remind 08:30 / nag 13:30 / final 23:59 / verify 周四 00:10）+ 月度总结 1 个 + 周日展会周报 2 个，共 7 个定时任务已全部设为停用（enabled=false，定义保留、可回滚；仓库未动，「全能助手」App Secret 未重置）；周报线已切到豆包工作云电脑，仍用同一应用身份；删除动作待用户另行决定，暂不删。原定 11-15 展会线先验证、11-18 周三线切换的计划被提前执行取代",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-11-16",
+    "event": "私有仓 Chener/llm-atoms 定时 workflow「Catalog and pricing review」第 11 次运行再次失败（2026-11-16 17:43 触发、17:44 结束，约 1 分钟内 failure；自 2026-09-07 上线以来 11 次全败、零成功）：失败 job 为「Inspect official sources and propose review」，卡在「Open or update human-review proposal」一步，其余步骤均成功；此前 10-20 给出的三选一仍待用户决定",
+    "executor": "muse bot"
   }
 ]
