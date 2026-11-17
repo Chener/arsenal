@@ -1472,5 +1472,15 @@
     "date": "2026-11-16",
     "event": "私有仓 Chener/llm-atoms 定时 workflow「Catalog and pricing review」第 11 次运行再次失败（2026-11-16 17:43 触发、17:44 结束，约 1 分钟内 failure；自 2026-09-07 上线以来 11 次全败、零成功）：失败 job 为「Inspect official sources and propose review」，卡在「Open or update human-review proposal」一步，其余步骤均成功；此前 10-20 给出的三选一仍待用户决定",
     "executor": "muse bot"
+  },
+  {
+    "date": "2026-11-15",
+    "event": "ChatGPT Pro（$200/月）Apple 付款再次失败：Apple 2026-11-15 20:09 发「订阅账单问题」邮件，付款方式有问题；自 10-26 之后无付款成功或恢复邮件，已提醒用户在 iPhone 设置→订阅更新付款方式（不点邮件链接）；该额度承载 Mac 上 Codex",
+    "executor": "muse bot"
+  },
+  {
+    "date": "2026-11-15",
+    "event": "展会周报移交豆包工作后首跑核查（2026-11-15 晚）：GitHub 实查无新 run，最新仍为 2026-11-08 的失败 run；Muse 侧任务已按令停用、不兜底；飞书群是否收到待用户确认",
+    "executor": "muse bot"
   }
 ]
